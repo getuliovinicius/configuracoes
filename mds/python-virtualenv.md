@@ -13,11 +13,6 @@ Comando para instalar o _pip_ nos sistemas operacionais _Arch Linux e Manjaro Li
 $ sudo pacman -S python-pip
 ```
 
-Os seguintes pacotes forão instalados:
-
-**Pacotes (6):** python-appdirs-1.4.3-1 python-packaging-16.8-2 python-pyparsing-2.2.0-1
-python-setuptools-1:35.0.0-1 python-six-1.10.0-3 python-pip-9.0.1-2
-
 Referência: [Devfuria](http://www.devfuria.com.br/linux/instalando-pip/)
 
 ## virtualenv

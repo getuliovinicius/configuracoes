@@ -9,11 +9,12 @@ pages:
     - Git: 'git.md'
     - Python - virtualenv: 'python-virtualenv.md'
     - Mkdocs: 'mkdocs.md'
-    #- Servidores Web:
-        #- Apache2: 'sistema-operacional/apache.md'
-    #- Banco de Dados - SGDB
-        #- MySQL: 'sistema-operacional/mysql.md'
-    #- PHP: 'php.md'
+    - Servidores Web:
+#       - Apache2: 'sistema-operacional/apache.md'
+        - Node.JS: 'servidores-web/nodejs.md'
+#  	- Banco de Dados - SGDB
+#       - MySQL: 'sistema-operacional/mysql.md'
+#	- PHP: 'php.md'
 theme: readthedocs
 extra:
     version: 1.0
