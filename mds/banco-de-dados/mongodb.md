@@ -1,7 +1,7 @@
 MongoDB
 =======
 
-O “MongoDB” é um...
+O “MongoDB” é um banco de dados NoSQL.
 
 ## Instalação
 
@@ -21,5 +21,25 @@ echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main" | sudo
 sudo apt-get update
 
 sudo apt-get install -y mongodb-org
+```
+
+Comando para iniciar o _MongoDB_:
+
+``` sh
+$ sudo systemctl start mongod
+```
+
+Comando para acessar a interface de linha de comando do _MongoDB_:
+
+``` sh
+$ mongo
+```
+
+Para sair da interface de linha de comando digite `CTRL + C`.
+
+Comando para parar o _MongoDB_:
+
+``` sh
+$ sudo systemctl start mongod
 ```
 
