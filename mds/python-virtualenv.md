@@ -7,6 +7,14 @@ Abaixo segue o roteiro utilizado para instalar o Ambiente Python necessário par
 
 O _pip_ é um sistema de gerenciamento de pacotes usado para instalar e gerenciar pacotes de software escritos na linguagem de programação Python.
 
+Comando para instalar o _pip_ em qualquer sistema operacional _Linux_:
+
+``` sh
+wget https://bootstrap.pypa.io/get-pip.py
+python get-pip.py
+sudo python get-pip.py
+```
+
 Comando para instalar o _pip_ nos sistemas operacionais _Arch Linux e Manjaro Linux_:
 
 ``` sh
@@ -43,11 +51,22 @@ $ vim ~/.bashrc
 
 As linhas abaixo devem ser adicionadas no final do arquivo:
 
+Para _Arch Linux e Manjaro Linux_:
+
 ``` .conf
 # Virtualenv
 export WORKON_HOME=$HOME/Virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/bin/virtualenvwrapper.sh
+```
+
+Para _Debian, Ubuntu, Linux Mint_:
+
+``` .conf
+# Virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+export PIP_REQUIRE_VIRTUALENV=true
 ```
 
 É preciso recarregar as configurações do _bash_ com o comando:
