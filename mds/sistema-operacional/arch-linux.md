@@ -291,15 +291,7 @@ Mostar o conteúdo do arquivo `/etc/hosts`:
 
 ``` sh
 $ cat /etc/hosts
-```
-
-```
 127.0.0.1	localhost
-127.0.1.1	UBUNTU-NOTE-01 # este nome é definido na instalação
-```
-
-a linha abaixo é um exemplo de entrada para um projeto.
-
-```
-127.0.0.1	app1.local
+127.0.1.1	ARCH-LINUX-PC # este nome é definido na instalação
+127.0.0.1	app1.local # exemplo de entrada para um projeto
 ```

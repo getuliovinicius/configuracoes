@@ -1,7 +1,7 @@
 Ambiente Virtual Python
 =======================
 
-Abaixo segue o roteiro utilizado para instalar o Ambiente Python necessário para utilização da ferramenta de criação de documentação _Mkdocs_.
+Abaixo segue o roteiro utilizado para instalar o Ambiente Python...
 
 ## pip
 
@@ -20,8 +20,6 @@ Comando para instalar o _pip_ nos sistemas operacionais _Arch Linux e Manjaro Li
 ``` sh
 $ sudo pacman -S python-pip
 ```
-
-Referência: [Devfuria](http://www.devfuria.com.br/linux/instalando-pip/)
 
 ## virtualenv
 

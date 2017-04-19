@@ -1,7 +1,7 @@
 Node.js
-==============
+=======
 
-- [Node.js](https://nodejs.org/en/)
+[Node.js](https://nodejs.org/en/)
 
 ## Instalação
 
@@ -15,7 +15,6 @@ Comando para instalar o _git_ nos sistemas operacionais _Debian, Ubuntu, Linux M
 
 ``` sh
 $ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -
-$ sudo apt-get install nodejs
-$ sudo apt-get install npm
+$ sudo apt-get install nodejs npm
 ```
 
