@@ -4,20 +4,20 @@ Configurações
 Repositório de tutoriais para configuração de sistemas, serviços, aplicações, etc.
 
 - Sistemas Operacionais:
-    - [Arch Linux](sistema-operacional/arch-linux.md)
+    - [Arch Linux](mds/sistema-operacional/arch-linux.md)
 - Shell:
-    - [oh-my-zsh](shell/oh-my-zsh.md)
+    - [oh-my-zsh](mds/shell/oh-my-zsh.md)
 - Git:
-    - [Git](git/git.md)
+    - [Git](mds/git/git.md)
 - Servidores Web:
     - [Apache2]
 - PHP:
     - [PHP]
 - Python:
-    - [virtualenv](python/virtualenv.md)
-    - [Mkdocs](python/mkdocs.md)
+    - [virtualenv](mds/python/virtualenv.md)
+    - [Mkdocs](mds/python/mkdocs.md)
 - Node.JS:
-    - [Node.JS](nodejs/nodejs.md)
+    - [Node.JS](mds/nodejs/nodejs.md)
 - Banco de Dados:
     - [MySQL]
-    - [MongoDB](banco-de-dados/mongodb.md)
+    - [MongoDB](mds/banco-de-dados/mongodb.md)
