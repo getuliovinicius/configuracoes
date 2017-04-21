@@ -210,8 +210,8 @@ $ pacman -S vim
 ### Criar usuario e definir senha
 
 ``` sh
-$ useradd -m -g users -G wheel,storage,power -s /bin/bash getulio
-$ passwd getulio
+$ useradd -m -g users -G wheel,storage,power -s /bin/bash usuario
+$ passwd usuario
 ```
 
 ### Instalar sudo

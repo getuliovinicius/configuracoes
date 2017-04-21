@@ -26,7 +26,7 @@ sudo apt-get install -y mongodb-org
 Comando para iniciar o _MongoDB_:
 
 ``` sh
-$ sudo systemctl start mongod
+$ sudo systemctl start mongodb
 ```
 
 Comando para acessar a interface de linha de comando do _MongoDB_:
@@ -40,6 +40,5 @@ Para sair da interface de linha de comando digite `CTRL + C`.
 Comando para parar o _MongoDB_:
 
 ``` sh
-$ sudo systemctl start mongod
+$ sudo systemctl start mongodb
 ```
-

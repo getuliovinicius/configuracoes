@@ -24,8 +24,8 @@ $ sudo apt install git
 Comandos para configurar as opções globais do _git_:
 
 ``` sh
-$ git config --global user.name "Getúlio Vinicius"
-$ git config --global user.email "getuliovinits@gmail.com"
+$ git config --global user.name "Seu Nome"
+$ git config --global user.email "seunome@exemplo.com"
 $ git config --list
 ```
 
@@ -57,7 +57,7 @@ $ sudo apt install xclip
 Com o _xclip_ instalado e com a conta configurada, ou no _Bitbucket_ ou no _GitHub_, pode-se gerar as chaves _ssh_ com os seguinte comando:
 
 ``` sh
-$ ssh-keygen -t rsa -b 4096 -C "getuliovinits@gmail.com"
+$ ssh-keygen -t rsa -b 4096 -C "seunome@exemplo.com"
 ```
 
 Comando para verificar a criação da chave _ssh_:
