@@ -1,0 +1,219 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Configura\u00e7\u00f5es\n\n\nReposit\u00f3rio de tutoriais para configura\u00e7\u00e3o de sistemas, servi\u00e7os, aplica\u00e7\u00f5es, etc.\n\n\n\n\nSistemas Operacionais:\n\n\nArch Linux\n\n\n\n\n\n\nGit:\n\n\nGit\n\n\n\n\n\n\nShell:\n\n\nzsh\n\n\n\n\n\n\nEditores:\n\n\nAtom\n\n\n\n\n\n\nServidores Web:\n\n\n[Apache2]\n\n\n\n\n\n\nPHP:\n\n\n[PHP]\n\n\n\n\n\n\nPython:\n\n\nvirtualenv\n\n\nMkdocs\n\n\n\n\n\n\nNode.JS:\n\n\nNode.JS\n\n\n\n\n\n\nBanco de Dados:\n\n\n[MySQL]\n\n\nMongoDB", 
+            "title": "Configura\u00e7\u00f5es"
+        }, 
+        {
+            "location": "/#configuracoes", 
+            "text": "Reposit\u00f3rio de tutoriais para configura\u00e7\u00e3o de sistemas, servi\u00e7os, aplica\u00e7\u00f5es, etc.   Sistemas Operacionais:  Arch Linux    Git:  Git    Shell:  zsh    Editores:  Atom    Servidores Web:  [Apache2]    PHP:  [PHP]    Python:  virtualenv  Mkdocs    Node.JS:  Node.JS    Banco de Dados:  [MySQL]  MongoDB", 
+            "title": "Configura\u00e7\u00f5es"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/", 
+            "text": "Arch Linux\n\n\nInstla\u00e7\u00e3o B\u00e1sica:\n\n\nMudar o layout do eclado para abnt2:\n\n\n$ loadkeys br-abnt2\n\n\n\n\nConfigurar o idioma de intala\u00e7\u00e3o:\n\n\n$ vim /etc/locale.gen\n\n\n\n\ndescomentar essas linhas:\n\n\nen_US.UTF-8 UTF-8\npt_BR.UTF-8 UTF-8\n\n\n\n\n$ locale-gen\n$ export LANG=pt_BR.UTF-8\n\n\n\n\nTestar conex\u00e3o com a internet:\n\n\n$ ping -c 3 www.google.com\n\n\n\n\nParticionar o disco:\n\n\n$ fdisk -l\n$ cfdisk /dev/sda\n\n\n\n\nTamannhos das parti\u00e7\u00f5es:\n\n\n\n\n2MB - inicializa\u00e7\u00e3o\n\n\n38GB - /\n\n\n2GB - swap\n\n\n\n\nFormatar as particoes:\n\n\n$ mkfs.ext4 /dev/sda2\n$ mkswap /dev/sda3\n$ swapon /dev/sda3\n$ lsblk /dev/sda\n\n\n\n\nMontar as parti\u00e7\u00f5es:\n\n\n$ mount /dev/sda2 /mnt\n\n\n\n\nAjustar o mirrorlist:\n\n\n$ vim /etc/pacman.d/mirrorlist\n\n\n\n\nColocar os espelhos do brasil no inicio do arquivo.\n\n\nInstalar o sistema base:\n\n\n$ pacstrap /mnt base grub\n\n\n\n\nGerar o arquivo fstab que decreve as particoes:\n\n\n$ genfstab -p /mnt \n /mnt/etc/fstab\n$ cat /mnt/etc/fstab\n\n\n\n\nLogar na instala\u00e7\u00e3o:\n\n\n$ arch-chroot /mnt\n\n\n\n\nSetar o hostname:\n\n\n$ vi /etc/hostname\n\n\n\n\ncolocar \nArchLinuxVM-01\n\n\nArchLinuxVM-01\n\n\n\n\nConfigurar o fuso hor\u00e1rio:\n\n\n$ ls /usr/share/zoneinfo/America\n$ ln -sf /usr/share/zoneinfo/America/Recife /etc/localtime\n\n\n\n\nConfigurar o idioma:\n\n\n$ vi /etc/locale.gen\n\n\n\n\ndescomentar as linhas:\n\n\nen_US.UTF-8 UTF-8\nen_US.ISO-8859-1\npt_BR.UTF-8 UTF-8\npt_BR.ISO-8859-1\n\n\n\n\n$ locale-gen\n$ echo LANG=pt_BR.UTF-8 \n /etc/locale.conf\n$ export LANG=pt_BR.UTF-8\n\n\n\n\nConfigurar o layout do teclado:\n\n\n$ vi /etc/vconsole.conf\n\n\n\n\nKEYMAP=br-abnt2\nFONT=Lat2-Terminus16\nFONT_MAP=\n\n\n\n\nConfigurar a inicializa\u00e7\u00e3o:\n\n\n$ mkinitcpio -p linux\n\n\n\n\nConfigurar a rede cabeada:\n\n\n_$ systemctl enable dhcpcd@eth0.service_\n\n\n\n\nCriar senha de root:\n\n\n$ passwd\n\n\n\n\nIntalando o Grub\n\n\n$ pacman -S grub-bios\n$ grub-install --target=i386-pc --recheck /dev/sda\n$ cp /usr/share/locale/en\\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo\n$ grub-mkconfig -o /boot/grub/grub.cfg\n\n\n\n\n$ arch-chroot /mnt pacman -S grub-bios\n\n\nSair do chroot:\n\n\n$ exit\n\n\n\n\nDesmontar as particoes:\n\n\n$ umount /mnt\n\n\n\n\nReiniciar\n\n\n$ reboot\n\n\n\n\nConfigura\u00e7\u00e3o do ArchLinux\n\n\nAtulizar o sistema\n\n\nAjustes nos reposit\u00f3rios\n\n\n$ vim /etc/pacman.conf\n\n\n\n\ndescomentar multilib\n\n\n$ pacman -Syu\n\n\n\n\nInstalar o vim (pelo amor de Deus)\n\n\n$ pacman -S vim\n\n\n\n\nCriar usuario e definir senha\n\n\n$ useradd -m -g users -G wheel,storage,power -s /bin/bash usuario\n$ passwd usuario\n\n\n\n\nInstalar sudo\n\n\n$ pacman -S sudo\n\n\n\n\nEditar as permiss\u00f5es:\n\n\n$ EDITOR=vim visudo\n\n\n\n\nDescomentar a linha que mostra o grupo (wheel).\n\n\nConfigurar o som\n\n\n$ pacman -S alsa-utils\n$ alsamixer\n\n\n\n\nDriver virtualbox:\n\n\n$ sudo pacman -S virtualbox-guest-utils\n\n\n\n\nInstalar xorg\n\n\n$ sudo pacman -S xorg-server\n$ sudo pacman -S xorg-xinit\n$ sudo pacman -S xorg-server-utils\n\n\n\n\nInstalar fonts\n\n\n$ sudo pacman -S ttf-dejavu\n\n\n\n\nGerenciador de rede\n\n\n$ sudo pacman -S networkmanager\n\n# N\u00c3O PRECISA - MAS PRECISO CHECAR\n_$ sudo pacman -S networkmanager-vpnc\n$ sudo pacman -S networkmanager-pptp\n$ sudo pacman -S networkmanager-openconnect_\n\n\n\n\n$ sudo pacman -S network-manager-applet\n\n\n\n\nAtivar o gerenciador de rede na inicializa\u00e7\u00e3o do sistema:\n\n\n$ sudo systemctl enable NetworkManager\n\n\n\n\nssh\n\n\n$ sudo pacman -S openssh\n\n\n\n\nArquivo \u201c/etc/hosts\u201d\n\n\nPara o ambiente de desenvolvimento pretendido \u00e9 preciso atribuir uma entrada no arquivo \n/etc/hosts\n, para cada dom\u00ednio local que se deseja acessar.\n\nEssa a\u00e7\u00e3o far\u00e1 com que os navegadores web instalados no computador possam acessar p\u00e1ginas locais, servidas no pr\u00f3prio computador, a partir de dom\u00ednios locais.\n\nNo exemplo abaixo existe uma entrada para o dom\u00ednio local \napp1.local\n, que pode ser acessado no navegador com o endere\u00e7o \u201chttp://app1.local\u201d.\n\nMostar o conte\u00fado do arquivo \n/etc/hosts\n:\n\n\n$ cat /etc/hosts\n127.0.0.1   localhost\n127.0.1.1   ARCH-LINUX-PC # este nome \u00e9 definido na instala\u00e7\u00e3o\n127.0.0.1   app1.local # exemplo de entrada para um projeto", 
+            "title": "Arch Linux"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#arch_linux", 
+            "text": "", 
+            "title": "Arch Linux"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#instlacao_basica", 
+            "text": "Mudar o layout do eclado para abnt2:  $ loadkeys br-abnt2  Configurar o idioma de intala\u00e7\u00e3o:  $ vim /etc/locale.gen  descomentar essas linhas:  en_US.UTF-8 UTF-8\npt_BR.UTF-8 UTF-8  $ locale-gen\n$ export LANG=pt_BR.UTF-8  Testar conex\u00e3o com a internet:  $ ping -c 3 www.google.com  Particionar o disco:  $ fdisk -l\n$ cfdisk /dev/sda  Tamannhos das parti\u00e7\u00f5es:   2MB - inicializa\u00e7\u00e3o  38GB - /  2GB - swap   Formatar as particoes:  $ mkfs.ext4 /dev/sda2\n$ mkswap /dev/sda3\n$ swapon /dev/sda3\n$ lsblk /dev/sda  Montar as parti\u00e7\u00f5es:  $ mount /dev/sda2 /mnt  Ajustar o mirrorlist:  $ vim /etc/pacman.d/mirrorlist  Colocar os espelhos do brasil no inicio do arquivo.  Instalar o sistema base:  $ pacstrap /mnt base grub  Gerar o arquivo fstab que decreve as particoes:  $ genfstab -p /mnt   /mnt/etc/fstab\n$ cat /mnt/etc/fstab  Logar na instala\u00e7\u00e3o:  $ arch-chroot /mnt  Setar o hostname:  $ vi /etc/hostname  colocar  ArchLinuxVM-01  ArchLinuxVM-01  Configurar o fuso hor\u00e1rio:  $ ls /usr/share/zoneinfo/America\n$ ln -sf /usr/share/zoneinfo/America/Recife /etc/localtime  Configurar o idioma:  $ vi /etc/locale.gen  descomentar as linhas:  en_US.UTF-8 UTF-8\nen_US.ISO-8859-1\npt_BR.UTF-8 UTF-8\npt_BR.ISO-8859-1  $ locale-gen\n$ echo LANG=pt_BR.UTF-8   /etc/locale.conf\n$ export LANG=pt_BR.UTF-8  Configurar o layout do teclado:  $ vi /etc/vconsole.conf  KEYMAP=br-abnt2\nFONT=Lat2-Terminus16\nFONT_MAP=  Configurar a inicializa\u00e7\u00e3o:  $ mkinitcpio -p linux  Configurar a rede cabeada:  _$ systemctl enable dhcpcd@eth0.service_  Criar senha de root:  $ passwd  Intalando o Grub  $ pacman -S grub-bios\n$ grub-install --target=i386-pc --recheck /dev/sda\n$ cp /usr/share/locale/en\\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo\n$ grub-mkconfig -o /boot/grub/grub.cfg  $ arch-chroot /mnt pacman -S grub-bios  Sair do chroot:  $ exit  Desmontar as particoes:  $ umount /mnt  Reiniciar  $ reboot", 
+            "title": "Instla\u00e7\u00e3o B\u00e1sica:"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#configuracao_do_archlinux", 
+            "text": "", 
+            "title": "Configura\u00e7\u00e3o do ArchLinux"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#atulizar_o_sistema", 
+            "text": "Ajustes nos reposit\u00f3rios  $ vim /etc/pacman.conf  descomentar multilib  $ pacman -Syu", 
+            "title": "Atulizar o sistema"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#instalar_o_vim_pelo_amor_de_deus", 
+            "text": "$ pacman -S vim", 
+            "title": "Instalar o vim (pelo amor de Deus)"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#criar_usuario_e_definir_senha", 
+            "text": "$ useradd -m -g users -G wheel,storage,power -s /bin/bash usuario\n$ passwd usuario", 
+            "title": "Criar usuario e definir senha"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#instalar_sudo", 
+            "text": "$ pacman -S sudo  Editar as permiss\u00f5es:  $ EDITOR=vim visudo  Descomentar a linha que mostra o grupo (wheel).", 
+            "title": "Instalar sudo"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#configurar_o_som", 
+            "text": "$ pacman -S alsa-utils\n$ alsamixer", 
+            "title": "Configurar o som"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#driver_virtualbox", 
+            "text": "$ sudo pacman -S virtualbox-guest-utils", 
+            "title": "Driver virtualbox:"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#instalar_xorg", 
+            "text": "$ sudo pacman -S xorg-server\n$ sudo pacman -S xorg-xinit\n$ sudo pacman -S xorg-server-utils", 
+            "title": "Instalar xorg"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#instalar_fonts", 
+            "text": "$ sudo pacman -S ttf-dejavu", 
+            "title": "Instalar fonts"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#gerenciador_de_rede", 
+            "text": "$ sudo pacman -S networkmanager\n\n# N\u00c3O PRECISA - MAS PRECISO CHECAR\n_$ sudo pacman -S networkmanager-vpnc\n$ sudo pacman -S networkmanager-pptp\n$ sudo pacman -S networkmanager-openconnect_  $ sudo pacman -S network-manager-applet  Ativar o gerenciador de rede na inicializa\u00e7\u00e3o do sistema:  $ sudo systemctl enable NetworkManager", 
+            "title": "Gerenciador de rede"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#ssh", 
+            "text": "$ sudo pacman -S openssh", 
+            "title": "ssh"
+        }, 
+        {
+            "location": "/sistema-operacional/arch-linux/#arquivo_etchosts", 
+            "text": "Para o ambiente de desenvolvimento pretendido \u00e9 preciso atribuir uma entrada no arquivo  /etc/hosts , para cada dom\u00ednio local que se deseja acessar. \nEssa a\u00e7\u00e3o far\u00e1 com que os navegadores web instalados no computador possam acessar p\u00e1ginas locais, servidas no pr\u00f3prio computador, a partir de dom\u00ednios locais. \nNo exemplo abaixo existe uma entrada para o dom\u00ednio local  app1.local , que pode ser acessado no navegador com o endere\u00e7o \u201chttp://app1.local\u201d. \nMostar o conte\u00fado do arquivo  /etc/hosts :  $ cat /etc/hosts\n127.0.0.1   localhost\n127.0.1.1   ARCH-LINUX-PC # este nome \u00e9 definido na instala\u00e7\u00e3o\n127.0.0.1   app1.local # exemplo de entrada para um projeto", 
+            "title": "Arquivo \u201c/etc/hosts\u201d"
+        }, 
+        {
+            "location": "/git/git/", 
+            "text": "O que \u00e9 o \nGit\n?\n\n\nO \n\u201cGit\u201d\n \u00e9 um sistema de versionamento de aquivos, projetos, etc.\n\nExiste uma \nplaylist no YouTube\n de um curso no canal \nRB Tech\n que \u00e9 extremamente recomendada para compreens\u00e3o do \nGit\n.\n\n\nInstala\u00e7\u00e3o\n\n\nComando para instalar o \nGit\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pacman -S git\n\n\n\n\nComando para instalar o \nGit\n nos sistemas operacionais \nDebian, Ubuntu, Linux Mint\n:\n\n\n$ sudo apt install git\n\n\n\n\nConfigura\u00e7\u00e3o\n\n\nComandos para configurar as op\u00e7\u00f5es globais do \ngit\n:\n\n\n$ git config --global user.name \nSeu Nome\n\n$ git config --global user.email \nseunome@exemplo.com\n\n$ git config --list\n\n\n\n\nBitbucket e GitHub\n\n\nO \nBitbucket e o GitHub\n s\u00e3o servi\u00e7os para hospedagem de reposit\u00f3rios \ngit\n e tamb\u00e9m uma esp\u00e9cie de rede social de programadores na qual podemos disponibilizar projetos, receber contribui\u00e7\u00f5es e tamb\u00e9m contribuir com outros projetos.\n\nBasta criar uma conta no servi\u00e7o que desejar e depois adicionar as chaves \nssh\n do computador no perfil.\n\nLinks para os servi\u00e7os:\n\n\n\n\nbitbucket.org\n\n\ngithub.com\n\n\n\n\nxclip\n\n\nPara facilitar a c\u00f3pia da chave \nssh\n pode-se usar o \nxclip\n, que copia textos para \u00e1rea de transfer\u00eancia.\n\n\nComando para instalar o \nxclip\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pacman -S xclip\n\n\n\n\nComando para instalar o \nxclip\n nos sistemas operacionais \nDebian, Ubuntu, Linux Mint\n:\n\n\n$ sudo apt install xclip\n\n\n\n\nChaves SSH\n\n\nPara autorizar o acesso as contas, ou no \nBitbucket\n ou no \nGitHub\n, a partir do\n\ncomputador local sem a necessidade de informar usu\u00e1rio e senha para cada novo\n\nacesso, basta criar um par de chaves \nssh\n e adicionar a chave publica na conta.\n\n\nCom o \nxclip\n instalado e com a conta configurada pode-se gerar as chaves \nssh\n com o seguinte comando:\n\n\n$ ssh-keygen -t rsa -b 4096 -C \nseunome@exemplo.com\n\n\n\n\nComando para verificar a cria\u00e7\u00e3o da chave \nssh\n:\n\n\n$ ls -la .ssh/\n\n\n\n\nComando para copiar a chave \nssh\n para a \u00e1rea de transfer\u00eancia usando o \nxclip\n:\n\n\n$ xclip -sel clip \n ~/.ssh/id_rsa.pub\n\n\n\n\nCom a chave copiada, basta localizar a fun\u00e7\u00e3o de autoriza\u00e7\u00e3o de chaves no \nBitbucket\n ou no \nGitHub\n,\n\n\n\n\nBitbucket:\n \nhttps://bitbucket.org/account/user/seu_usuario/ssh-keys/\n\n\nGitHub:\n \nhttps://github.com/settings/keys\n\n\n\n\nAp\u00f3s adicionar a chave \nssh\n no \nBitbucket\n ou no \nGitHub\n, pode-se testar a conex\u00e3o com o comando:\n\n\n# Bitbucket\n$ ssh -vT git@bitbucket.org\n\n# GitHub\n$ ssh -vT git@github.com\n\n\n\n\nReposit\u00f3rios\n\n\nComando para iniciar um reposit\u00f3rio local - em seu computador:\n\n\n$ git init\n\n\n\n\nComando para relacionar um reposit\u00f3rio local a um reposit\u00f3rio criado em um dos servi\u00e7os de hospedagem de reposit\u00f3rio \nGit\n:\n\n\n$ git remote add origin https://github.com/xxxxx/xxxxx.git\n\n# \nxxxxx\n representa parte da url que aponta para o reposit\u00f3rio\n# espec\u00edcfico que se deseja relacionar ao reposit\u00f3rio local.", 
+            "title": "Git"
+        }, 
+        {
+            "location": "/git/git/#o_que_e_o_git", 
+            "text": "O  \u201cGit\u201d  \u00e9 um sistema de versionamento de aquivos, projetos, etc. \nExiste uma  playlist no YouTube  de um curso no canal  RB Tech  que \u00e9 extremamente recomendada para compreens\u00e3o do  Git .", 
+            "title": "O que \u00e9 o Git?"
+        }, 
+        {
+            "location": "/git/git/#instalacao", 
+            "text": "Comando para instalar o  Git  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pacman -S git  Comando para instalar o  Git  nos sistemas operacionais  Debian, Ubuntu, Linux Mint :  $ sudo apt install git", 
+            "title": "Instala\u00e7\u00e3o"
+        }, 
+        {
+            "location": "/git/git/#configuracao", 
+            "text": "Comandos para configurar as op\u00e7\u00f5es globais do  git :  $ git config --global user.name  Seu Nome \n$ git config --global user.email  seunome@exemplo.com \n$ git config --list", 
+            "title": "Configura\u00e7\u00e3o"
+        }, 
+        {
+            "location": "/git/git/#bitbucket_e_github", 
+            "text": "O  Bitbucket e o GitHub  s\u00e3o servi\u00e7os para hospedagem de reposit\u00f3rios  git  e tamb\u00e9m uma esp\u00e9cie de rede social de programadores na qual podemos disponibilizar projetos, receber contribui\u00e7\u00f5es e tamb\u00e9m contribuir com outros projetos. \nBasta criar uma conta no servi\u00e7o que desejar e depois adicionar as chaves  ssh  do computador no perfil. \nLinks para os servi\u00e7os:   bitbucket.org  github.com", 
+            "title": "Bitbucket e GitHub"
+        }, 
+        {
+            "location": "/git/git/#xclip", 
+            "text": "Para facilitar a c\u00f3pia da chave  ssh  pode-se usar o  xclip , que copia textos para \u00e1rea de transfer\u00eancia.  Comando para instalar o  xclip  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pacman -S xclip  Comando para instalar o  xclip  nos sistemas operacionais  Debian, Ubuntu, Linux Mint :  $ sudo apt install xclip", 
+            "title": "xclip"
+        }, 
+        {
+            "location": "/git/git/#chaves_ssh", 
+            "text": "Para autorizar o acesso as contas, ou no  Bitbucket  ou no  GitHub , a partir do \ncomputador local sem a necessidade de informar usu\u00e1rio e senha para cada novo \nacesso, basta criar um par de chaves  ssh  e adicionar a chave publica na conta.  Com o  xclip  instalado e com a conta configurada pode-se gerar as chaves  ssh  com o seguinte comando:  $ ssh-keygen -t rsa -b 4096 -C  seunome@exemplo.com  Comando para verificar a cria\u00e7\u00e3o da chave  ssh :  $ ls -la .ssh/  Comando para copiar a chave  ssh  para a \u00e1rea de transfer\u00eancia usando o  xclip :  $ xclip -sel clip   ~/.ssh/id_rsa.pub  Com a chave copiada, basta localizar a fun\u00e7\u00e3o de autoriza\u00e7\u00e3o de chaves no  Bitbucket  ou no  GitHub ,   Bitbucket:   https://bitbucket.org/account/user/seu_usuario/ssh-keys/  GitHub:   https://github.com/settings/keys   Ap\u00f3s adicionar a chave  ssh  no  Bitbucket  ou no  GitHub , pode-se testar a conex\u00e3o com o comando:  # Bitbucket\n$ ssh -vT git@bitbucket.org\n\n# GitHub\n$ ssh -vT git@github.com", 
+            "title": "Chaves SSH"
+        }, 
+        {
+            "location": "/git/git/#repositorios", 
+            "text": "Comando para iniciar um reposit\u00f3rio local - em seu computador:  $ git init  Comando para relacionar um reposit\u00f3rio local a um reposit\u00f3rio criado em um dos servi\u00e7os de hospedagem de reposit\u00f3rio  Git :  $ git remote add origin https://github.com/xxxxx/xxxxx.git\n\n#  xxxxx  representa parte da url que aponta para o reposit\u00f3rio\n# espec\u00edcfico que se deseja relacionar ao reposit\u00f3rio local.", 
+            "title": "Reposit\u00f3rios"
+        }, 
+        {
+            "location": "/shell/zsh/", 
+            "text": "zsh\n\n\nComando para instalar o \nzsh\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pacman -S zsh\n\n\n\n\nComando para instalar o \nzsh\n nos sistemas operacionais \nDebian, Ubuntu, Linux Mint\n:\n\n\n$ sudo apt install zsh\n\n\n\n\nComandos para tornar o \nzsh\n o shell padr\u00e3o para o seu usu\u00e1rio:\n\n\n$ sudo usermod -s /bin/zsh seu_usuario\n\n# ou\n\n$ chsh -s /bin/zsh\n\n\n\n\noh-my-zsh\n\n\nO \noh-my-zsh\n \u00e9 um \nframework\n que facilita a configura\u00e7\u00e3o do \nshell\n \nZSH\n.\n\n\nComandos para instalar o \noh-my-zsh\n em qualquer sistema operacional \nLinux\n:\n\n\n# framework\n$ sh -c \n$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)\n\n\n# fonts com icones para o terminal (opicional)\n$ git clone https://github.com/powerline/fonts.git\n$ cd fonts\n$ ./install.sh\n$ cd ..\n$ rm -rf fonts", 
+            "title": "zsh"
+        }, 
+        {
+            "location": "/shell/zsh/#zsh", 
+            "text": "Comando para instalar o  zsh  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pacman -S zsh  Comando para instalar o  zsh  nos sistemas operacionais  Debian, Ubuntu, Linux Mint :  $ sudo apt install zsh  Comandos para tornar o  zsh  o shell padr\u00e3o para o seu usu\u00e1rio:  $ sudo usermod -s /bin/zsh seu_usuario\n\n# ou\n\n$ chsh -s /bin/zsh", 
+            "title": "zsh"
+        }, 
+        {
+            "location": "/shell/zsh/#oh-my-zsh", 
+            "text": "O  oh-my-zsh  \u00e9 um  framework  que facilita a configura\u00e7\u00e3o do  shell   ZSH .  Comandos para instalar o  oh-my-zsh  em qualquer sistema operacional  Linux :  # framework\n$ sh -c  $(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) \n\n# fonts com icones para o terminal (opicional)\n$ git clone https://github.com/powerline/fonts.git\n$ cd fonts\n$ ./install.sh\n$ cd ..\n$ rm -rf fonts", 
+            "title": "oh-my-zsh"
+        }, 
+        {
+            "location": "/editores-de-codigo/atom/", 
+            "text": "Atom\n\n\nComando para instalar o \nAtom\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pacman -S atom\n\n\n\n\nProcedimento para instala\u00e7\u00e3o do \nAtom\n nos sistemas operacionais \nDebian, Ubuntu, Linux Mint\n:\n\n\nFa\u00e7a o download do pacote para Debian em \nhttps://atom.io/\n\n\nComandos para instala\u00e7\u00e3o do \nAtom\n:\n\n\n# presumindo que o download foi feito no diret\u00f3rio padr\u00e3o\n$ cd ~/Downloads\n$ sudo dpkg -i atom-amd64.deb", 
+            "title": "Atom"
+        }, 
+        {
+            "location": "/editores-de-codigo/atom/#atom", 
+            "text": "Comando para instalar o  Atom  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pacman -S atom  Procedimento para instala\u00e7\u00e3o do  Atom  nos sistemas operacionais  Debian, Ubuntu, Linux Mint :  Fa\u00e7a o download do pacote para Debian em  https://atom.io/  Comandos para instala\u00e7\u00e3o do  Atom :  # presumindo que o download foi feito no diret\u00f3rio padr\u00e3o\n$ cd ~/Downloads\n$ sudo dpkg -i atom-amd64.deb", 
+            "title": "Atom"
+        }, 
+        {
+            "location": "/python/virtualenv/", 
+            "text": "Ambiente Virtual \nPython\n\n\nEste \u00e9 um roteiro para configura\u00e7\u00e3o de um ambiente virtual \nPython\n, de modo que o trabalho e o Sistema Operacional se mantenham organizados enquanto as bibliot\u00e9cas de c\u00f3digo, os \nframeworks\n, etc v\u00e3o sendo instalados, assim como os projetos.\n\n\npip\n\n\nO \npip\n \u00e9 um gerenciador de pacotes e depend\u00eancias usado para instalar pacotes de software escritos em \nPython\n a partir de um grande reposit\u00f3rio da comunidade: \nhttps://pypi.python.org/pypi\n.\n\n\nComando para instalar o \npip\n em qualquer sistema operacional \nLinux\n:\n\n\nwget https://bootstrap.pypa.io/get-pip.py\nsudo python get-pip.py\n\n\n\n\nComando para instalar o \npip\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pacman -S python-pip\n\n\n\n\nvirtualenv\n\n\nO \nvirtualenv\n \u00e9 uma ferramenta que permite diferentes ambientes virtuais de \nPython\n na mesma m\u00e1quina. Isso facilita a organiza\u00e7\u00e3o do sistema operacional - SO, pois com o \nvirtualenv\n n\u00e3o \u00e9 preciso manter um pacote instalado globalmente no \nSO\n sendo que o mesmo s\u00f3 \u00e9 \u00fatil para um dos projetos que eventualmente est\u00e1 se desenvolvendo, essa pr\u00e1tica evita conflitos de depend\u00eancias.\n\n\nComando para instalar o \nvirtualenv\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pip install virtualenv\n\n\n\n\nvirtualenvwrapper\n\n\n0 \nvirtualenvwrapper\n \u00e9 um conjunto de extens\u00f5es para a ferramenta \nvirtualenv\n. As extens\u00f5es incluem comandos para criar e excluir ambientes virtuais, tornando mais f\u00e1cil gerenciar e trabalhar em mais de um projeto no computador sem introduzir conflitos em suas depend\u00eancias.\n\n\nComando para instalar o \nvirtualenvwrapper\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pip install virtualenvwrapper\n\n\n\n\nPara concluir a instala\u00e7\u00e3o \u00e9 preciso editar o arquivo \n~/.bashrc\n ou \n~/.zshrc\n, depende do \nshell\n que est\u00e1 definido como padr\u00e3o no \nSO\n.\n\n\nPode-se usar o editor \nvim\n para fazer a edi\u00e7\u00e3o:\n\n\n$ vim ~/.bashrc\n\n# ou\n\n$ vim ~/.zshrc\n\n\n\n\nAs linhas abaixo devem ser adicionadas no final do arquivo:\n\n\n# Para Arch Linux e Manjaro Linux utilize as linhas abaixo:\n\n# Virtualenv\nexport WORKON_HOME=$HOME/Virtualenvs\nexport PROJECT_HOME=$HOME/Devel\nsource /usr/bin/virtualenvwrapper.sh\n\n# Para _Debian, Ubuntu, Linux Mint_ utilize as linhas abaixo:\n\n# Virtualenvwrapper\nexport WORKON_HOME=~/.virtualenvs\nsource /usr/local/bin/virtualenvwrapper.sh\nexport PIP_REQUIRE_VIRTUALENV=true\n\n\n\n\n\u00c9 preciso recarregar as configura\u00e7\u00f5es do \nbash\n ou \nzsh\n com o comando:\n\n\n$ source ~/.bashrc\n\n# ou\n\n$ source ~/.zshrc", 
+            "title": "virtualenv"
+        }, 
+        {
+            "location": "/python/virtualenv/#ambiente_virtual_python", 
+            "text": "Este \u00e9 um roteiro para configura\u00e7\u00e3o de um ambiente virtual  Python , de modo que o trabalho e o Sistema Operacional se mantenham organizados enquanto as bibliot\u00e9cas de c\u00f3digo, os  frameworks , etc v\u00e3o sendo instalados, assim como os projetos.", 
+            "title": "Ambiente Virtual Python"
+        }, 
+        {
+            "location": "/python/virtualenv/#pip", 
+            "text": "O  pip  \u00e9 um gerenciador de pacotes e depend\u00eancias usado para instalar pacotes de software escritos em  Python  a partir de um grande reposit\u00f3rio da comunidade:  https://pypi.python.org/pypi .  Comando para instalar o  pip  em qualquer sistema operacional  Linux :  wget https://bootstrap.pypa.io/get-pip.py\nsudo python get-pip.py  Comando para instalar o  pip  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pacman -S python-pip", 
+            "title": "pip"
+        }, 
+        {
+            "location": "/python/virtualenv/#virtualenv", 
+            "text": "O  virtualenv  \u00e9 uma ferramenta que permite diferentes ambientes virtuais de  Python  na mesma m\u00e1quina. Isso facilita a organiza\u00e7\u00e3o do sistema operacional - SO, pois com o  virtualenv  n\u00e3o \u00e9 preciso manter um pacote instalado globalmente no  SO  sendo que o mesmo s\u00f3 \u00e9 \u00fatil para um dos projetos que eventualmente est\u00e1 se desenvolvendo, essa pr\u00e1tica evita conflitos de depend\u00eancias.  Comando para instalar o  virtualenv  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pip install virtualenv", 
+            "title": "virtualenv"
+        }, 
+        {
+            "location": "/python/virtualenv/#virtualenvwrapper", 
+            "text": "0  virtualenvwrapper  \u00e9 um conjunto de extens\u00f5es para a ferramenta  virtualenv . As extens\u00f5es incluem comandos para criar e excluir ambientes virtuais, tornando mais f\u00e1cil gerenciar e trabalhar em mais de um projeto no computador sem introduzir conflitos em suas depend\u00eancias.  Comando para instalar o  virtualenvwrapper  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pip install virtualenvwrapper  Para concluir a instala\u00e7\u00e3o \u00e9 preciso editar o arquivo  ~/.bashrc  ou  ~/.zshrc , depende do  shell  que est\u00e1 definido como padr\u00e3o no  SO .  Pode-se usar o editor  vim  para fazer a edi\u00e7\u00e3o:  $ vim ~/.bashrc\n\n# ou\n\n$ vim ~/.zshrc  As linhas abaixo devem ser adicionadas no final do arquivo:  # Para Arch Linux e Manjaro Linux utilize as linhas abaixo:\n\n# Virtualenv\nexport WORKON_HOME=$HOME/Virtualenvs\nexport PROJECT_HOME=$HOME/Devel\nsource /usr/bin/virtualenvwrapper.sh\n\n# Para _Debian, Ubuntu, Linux Mint_ utilize as linhas abaixo:\n\n# Virtualenvwrapper\nexport WORKON_HOME=~/.virtualenvs\nsource /usr/local/bin/virtualenvwrapper.sh\nexport PIP_REQUIRE_VIRTUALENV=true  \u00c9 preciso recarregar as configura\u00e7\u00f5es do  bash  ou  zsh  com o comando:  $ source ~/.bashrc\n\n# ou\n\n$ source ~/.zshrc", 
+            "title": "virtualenvwrapper"
+        }, 
+        {
+            "location": "/python/mkdocs/", 
+            "text": "Mkdocs\n\n\nO \nMkdocs\n \u00e9 uma ferramenta desenvolvida em \nPython\n, especialmente para desenvolvimento de documenta\u00e7\u00e3o de software, com qual \u00e9 poss\u00edvel geral sites HTML est\u00e1ticos a partir de arquivos escritos com a linguagem de marca\u00e7\u00e3o de texto \nMarkdown\n.\n\n\nComando para criar o diret\u00f3rio onde ficaram os arquivos fonte da documenta\u00e7\u00e3o:\n\n\n$ mkdir -p ~/DEV_WEB/PHP/VHOSTS/projeto-x.local/docs\n\n# neste exemplo o diret\u00f3rio onde seriam mantidos os c\u00f3digos fontes\n# da aplica\u00e7\u00e3o que est\u00e1 sendo desenvolvida seria:\n# ~/DEV_WEB/PHP/VHOSTS/projeto-x.local\n\n\n\n\nComando para criar o \nvirtualenv\n com o aux\u00edlio da ferramenta \nvirtualenvwrapper\n:\n\n\n# exemplo\n$ mkvirtualenv docs_mkdocs\n\n\n\n\n\n\nAten\u00e7\u00e3o\n\n\nPara executar o comando anterior \u00e9 preciso ter o \nPython - virtualenv\n configurado.\n\n\n\n\nComando para sair do \nvirtualenv\n:\n\n\n$ deactivate\n\n\n\n\nComando para voltar para \nvirtualenv\n:\n\n\n# exemplo\n$ workon docs_mkdocs\n\n\n\n\nComando para atualizar o cache do reposit\u00f3rio:\n\n\n$ pip install --upgrade pip\n\n\n\n\nComandos para instalar o \nMkdocs\n:\n\n\n$ pip install mkdocs\n\n\n\n\nComando para checar a instala\u00e7\u00e3o:\n\n\n$ mkdocs --version\nmkdocs, version x.x.x\n\n\n\n\nComando para iniciar o projeto de documenta\u00e7\u00e3o no diret\u00f3rio corrente:\n\n\n$ mkdocs new .", 
+            "title": "Mkdocs"
+        }, 
+        {
+            "location": "/python/mkdocs/#mkdocs", 
+            "text": "O  Mkdocs  \u00e9 uma ferramenta desenvolvida em  Python , especialmente para desenvolvimento de documenta\u00e7\u00e3o de software, com qual \u00e9 poss\u00edvel geral sites HTML est\u00e1ticos a partir de arquivos escritos com a linguagem de marca\u00e7\u00e3o de texto  Markdown .  Comando para criar o diret\u00f3rio onde ficaram os arquivos fonte da documenta\u00e7\u00e3o:  $ mkdir -p ~/DEV_WEB/PHP/VHOSTS/projeto-x.local/docs\n\n# neste exemplo o diret\u00f3rio onde seriam mantidos os c\u00f3digos fontes\n# da aplica\u00e7\u00e3o que est\u00e1 sendo desenvolvida seria:\n# ~/DEV_WEB/PHP/VHOSTS/projeto-x.local  Comando para criar o  virtualenv  com o aux\u00edlio da ferramenta  virtualenvwrapper :  # exemplo\n$ mkvirtualenv docs_mkdocs   Aten\u00e7\u00e3o  Para executar o comando anterior \u00e9 preciso ter o  Python - virtualenv  configurado.   Comando para sair do  virtualenv :  $ deactivate  Comando para voltar para  virtualenv :  # exemplo\n$ workon docs_mkdocs  Comando para atualizar o cache do reposit\u00f3rio:  $ pip install --upgrade pip  Comandos para instalar o  Mkdocs :  $ pip install mkdocs  Comando para checar a instala\u00e7\u00e3o:  $ mkdocs --version\nmkdocs, version x.x.x  Comando para iniciar o projeto de documenta\u00e7\u00e3o no diret\u00f3rio corrente:  $ mkdocs new .", 
+            "title": "Mkdocs"
+        }, 
+        {
+            "location": "/nodejs/nodejs/", 
+            "text": "Node.js\n\n\nNode.js\n\n\nInstala\u00e7\u00e3o\n\n\nComando para instalar o \nNode.js\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pacman -S nodejs npm\n\n\n\n\nComando para instalar o \ngit\n nos sistemas operacionais \nDebian, Ubuntu, Linux Mint\n:\n\n\n$ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -\n$ sudo apt-get install nodejs npm", 
+            "title": "Node.JS"
+        }, 
+        {
+            "location": "/nodejs/nodejs/#nodejs", 
+            "text": "Node.js", 
+            "title": "Node.js"
+        }, 
+        {
+            "location": "/nodejs/nodejs/#instalacao", 
+            "text": "Comando para instalar o  Node.js  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pacman -S nodejs npm  Comando para instalar o  git  nos sistemas operacionais  Debian, Ubuntu, Linux Mint :  $ curl -sL https://deb.nodesource.com/setup_7.x | sudo -E bash -\n$ sudo apt-get install nodejs npm", 
+            "title": "Instala\u00e7\u00e3o"
+        }, 
+        {
+            "location": "/banco-de-dados/mongodb/", 
+            "text": "MongoDB\n\n\nO \u201cMongoDB\u201d \u00e9 um banco de dados NoSQL.\n\n\nInstala\u00e7\u00e3o\n\n\nComando para instalar o \nMongoDB\n nos sistemas operacionais \nArch Linux e Manjaro Linux\n:\n\n\n$ sudo pacman -S mongodb\n\n\n\n\nComandos para instalar o \nMongoDB\n nos sistemas operacionais \nDebian, Ubuntu, Linux Mint\n:\n\n\n$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6\n\necho \ndeb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main\n | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list\n\nsudo apt-get update\n\nsudo apt-get install -y mongodb-org\n\n\n\n\nComando para iniciar o \nMongoDB\n:\n\n\n$ sudo systemctl start mongodb\n\n\n\n\nComando para acessar a interface de linha de comando do \nMongoDB\n:\n\n\n$ mongo\n\n\n\n\nPara sair da interface de linha de comando digite \nCTRL + C\n.\n\n\nComando para parar o \nMongoDB\n:\n\n\n$ sudo systemctl start mongodb", 
+            "title": "MongoDB"
+        }, 
+        {
+            "location": "/banco-de-dados/mongodb/#mongodb", 
+            "text": "O \u201cMongoDB\u201d \u00e9 um banco de dados NoSQL.", 
+            "title": "MongoDB"
+        }, 
+        {
+            "location": "/banco-de-dados/mongodb/#instalacao", 
+            "text": "Comando para instalar o  MongoDB  nos sistemas operacionais  Arch Linux e Manjaro Linux :  $ sudo pacman -S mongodb  Comandos para instalar o  MongoDB  nos sistemas operacionais  Debian, Ubuntu, Linux Mint :  $ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6\n\necho  deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main  | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list\n\nsudo apt-get update\n\nsudo apt-get install -y mongodb-org  Comando para iniciar o  MongoDB :  $ sudo systemctl start mongodb  Comando para acessar a interface de linha de comando do  MongoDB :  $ mongo  Para sair da interface de linha de comando digite  CTRL + C .  Comando para parar o  MongoDB :  $ sudo systemctl start mongodb", 
+            "title": "Instala\u00e7\u00e3o"
+        }
+    ]
+}

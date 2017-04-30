@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com>">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Git - Configurações</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Git";
+    var mkdocs_page_input_path = "git/git.md";
+    var mkdocs_page_url = "/git/git/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Configurações</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Configurações</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sistemas Operacionais</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../sistema-operacional/arch-linux/">Arch Linux</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Git</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#o_que_e_o_git">O que é o Git?</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#instalacao">Instalação</a></li>
+        
+            <li><a class="toctree-l4" href="#configuracao">Configuração</a></li>
+        
+            <li><a class="toctree-l4" href="#bitbucket_e_github">Bitbucket e GitHub</a></li>
+        
+            <li><a class="toctree-l4" href="#repositorios">Repositórios</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Shell</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../shell/zsh/">zsh</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Node.JS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Banco de Dados</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Configurações</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Git &raquo;</li>
+        
+      
+    
+    <li>Git</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="o_que_e_o_git">O que é o <em>Git</em>?<a class="headerlink" href="#o_que_e_o_git" title="Permanent link">&para;</a></h1>
+<p>O <em>“Git”</em> é um sistema de versionamento de aquivos, projetos, etc.<br />
+Existe uma <a href="https://youtu.be/WVLhm1AMeYE?list=PLInBAd9OZCzzHBJjLFZzRl6DgUmOeG3H0"><em>playlist no YouTube</em></a> de um curso no canal <strong>RB Tech</strong> que é extremamente recomendada para compreensão do <em>Git</em>.</p>
+<h2 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">&para;</a></h2>
+<p>Comando para instalar o <em>Git</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ sudo pacman -S git</code></pre>
+
+
+<p>Comando para instalar o <em>Git</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ sudo apt install git</code></pre>
+
+
+<h2 id="configuracao">Configuração<a class="headerlink" href="#configuracao" title="Permanent link">&para;</a></h2>
+<p>Comandos para configurar as opções globais do <em>git</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ git config --global user.name &quot;Seu Nome&quot;
+$ git config --global user.email &quot;seunome@exemplo.com&quot;
+$ git config --list</code></pre>
+
+
+<h2 id="bitbucket_e_github">Bitbucket e GitHub<a class="headerlink" href="#bitbucket_e_github" title="Permanent link">&para;</a></h2>
+<p>O <em>Bitbucket e o GitHub</em> são serviços para hospedagem de repositórios <em>git</em> e também uma espécie de rede social de programadores na qual podemos disponibilizar projetos, receber contribuições e também contribuir com outros projetos.<br />
+Basta criar uma conta no serviço que desejar e depois adicionar as chaves <em>ssh</em> do computador no perfil.<br />
+Links para os serviços:</p>
+<ul>
+<li><a href="http://bitbucket.org">bitbucket.org</a></li>
+<li><a href="http://github.com">github.com</a></li>
+</ul>
+<h3 id="xclip">xclip<a class="headerlink" href="#xclip" title="Permanent link">&para;</a></h3>
+<p>Para facilitar a cópia da chave <em>ssh</em> pode-se usar o <em>xclip</em>, que copia textos para área de transferência.</p>
+<p>Comando para instalar o <em>xclip</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ sudo pacman -S xclip</code></pre>
+
+
+<p>Comando para instalar o <em>xclip</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ sudo apt install xclip</code></pre>
+
+
+<h3 id="chaves_ssh">Chaves SSH<a class="headerlink" href="#chaves_ssh" title="Permanent link">&para;</a></h3>
+<p>Para autorizar o acesso as contas, ou no <em>Bitbucket</em> ou no <em>GitHub</em>, a partir do<br />
+computador local sem a necessidade de informar usuário e senha para cada novo<br />
+acesso, basta criar um par de chaves <em>ssh</em> e adicionar a chave publica na conta.</p>
+<p>Com o <em>xclip</em> instalado e com a conta configurada pode-se gerar as chaves <em>ssh</em> com o seguinte comando:</p>
+<pre class="codehilite"><code class="language-sh">$ ssh-keygen -t rsa -b 4096 -C &quot;seunome@exemplo.com&quot;</code></pre>
+
+
+<p>Comando para verificar a criação da chave <em>ssh</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ ls -la .ssh/</code></pre>
+
+
+<p>Comando para copiar a chave <em>ssh</em> para a área de transferência usando o <em>xclip</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></pre>
+
+
+<p>Com a chave copiada, basta localizar a função de autorização de chaves no <em>Bitbucket</em> ou no <em>GitHub</em>,</p>
+<ul>
+<li><strong>Bitbucket:</strong> <code>https://bitbucket.org/account/user/seu_usuario/ssh-keys/</code></li>
+<li><strong>GitHub:</strong> <code>https://github.com/settings/keys</code></li>
+</ul>
+<p>Após adicionar a chave <em>ssh</em> no <em>Bitbucket</em> ou no <em>GitHub</em>, pode-se testar a conexão com o comando:</p>
+<pre class="codehilite"><code class="language-sh"># Bitbucket
+$ ssh -vT git@bitbucket.org
+
+# GitHub
+$ ssh -vT git@github.com</code></pre>
+
+
+<h2 id="repositorios">Repositórios<a class="headerlink" href="#repositorios" title="Permanent link">&para;</a></h2>
+<p>Comando para iniciar um repositório local - em seu computador:</p>
+<pre class="codehilite"><code class="language-sh">$ git init</code></pre>
+
+
+<p>Comando para relacionar um repositório local a um repositório criado em um dos serviços de hospedagem de repositório <em>Git</em>:</p>
+<pre class="codehilite"><code class="language-sh">$ git remote add origin https://github.com/xxxxx/xxxxx.git
+
+# &quot;xxxxx&quot; representa parte da url que aponta para o repositório
+# especícfico que se deseja relacionar ao repositório local.</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../shell/zsh/" class="btn btn-neutral float-right" title="zsh">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../sistema-operacional/arch-linux/" class="btn btn-neutral" title="Arch Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../sistema-operacional/arch-linux/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../shell/zsh/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
