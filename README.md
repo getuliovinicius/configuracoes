@@ -8,7 +8,9 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 - Git:
     - [Git](mds/git/git.md)
 - Shell:
-    - [oh-my-zsh](mds/shell/oh-my-zsh.md)
+    - [zsh](mds/shell/zsh.md)
+- Editores:
+    - [Atom](mds/editores-de-codigo/atom.md)
 - Servidores Web:
     - [Apache2]
 - PHP:
