@@ -1,7 +1,7 @@
 site_name: Configurações
 site_description: Instruções de configuração de de sistemas, serviços, aplicações, etc.
 site_author: Getúlio Vinicius <getuliovinits@gmail.com
-google_analytics: ['UA-70830801-12', 'https://getuliovinicius.github.io/configuracoes/']
+google_analytics: ['UA-70830801-12']
 repo_url: https://github.com/getuliovinicius/configuracoes/
 repo_name: GitHub
 edit_uri: blob/master/mds/
