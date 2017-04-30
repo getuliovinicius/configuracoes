@@ -1,13 +1,16 @@
 Mkdocs
 ======
 
-Compilador que gera arquivos HTML a partir de arquivos _Markdown_.
+O _[Mkdocs](http://www.mkdocs.org/)_ é uma ferramenta desenvolvida em _Python_, especialmente para desenvolvimento de documentação de software, com qual é possível geral sites HTML estáticos a partir de arquivos escritos com a linguagem de marcação de texto _Markdown_.
 
-Comando para criar o diretório os arquivos fonte da documentação:
+Comando para criar o diretório onde ficaram os arquivos fonte da documentação:
 
 ``` sh
-# exemplo
 $ mkdir -p ~/DEV_WEB/PHP/VHOSTS/projeto-x.local/docs
+
+# neste exemplo o diretório onde seriam mantidos os códigos fontes
+# da aplicação que está sendo desenvolvida seria:
+# ~/DEV_WEB/PHP/VHOSTS/projeto-x.local
 ```
 
 Comando para criar o _virtualenv_ com o auxílio da ferramenta _virtualenvwrapper_:
@@ -17,7 +20,7 @@ Comando para criar o _virtualenv_ com o auxílio da ferramenta _virtualenvwrappe
 $ mkvirtualenv docs_mkdocs
 ```
 !!! attention "Atenção"
-    Para executar o comando anterior é preciso ter o [Python - virtualenv](python-virtualenv.md) configurado.
+    Para executar o comando anterior é preciso ter o [Python - virtualenv](virtualenv.md) configurado.
 
 Comando para sair do _virtualenv_:
 

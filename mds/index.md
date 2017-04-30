@@ -5,10 +5,12 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 
 - Sistemas Operacionais:
     - [Arch Linux](sistema-operacional/arch-linux.md)
-- Shell:
-    - [oh-my-zsh](shell/oh-my-zsh.md)
 - Git:
     - [Git](git/git.md)
+- Shell:
+    - [zsh](shell/zsh.md)
+- Editores:
+    - [Atom](editores-de-codigo/atom.md)
 - Servidores Web:
     - [Apache2]
 - PHP:
