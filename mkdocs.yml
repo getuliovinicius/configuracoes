@@ -1,15 +1,23 @@
 site_name: Configurações
 site_description: Instruções de configuração de de sistemas, serviços, aplicações, etc.
-site_author: Getúlio Vinicius <getuliovinits@gmail.com>
+site_author: Getúlio Vinicius <getuliovinits@gmail.com
+google_analytics: ['UA-70830801-12', 'auto']
+repo_url: https://github.com/getuliovinicius/configuracoes/
+repo_name: GitHub
+edit_uri: blob/master/mds/
+remote_branch: gh-pages
+remote_name: origin
 docs_dir: 'mds'
 pages:
     - Configurações: index.md
     - Sistemas Operacionais:
         - Arch Linux: 'sistema-operacional/arch-linux.md'
-    - Shell:
-        - oh-my-zsh: 'shell/oh-my-zsh.md'
     - Git:
         - Git: 'git/git.md'
+    - Shell:
+        - zsh: 'shell/zsh.md'
+    - Editores:
+        - Atom: 'editores-de-codigo/atom.md'
 #    - Servidores Web:
 #        - Apache2: 'servidores-web/apache.md'
 #    - PHP:
@@ -34,4 +42,4 @@ markdown_extensions:
     - toc:
         permalink: True
         separator: "_"
-    - footnotes    
+    - footnotes
