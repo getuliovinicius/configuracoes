@@ -12,7 +12,7 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 - Editores:
     - [Atom](editores-de-codigo/atom.md)
 - Servidores Web:
-    - [Apache2]
+    - [Apache2](servidores-web/apache.md)
 - PHP:
     - [PHP]
 - Python:
