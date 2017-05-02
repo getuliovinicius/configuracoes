@@ -15,8 +15,7 @@ Comando para instalar o _Apache_ nos sistemas operacionais _Debian, Ubuntu e Lin
 $ sudo apt install apache2
 
 # PACOTES INSTALADOS:
-# apache2 apache2-bin apache2-data apache2-utils
-# libapr1 libaprutil1 libaprutil1-dbd-sqlite3 libaprutil1-ldap liblua5.1-0
+# apache2 apache2-data apache2-utils
 ```
 
 Para testar o funcionamento do Apache digite o seguinte endereço no navegador web:
@@ -28,14 +27,13 @@ O diretório de hospedagem padrão do Apache no Ubuntu Linux é o `/var/www/html
 
 ## Módulos do Apache
 
-Algumas aplicações em PHP irão solicitar módulos extra do Apache.
-Para propiciar o uso de urls amigáveis, o `mod_rewrite` do Apache deve ser habilitado com o comando `a2enmod`.
+Algumas aplicações poderão solicitar módulos extra do Apache, por exemplo: para propiciar o uso de urls amigáveis, o módulo `mod_rewrite` do Apache deve ser habilitado. Para habilitar um módulo usamos o comando `a2enmod`.
 
 ``` sh
 $ sudo a2enmod rewrite
 ```
 
-Para ver os módulos do Apache que estão habilitados use o comando `apachectl`.
+Para ver os módulos do Apache que estão habilitados podemos usar o comando `apachectl`.
 
 ``` sh
 $ sudo apachectl -M
@@ -43,19 +41,20 @@ $ sudo apachectl -M
 
 ## Demonstração do Apache
 
-Entrar no diretório do `DocumentRoot` padrão do Apache:
+Para entender a estrutura do Apache vamos entrar no diretório do `DocumentRoot` padrão e listar o conteúdo:
 
 ``` sh
 $ cd /var/www/html
+$ ls
 ```
 
-Substituir o arquivo `index.html` mas primeiro fazer backup renomeando o arquivo `index.html` para `index.html.original` com o comando `mv`.
+Existe um arquivo chamado `index.html` que contém a codificação exibida quando requisitamos o endereço `localhost`. Vamos começar a alterar a estrutura original do Apache substituindo o conteúdo do arquivo `index.html`, mas primeiro, devemos fazer um backup renomeando o arquivo `index.html` para `index.html.original` com o comando `mv`.
 
 ``` sh
 $ sudo mv index.html index.html.original
 ```
 
-Criar um novo arquivo `index.html` com o editor _vim_ para demonstração do funcionamento do Apache.
+Em seguida criar um novo arquivo `index.html` com o editor _vim_.
 
 ``` sh
 $ sudo vim index.html
@@ -83,9 +82,9 @@ Copiar o conteúdo abaixo para o arquivo.
 </html>
 ```
 
-Acesse o endereço [http://localhost](http://localhost) para ver o resultado da mudança.
+Para conferir acessamos o endereço [http://localhost](http://localhost) novamente.
 
-Criar o arquivo `style.css`.
+Vamos tratar o visual da página criando um arquivo `style.css`.
 
 ``` sh
 $ sudo vim style.css
@@ -126,18 +125,17 @@ a:active {
 }
 ```
 
-
-Agora para aplicar o estilo a página remova o comentário da linguagem HTML na linha 6 do arquivo `index.html`, que são as tags `<!-- -->` no início e no final da linha.
+Agora para aplicar o estilo a página removemos o comentário da linguagem HTML na linha 6 do arquivo `index.html`, que são as tags `<!-- -->` no início e no final da linha.
 
 ``` sh
 $ sudo vim index.html
 ```
 
-Retire os comentários e acesse o endereço [http://localhost](http://localhost) para ver o resultado.
+Retire os comentários e acesse novamente o endereço [http://localhost](http://localhost) para ver o resultado.
 
 ## Configuração do _VirtualHost_ Padrão
 
-O apache será utilizado aproveitando a funcionalidade de _VirtualHosts_.
+O apache será utiliza a funcionalidade de _VirtualHosts_, a qual permite a manter vários sites ativos simultâneamente.
 O primeiro passo é a criação da estrutura de diretórios a partir do diretório `/srv`, isto porque segundo a hierarquia de arquivos FHS (que eu não vou explicar, não faz diferença agora), o diretório próprio para instalação de serviços no Linux é o `/srv`.
 Enfim, sobre essa questão, de quando eu fiz o curso de _Sysadmin_ até os dias atuais, as distribuições passaram a configurar o `DocumentRoot` no diretório `/var/www`. Mudar ou não essa configuração não faz muita diferença mas pode ser um bom exercício para entender o funcionamento do Linux.
 
@@ -177,7 +175,7 @@ Na sequência precisamos definir o usuário `www-data`, que é o usuário sob o 
 $ sudo chown www-data\: /srv/www -R
 ```
 
-Neste momento o servidor Apache em funcionamento, vai exibir uma mensagem de erro, iniciada com "Not Found", não encontrado, devido a alteração do local onde por padrão os arquivos do `DocumentRooot` são instalados.
+Neste momento o servidor Apache, que está em funcionamento, vai exibir uma mensagem de erro, iniciada com "Not Found", não encontrado, devido a alteração do local onde por padrão os arquivos do `DocumentRooot` são instalados.
 Tendo sido realizada a alteração do local dos arquivos referentes ao diretório `DocumentRoot` passamos para a configuração do Apache, acessando o diretório de configuração.
 
 ``` sh
@@ -185,13 +183,13 @@ $ cd /etc/apache2
 ```
 
 Neste diretório podemos modificar a configuração padrão do servidor Apache deixando de acordo com os nossos propósitos.
-A primeira configuração que iremos aplicar é a indicação da diretiva `ServerName`, o nome padrão do servidor, que vamos manter como localhost.
+A primeira configuração que iremos aplicar é a indicação da diretiva `ServerName`, o nome padrão do servidor, que vamos manter como `localhost`.
 
 ``` sh
 $ cd conf-available
 ```
 
-Usando o vim podemos criar o arquivo de configuração do `ServerName` padrão que irá possuir apenas uma linha.
+Usando o _vim_ podemos criar o arquivo de configuração do `ServerName` padrão que irá possuir apenas uma linha.
 
 ``` sh
 $ sudo vim servername.conf
@@ -207,7 +205,8 @@ Depois de criar o arquivo é preciso adicionar a nova configuração ao Apache c
 $ sudo a2enconf servername
 ```
 
-Após informando o `ServerName` padrão, é preciso informar que mudamos o diretório `DocumentRoot` para que ele volte a fornecer as páginas referentes ao endereço [http://localhost](http://localhost). Vamos voltar um diretório com o comando `cd`.
+Após informando o `ServerName` padrão, é preciso informar que mudamos o diretório `DocumentRoot` para que ele volte a fornecer as páginas referentes ao endereço [http://localhost](http://localhost).
+Vamos voltar um diretório com o comando `cd`.
 
 ``` sh
 $ cd ..
@@ -224,6 +223,8 @@ Na sequência o arquivo `apache2.conf` deve ser alterado removendo o comentário
 ``` sh
 $ sudo vim apache2.conf
 ```
+Linhas descomentadas:
+
 ``` conf
 <Directory /srv/>
 	Options Indexes FollowSymLinks
@@ -264,9 +265,9 @@ Reiniciar o Apache:
 $ sudo systemctl restart apache2.service
 ```
 
-Acesse o endereço [http://localhost](http://localhost) para ver o resultado.
+Por fim acessamos o endereço [http://localhost](http://localhost) para ver o resultado.
 
-## Diretórios dos VirtualHosts para Projetos
+## Diretórios dos _VirtualHosts_ para Projetos
 
 Vamos criar dois `VirtualHosts` para exemplificar o funcionamento do Apache, ambos podem ser utilizados para estudos das linguagens HTML, Javascript e CSS, lembrando que por enquanto estamos trabalhando na estrutura de diretórios criada para páginas estáticas.
 Criar o diretório chamado `/srv/www/html/app1.local`:
@@ -352,7 +353,7 @@ Depois de criados os dois arquivos, vamos subir um nível na hierarquia de diret
 ``` sh
 $ cd ..
 
-#ou
+# ou
 
 $ cd /srv/www/html
 ```

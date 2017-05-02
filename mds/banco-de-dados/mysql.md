@@ -1,6 +1,13 @@
 Instalação do MariaDB
 =====================
 
+libaio1 libdbd-mysql-perl libdbi-perl libhtml-template-perl libmysqlclient18 libterm-readkey-perl
+  mysql-client-5.5 mysql-common mysql-server-5.5 mysql-server-core-5.5
+
+
+
+
+
 **melhorar muito >>>**
 
 O MariaDB é um sistema gerenciador de bases de dados “SGDB”.E comum a utilização do MariaDB em conjunto com o Apache e PHP para desenvolvimento web.
