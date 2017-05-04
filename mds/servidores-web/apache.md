@@ -1,7 +1,7 @@
 Servidor Web Apache2
 ====================
 
-_Versão 1 - atualizada em 01/05/2017_
+_Versão 1 - atualizada em 04/05/2017_
 
 -----
 
@@ -14,17 +14,10 @@ Comando para instalar o _Apache_ nos sistemas operacionais _Debian, Ubuntu e Lin
 ```bash
 $ sudo apt install apache2
 ```
+!!! note "Info"
+	**Pacotes instalados:** apache2 apache2-data apache2-utils
 
-> PACOTES INSTALADOS:
-> apache2 apache2-data apache2-utils
-
-Para testar o funcionamento do Apache digite o seguinte endereço no navegador web:
-
-[http://localhost](http://localhost)
-
-Se retornar uma página com uma mensagem “It Works!” está tudo OK.
-O diretório de publicação padrão do Apache no Debian é o `/var/www/html`, neste diretório ficam armazenados os arquivos que compõem os sites servidos pelo Apache.
-O diretório `/var/www/html` é chamado de `DocumentRoot` do _VirtualHost_ padrão do Apache, o `localhost`, endereço citado anteriomente para testar o funcionamento do Apache. Cada _VirtualHost_ possui seu próprio diretório `DocumentRoot` confome veremos mais adiante.
+Para testar o funcionamento do Apache digite o seguinte endereço [http://localhost](http://localhost) no navegador web. Se retornar uma página com uma mensagem “It Works!” está tudo OK.
 
 ## Módulos do Apache
 
@@ -33,8 +26,8 @@ Algumas aplicações poderão solicitar módulos extra do Apache, por exemplo: p
 ```bash
 $ sudo a2enmod rewrite
 ```
-
-> O comando acima habilita o mod_rewrite
+!!! note "Info"
+	O comando acima habilita o módulo _mod_rewrite_ no Apache.
 
 Para ver os módulos do Apache que estão habilitados podemos usar o comando `apachectl`.
 
@@ -44,14 +37,16 @@ $ sudo apachectl -M
 
 ## Demonstração do Apache
 
-Para entender a estrutura do Apache vamos entrar no diretório `DocumentRoot` do _VirtualHost_ padrão e listar o conteúdo:
+O diretório de publicação padrão do Apache no Debian é o `/var/www/html`, neste diretório ficam armazenados os arquivos que compõem os sites hospedados no servidor.
+O diretório `/var/www/html` é chamado de _DocumentRoot_ do _VirtualHost_ padrão do Apache, o _[localhost](http://localhost)_, endereço citado anteriormente para testar o funcionamento do Apache. Cada _VirtualHost_ possui seu próprio diretório _DocumentRoot_ conforme veremos mais adiante.
+Para entender a estrutura do Apache vamos entrar no diretório _DocumentRoot_ do _VirtualHost_ padrão e listar o conteúdo:
 
 ```bash
 $ cd /var/www/html
 $ ls
 ```
 
-Existe um arquivo chamado `index.html` que contém a codificação exibida quando requisitamos o endereço `localhost`. Vamos começar a alterar a estrutura original do Apache substituindo o conteúdo do arquivo `index.html`, mas primeiro, devemos fazer um backup renomeando o arquivo `index.html` para `index.html.original` com o comando `mv`.
+Existe um arquivo chamado `index.html` que contém a codificação da página exibida quando requisitamos o endereço `localhost`. Vamos começar a alterar a estrutura original do Apache substituindo o conteúdo do arquivo `index.html`, mas primeiro devemos fazer um backup deste arquivo renomeando de `index.html` para `index.html.original` com o comando `mv`.
 
 ```bash
 $ sudo mv index.html index.html.original
@@ -139,7 +134,7 @@ Retire os comentários e acesse novamente o endereço [http://localhost](http://
 
 O apache utiliza a funcionalidade de _VirtualHosts_, a qual permite a manter vários sites ativos simultâneamente, ou seja, vários sites compartilham uma instalação.
 O primeiro passo é a criação da estrutura de diretórios a partir do diretório `/srv`, isto porque segundo a hierarquia de arquivos FHS (que eu não vou explicar, não faz diferença agora), o diretório próprio para instalação de serviços no Linux é o `/srv`.
-Enfim, sobre essa questão, de quando eu fiz o curso de _Sysadmin_ até os dias atuais, as distribuições passaram a configurar o `DocumentRoot` no diretório `/var/www`. Mudar ou não essa configuração não faz muita diferença mas pode ser um bom exercício para entender o funcionamento do Linux.
+Enfim, sobre essa questão, de quando eu fiz o curso de _Sysadmin_ até os dias atuais, as distribuições passaram a configurar o _DocumentRoot_ no diretório `/var/www`. Mudar ou não essa configuração não faz muita diferença mas pode ser um bom exercício para entender o funcionamento do Linux.
 
 ```bash
 $ cd
@@ -168,14 +163,14 @@ $ sudo mv /srv/www/html/index.* .
 $ sudo mv /srv/www/html/style.css .
 ```
 
-Na sequência precisamos definir o usuário `www-data`, que é o usuário sob o qual o serviço Apache é executado, como dono dos arquivos sob o diretório `/srv/www` inclusive o próprio diretório `/srv/www`. Para realizar essa tarefa usamos o comando `chown`:
+Na sequência precisamos definir o usuário _www-data_, que foi criado durante a instalação do Apache para execução do serviço, como usuário dono dos arquivos sob o diretório `/srv/www` inclusive o próprio diretório `/srv/www`. Para realizar essa tarefa usamos o comando `chown`:
 
 ```bash
 $ sudo chown www-data\: /srv/www -R
 ```
 
-Neste momento o servidor Apache, que está em funcionamento, vai exibir uma mensagem de erro, iniciada com "Not Found", não encontrado, devido a alteração do local onde por padrão os arquivos do `DocumentRooot` são instalados.
-Tendo sido realizada a alteração do local dos arquivos referentes ao diretório `DocumentRoot` passamos para a configuração do Apache, acessando o diretório de configuração.
+Neste momento o servidor Apache, que está em funcionamento, vai exibir uma mensagem de erro, iniciada com "Not Found", não encontrado, devido a alteração do local onde por padrão os arquivos do _DocumentRoot_ são instalados.
+Tendo sido realizada a alteração do local dos arquivos referentes ao diretório _DocumentRoot_ passamos para a configuração do Apache, acessando o diretório de configuração.
 
 ```bash
 $ cd /etc/apache2
@@ -204,7 +199,7 @@ Depois de criar o arquivo é preciso adicionar a nova configuração ao Apache c
 $ sudo a2enconf servername
 ```
 
-Após informando o `ServerName` padrão, é preciso informar que mudamos o diretório `DocumentRoot` para que ele volte a fornecer as páginas referentes ao endereço [http://localhost](http://localhost).
+Após informando o `ServerName` padrão, é preciso informar que mudamos o diretório _DocumentRoot_ para que ele volte a fornecer as páginas referentes ao endereço [http://localhost](http://localhost).
 Vamos voltar um diretório com o comando `cd`.
 
 ```bash
@@ -282,7 +277,7 @@ Entrar no diretório `/srv/www/html/app1.local`:
 $ cd /srv/www/html/app1.local/
 ```
 
-Criar os arquivos “index.html” e “style.css”:
+Criar os arquivos `index.html` e `style.css`:
 
 ```bash
 $ sudo vim index.html
@@ -437,10 +432,9 @@ a:active {
 	text-decoration: underline;
 	background-color: transparent
 }
-
 ```
 
-Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”
+Alterar o proprietário dos diretórios e arquivos em `/srv/www` para o usuário e grupo `www-data`:
 
 ```bash
 $ sudo chown www-data\: /srv/www -R
@@ -457,6 +451,8 @@ Criar um arquivo chamado `app1.local.conf` com o conteúdo:
 ```bash
 $ sudo vim /etc/apache2/sites-available/app1.local.conf
 ```
+
+Copiar o conteúdo abaixo para o arquivo:
 
 ```apacheconf
 <VirtualHost *:80>
@@ -485,6 +481,8 @@ Editar o arquivo `app2.local.conf`:
 ```bash
 $ sudo vim /etc/apache2/sites-available/app2.local.conf
 ```
+
+Copiar o conteúdo abaixo para o arquivo:
 
 ```apacheconf
 <VirtualHost *:80>
