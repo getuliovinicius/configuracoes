@@ -5,57 +5,55 @@ O _[Mkdocs](http://www.mkdocs.org/)_ é uma ferramenta desenvolvida em _Python_,
 
 Comando para criar o diretório onde ficaram os arquivos fonte da documentação:
 
-``` sh
+```bash
 $ mkdir -p ~/DEV_WEB/PHP/VHOSTS/projeto-x.local/docs
-
-# neste exemplo o diretório onde seriam mantidos os códigos fontes
-# da aplicação que está sendo desenvolvida seria:
-# ~/DEV_WEB/PHP/VHOSTS/projeto-x.local
 ```
+
+!!! note "Info"
+    Neste exemplo o diretório onde seriam mantidos os códigos fontes da aplicação que está sendo desenvolvida seria: `~/DEV_WEB/PHP/VHOSTS/projeto-x.local`
 
 Comando para criar o _virtualenv_ com o auxílio da ferramenta _virtualenvwrapper_:
 
-``` sh
-# exemplo
+```bash
 $ mkvirtualenv docs_mkdocs
 ```
+
 !!! attention "Atenção"
     Para executar o comando anterior é preciso ter o [Python - virtualenv](virtualenv.md) configurado.
 
 Comando para sair do _virtualenv_:
 
-``` sh
+```bash
 $ deactivate
 ```
 
 Comando para voltar para _virtualenv_:
 
-``` sh
-# exemplo
+```bash
 $ workon docs_mkdocs
 ```
 
 Comando para atualizar o cache do repositório:
 
-``` sh
+```bash
 $ pip install --upgrade pip
 ```
 
 Comandos para instalar o _Mkdocs_:
 
-``` sh
+```bash
 $ pip install mkdocs
 ```
 
 Comando para checar a instalação:
 
-``` sh
+```bash
 $ mkdocs --version
 mkdocs, version x.x.x
 ```
 
 Comando para iniciar o projeto de documentação no diretório corrente:
 
-``` sh
+```bash
 $ mkdocs new .
 ```
