@@ -7,39 +7,39 @@ O MySQL é um sistema gerenciador de bases de dados "SGDB". É comum a utilizaç
 
 Comando para instalar o _MySQL_ nos sistemas operacionais _Debian, Ubuntu e Linux Mint_:
 
-Para instalalar o _MySQL_ usei o comando:
-
 ```bash
 $ sudo apt install mysql-server
 ```
 
 !!! note "Info"
-	**Pacotes instalados;** _libaio1 libdbd-mysql-perl libdbi-perl libhtml-template-perl libmysqlclient18 libterm-readkey-perl mysql-client-5.5 mysql-common mysql-server mysql-server-5.5 mysql-server-core-5.5_
+	**Pacotes instalados:** _libaio1 libdbd-mysql-perl libdbi-perl libhtml-template-perl libmysqlclient18 libterm-readkey-perl mysql-client-5.5 mysql-common mysql-server mysql-server-5.5 mysql-server-core-5.5_
 
-	Durante a instalação do MyQSL é pedida a senha para o usuário root. Defina uma fácil mas se quer administrar esses trem já acostume-se a criar padrões de senha que vc seja capaz de lembrar. O exemplo abaixo é um método que remete a duas palavras: (MySQL local).
-	Senha para o usuário ROOT: “mysqll0c4l”
+	Durante a instalação do _MyQSL_ é pedida a senha para o usuário root. Defina uma senha fácil, mas, se quer administrar esses trem já vai se acostumando a criar padrões de senha os quais você seja capaz de se lembrar.
+    O exemplo abaixo é um método que remete a duas palavras: (MySQL local), portanto podemos, juntar as palavras, colocar um números antes e...
+	**Senha para o usuário root: “mysqll0c4l”**
 
-Para checar a versão do MySQL:
+Para checar a versão do MySQL execute o comando:
 
 ```bash
 $ mysql --version
 ```
 
-Para checar se o MySQL está ativo rode o comando:
+Para checar se o MySQL está ativo execute o comando:
 
 ```bash
 $ sudo systemctl status mysql.service
 ```
 
-Tornar Seguro o Servidor MySQL
+!!! note "Info"
+    Pode ser útil, caso esteja trabalhando em um servidor de produção, elevar o nível de segurança do servidor MySQL, para isso você pode recorrer ao utilitário `mysql_secure_installation`
 
-```bash
-$ sudo mysql_secure_installation
-```
+    ```bash
+    $ sudo mysql_secure_installation
+    ```
 
-Agora tem que exercitar o inglês e interpretar corretamente o que está sendo pedido. Boa sorte.
+    Responda as questões conforme sua necessidade.
 
-Para testar o login:
+Para testar o login use o comando:
 
 ```bash
 $ mysqladmin -p -u root version

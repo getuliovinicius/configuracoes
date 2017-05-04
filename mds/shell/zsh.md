@@ -45,21 +45,4 @@ $ cd fonts
 $ ./install.sh
 $ cd ..
 $ rm -rf fonts
-<<<<<<< HEAD
 ```
-<<<<<<< HEAD:mds/shell/oh-my-zsh.md
-
-Comandos para tornar o _oh-my-zsh_ o shell padrão para o seu usuário:
-
-``` sh
-$ sudo usermod -s /bin/zsh seu_usuario
-
-# ou
-
-$ chsh -s /bin/zsh
-```
-=======
->>>>>>> cfec41cf68195d6163f124d81e5575f673a4641c:mds/shell/zsh.md
-=======
-```
->>>>>>> d42ebfc8616dc1b140e2dc876cd40ddfba0b872b
