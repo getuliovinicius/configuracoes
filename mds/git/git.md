@@ -8,13 +8,13 @@ Existe uma [_playlist no YouTube_](https://youtu.be/WVLhm1AMeYE?list=PLInBAd9OZC
 
 Comando para instalar o _Git_ nos sistemas operacionais _Arch Linux e Manjaro Linux_:
 
-``` sh
+```bash
 $ sudo pacman -S git
 ```
 
 Comando para instalar o _Git_ nos sistemas operacionais _Debian, Ubuntu, Linux Mint_:
 
-``` sh
+```bash
 $ sudo apt install git
 ```
 
@@ -22,7 +22,7 @@ $ sudo apt install git
 
 Comandos para configurar as opções globais do _git_:
 
-``` sh
+```bash
 $ git config --global user.name "Seu Nome"
 $ git config --global user.email "seunome@exemplo.com"
 $ git config --list
@@ -43,13 +43,13 @@ Para facilitar a cópia da chave _ssh_ pode-se usar o _xclip_, que copia textos 
 
 Comando para instalar o _xclip_ nos sistemas operacionais _Arch Linux e Manjaro Linux_:
 
-``` sh
+```bash
 $ sudo pacman -S xclip
 ```
 
 Comando para instalar o _xclip_ nos sistemas operacionais _Debian, Ubuntu, Linux Mint_:
 
-``` sh
+```bash
 $ sudo apt install xclip
 ```
 
@@ -61,19 +61,19 @@ acesso, basta criar um par de chaves _ssh_ e adicionar a chave publica na conta.
 
 Com o _xclip_ instalado e com a conta configurada pode-se gerar as chaves _ssh_ com o seguinte comando:
 
-``` sh
+```bash
 $ ssh-keygen -t rsa -b 4096 -C "seunome@exemplo.com"
 ```
 
 Comando para verificar a criação da chave _ssh_:
 
-``` sh
+```bash
 $ ls -la .ssh/
 ```
 
 Comando para copiar a chave _ssh_ para a área de transferência usando o _xclip_:
 
-``` sh
+```bash
 $ xclip -sel clip < ~/.ssh/id_rsa.pub
 ```
 
@@ -84,26 +84,29 @@ Com a chave copiada, basta localizar a função de autorização de chaves no _B
 
 Após adicionar a chave _ssh_ no _Bitbucket_ ou no _GitHub_, pode-se testar a conexão com o comando:
 
-``` sh
-# Bitbucket
-$ ssh -vT git@bitbucket.org
++ **Bitbucket**
 
-# GitHub
+```bash
+$ ssh -vT git@bitbucket.org
+```
+
++ **GitHub**
+
+```bash
 $ ssh -vT git@github.com
 ```
 ## Repositórios
 
 Comando para iniciar um repositório local - em seu computador:
 
-``` sh
+```bash
 $ git init
 ```
 
 Comando para relacionar um repositório local a um repositório criado em um dos serviços de hospedagem de repositório _Git_:
 
-``` sh
+```bash
 $ git remote add origin https://github.com/xxxxx/xxxxx.git
-
-# "xxxxx" representa parte da url que aponta para o repositório
-# especícfico que se deseja relacionar ao repositório local.
 ```
+
+>"xxxxx" representa parte da url que aponta para o repositório especícfico que se deseja relacionar ao repositório local.

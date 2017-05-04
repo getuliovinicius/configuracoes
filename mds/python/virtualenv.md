@@ -7,16 +7,18 @@ Este é um roteiro para configuração de um ambiente virtual _Python_, de modo 
 
 O _pip_ é um gerenciador de pacotes e dependências usado para instalar pacotes de software escritos em _Python_ a partir de um grande repositório da comunidade: [https://pypi.python.org/pypi](https://pypi.python.org/pypi).
 
-Comando para instalar o _pip_ em qualquer sistema operacional _Linux_:
+Comandos para instalar o _pip_ em qualquer sistema operacional _Linux_:
 
-``` sh
+```bash
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py
 ```
 
+Fonte: [https://pip.pypa.io/en/latest/installing/](https://pip.pypa.io/en/latest/installing/)
+
 Comando para instalar o _pip_ nos sistemas operacionais _Arch Linux e Manjaro Linux_:
 
-``` sh
+```bash
 $ sudo pacman -S python-pip
 ```
 
@@ -26,7 +28,7 @@ O _virtualenv_ é uma ferramenta que permite diferentes ambientes virtuais de _P
 
 Comando para instalar o _virtualenv_ nos sistemas operacionais _Arch Linux e Manjaro Linux_:
 
-``` sh
+```bash
 $ sudo pip install virtualenv
 ```
 
@@ -36,7 +38,7 @@ $ sudo pip install virtualenv
 
 Comando para instalar o _virtualenvwrapper_ nos sistemas operacionais _Arch Linux e Manjaro Linux_:
 
-``` sh
+```bash
 $ sudo pip install virtualenvwrapper
 ```
 
@@ -44,26 +46,30 @@ Para concluir a instalação é preciso editar o arquivo `~/.bashrc` ou `~/.zshr
 
 Pode-se usar o editor _vim_ para fazer a edição:
 
-``` sh
+```bash
 $ vim ~/.bashrc
+```
 
-# ou
+ou
 
+```bash
 $ vim ~/.zshrc
 ```
 
-As linhas abaixo devem ser adicionadas no final do arquivo:
+As linhas abaixo devem ser adicionadas no final do arquivo de configuração do shell para que se possa chamar os comandos do _virtualenvwrapper_:
 
-``` .conf
-# Para Arch Linux e Manjaro Linux utilize as linhas abaixo:
++ Para _Arch Linux e Manjaro Linux_ utilize as linhas abaixo:
 
+```rc
 # Virtualenv
 export WORKON_HOME=$HOME/Virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/bin/virtualenvwrapper.sh
+```
 
-# Para _Debian, Ubuntu, Linux Mint_ utilize as linhas abaixo:
++ Para _Debian, Ubuntu, Linux Mint_ utilize as linhas abaixo:
 
+```rc
 # Virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
@@ -72,10 +78,12 @@ export PIP_REQUIRE_VIRTUALENV=true
 
 É preciso recarregar as configurações do _bash_ ou _zsh_ com o comando:
 
-``` sh
+```bash
 $ source ~/.bashrc
+```
 
-# ou
+ou
 
+```bash
 $ source ~/.zshrc
 ```

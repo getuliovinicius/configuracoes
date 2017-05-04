@@ -5,37 +5,37 @@ Arch Linux
 
 Mudar o layout do eclado para abnt2:
 
-``` sh
+```bash
 $ loadkeys br-abnt2
 ```
 
 Configurar o idioma de intalação:
 
-``` sh
+```bash
 $ vim /etc/locale.gen
 ```
 
 descomentar essas linhas:
 
-``` conf
+```
 en_US.UTF-8 UTF-8
 pt_BR.UTF-8 UTF-8
 ```
 
-``` sh
+```bash
 $ locale-gen
 $ export LANG=pt_BR.UTF-8
 ```
 
 Testar conexão com a internet:
 
-``` sh
+```bash
 $ ping -c 3 www.google.com
 ```
 
 Particionar o disco:
 
-``` sh
+```bash
 $ fdisk -l
 $ cfdisk /dev/sda
 ```
@@ -48,7 +48,7 @@ Tamannhos das partições:
 
 Formatar as particoes:
 
-``` sh
+```bash
 $ mkfs.ext4 /dev/sda2
 $ mkswap /dev/sda3
 $ swapon /dev/sda3
@@ -57,12 +57,12 @@ $ lsblk /dev/sda
 
 Montar as partições:
 
-``` sh
+```bash
 $ mount /dev/sda2 /mnt
 ```
 Ajustar o mirrorlist:
 
-``` sh
+```bash
 $ vim /etc/pacman.d/mirrorlist
 ```
 
@@ -70,58 +70,58 @@ Colocar os espelhos do brasil no inicio do arquivo.
 
 Instalar o sistema base:
 
-``` sh
+```bash
 $ pacstrap /mnt base grub
 ```
 
 Gerar o arquivo fstab que decreve as particoes:
 
-``` sh
+```bash
 $ genfstab -p /mnt >> /mnt/etc/fstab
 $ cat /mnt/etc/fstab
 ```
 
 Logar na instalação:
 
-``` sh
+```bash
 $ arch-chroot /mnt
 ```
 
 Setar o hostname:
 
-``` sh
+```bash
 $ vi /etc/hostname
 ```
 
 colocar "ArchLinuxVM-01"
 
-``` conf
+```
 ArchLinuxVM-01
 ```
 
 Configurar o fuso horário:
 
-``` sh
+```bash
 $ ls /usr/share/zoneinfo/America
 $ ln -sf /usr/share/zoneinfo/America/Recife /etc/localtime
 ```
 
 Configurar o idioma:
 
-``` sh
+```bash
 $ vi /etc/locale.gen
 ```
 
 descomentar as linhas:
 
-``` config
+```ig
 en_US.UTF-8 UTF-8
 en_US.ISO-8859-1
 pt_BR.UTF-8 UTF-8
 pt_BR.ISO-8859-1
 ```
 
-``` sh
+```bash
 $ locale-gen
 $ echo LANG=pt_BR.UTF-8 >> /etc/locale.conf
 $ export LANG=pt_BR.UTF-8
@@ -129,11 +129,11 @@ $ export LANG=pt_BR.UTF-8
 
 Configurar o layout do teclado:
 
-``` sh
+```bash
 $ vi /etc/vconsole.conf
 ```
 
-``` conf
+```
 KEYMAP=br-abnt2
 FONT=Lat2-Terminus16
 FONT_MAP=
@@ -141,25 +141,25 @@ FONT_MAP=
 
 Configurar a inicialização:
 
-``` sh
+```bash
 $ mkinitcpio -p linux
 ```
 
 Configurar a rede cabeada:
 
-``` sh
+```bash
 _$ systemctl enable dhcpcd@eth0.service_
 ```
 
 Criar senha de root:
 
-``` sh
+```bash
 $ passwd
 ```
 
 Intalando o Grub
 
-``` sh
+```bash
 $ pacman -S grub-bios
 $ grub-install --target=i386-pc --recheck /dev/sda
 $ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
@@ -169,19 +169,19 @@ _$ arch-chroot /mnt pacman -S grub-bios_
 
 Sair do chroot:
 
-``` sh
+```bash
 $ exit
 ```
 
 Desmontar as particoes:
 
-``` sh
+```bash
 $ umount /mnt
 ```
 
 Reiniciar
 
-``` sh
+```bash
 $ reboot
 ```
 Configuração do ArchLinux
@@ -191,38 +191,38 @@ Configuração do ArchLinux
 
 Ajustes nos repositórios
 
-``` sh
+```bash
 $ vim /etc/pacman.conf
 ```
 
 descomentar multilib
 
-``` sh
+```bash
 $ pacman -Syu
 ```
 
 ### Instalar o vim (pelo amor de Deus)
 
-``` sh
+```bash
 $ pacman -S vim
 ```
 
 ### Criar usuario e definir senha
 
-``` sh
+```bash
 $ useradd -m -g users -G wheel,storage,power -s /bin/bash usuario
 $ passwd usuario
 ```
 
 ### Instalar sudo
 
-``` sh
+```bash
 $ pacman -S sudo
 ```
 
 Editar as permissões:
 
-``` sh
+```bash
 $ EDITOR=vim visudo
 ```
 
@@ -230,20 +230,20 @@ Descomentar a linha que mostra o grupo (wheel).
 
 ### Configurar o som
 
-``` sh
+```bash
 $ pacman -S alsa-utils
 $ alsamixer
 ```
 
 ### Driver virtualbox:
 
-``` sh
+```bash
 $ sudo pacman -S virtualbox-guest-utils
 ```
 
 ### Instalar xorg
 
-``` sh
+```bash
 $ sudo pacman -S xorg-server
 $ sudo pacman -S xorg-xinit
 $ sudo pacman -S xorg-server-utils
@@ -251,13 +251,13 @@ $ sudo pacman -S xorg-server-utils
 
 ### Instalar fonts
 
-``` sh
+```bash
 $ sudo pacman -S ttf-dejavu
 ```
 
 ### Gerenciador de rede
 
-``` sh
+```bash
 $ sudo pacman -S networkmanager
 
 # NÃO PRECISA - MAS PRECISO CHECAR
@@ -266,13 +266,13 @@ $ sudo pacman -S networkmanager-pptp
 $ sudo pacman -S networkmanager-openconnect_
 ```
 
-``` sh
+```bash
 $ sudo pacman -S network-manager-applet
 ```
 
 Ativar o gerenciador de rede na inicialização do sistema:
 
-``` sh
+```bash
 $ sudo systemctl enable NetworkManager
 ```
 
@@ -289,7 +289,7 @@ Essa ação fará com que os navegadores web instalados no computador possam ace
 No exemplo abaixo existe uma entrada para o domínio local `app1.local`, que pode ser acessado no navegador com o endereço “http://app1.local”.
 Mostar o conteúdo do arquivo `/etc/hosts`:
 
-``` sh
+```bash
 $ cat /etc/hosts
 127.0.0.1	localhost
 127.0.1.1	ARCH-LINUX-PC # este nome é definido na instalação
