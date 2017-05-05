@@ -42,7 +42,13 @@
     
         
     <url>
-     <loc>/servidores-web/apache/</loc>
+     <loc>/python/virtualenv/</loc>
+     <lastmod>2017-05-05</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/python/mkdocs/</loc>
      <lastmod>2017-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -62,13 +68,7 @@
     
         
     <url>
-     <loc>/python/virtualenv/</loc>
-     <lastmod>2017-05-05</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/python/mkdocs/</loc>
+     <loc>/nodejs/nodejs/</loc>
      <lastmod>2017-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -78,7 +78,7 @@
     
         
     <url>
-     <loc>/nodejs/nodejs/</loc>
+     <loc>/servidores-web/apache/</loc>
      <lastmod>2017-05-05</lastmod>
      <changefreq>daily</changefreq>
     </url>

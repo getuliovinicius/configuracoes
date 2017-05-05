@@ -104,8 +104,6 @@
         
             <li><a class="toctree-l4" href="#ssh">ssh</a></li>
         
-            <li><a class="toctree-l4" href="#arquivo_etchosts">Arquivo “/etc/hosts”</a></li>
-        
         </ul>
     
 
@@ -138,11 +136,15 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Servidores Web</span>
+    <span class="caption-text">Python</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../servidores-web/apache/">Apache2</a>
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
                 </li>
     </ul>
 	    </li>
@@ -160,26 +162,22 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Python</span>
+    <span class="caption-text">Node.JS</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../python/virtualenv/">virtualenv</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
                 </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Node.JS</span>
+    <span class="caption-text">Servidores Web</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
                 </li>
     </ul>
 	    </li>
@@ -262,6 +260,8 @@
             <div class="section">
               
                 <h1 id="arch_linux">Arch Linux<a class="headerlink" href="#arch_linux" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 05/05/2017</em></p>
+<hr />
 <h2 id="instlacao_basica">Instlação Básica:<a class="headerlink" href="#instlacao_basica" title="Permanent link">&para;</a></h2>
 <p>Mudar o layout do eclado para abnt2:</p>
 <pre class="codehilite"><code class="language-bash">$ loadkeys br-abnt2</code></pre>
@@ -445,9 +445,9 @@ $ sudo pacman -S xorg-server-utils</code></pre>
 <pre class="codehilite"><code class="language-bash">$ sudo pacman -S networkmanager
 
 # NÃO PRECISA - MAS PRECISO CHECAR
-_$ sudo pacman -S networkmanager-vpnc
+$ sudo pacman -S networkmanager-vpnc
 $ sudo pacman -S networkmanager-pptp
-$ sudo pacman -S networkmanager-openconnect_</code></pre>
+$ sudo pacman -S networkmanager-openconnect</code></pre>
 
 
 <pre class="codehilite"><code class="language-bash">$ sudo pacman -S network-manager-applet</code></pre>
@@ -459,17 +459,6 @@ $ sudo pacman -S networkmanager-openconnect_</code></pre>
 
 <h3 id="ssh">ssh<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h3>
 <pre class="codehilite"><code>$ sudo pacman -S openssh</code></pre>
-
-
-<h3 id="arquivo_etchosts">Arquivo “/etc/hosts”<a class="headerlink" href="#arquivo_etchosts" title="Permanent link">&para;</a></h3>
-<p>Para o ambiente de desenvolvimento pretendido é preciso atribuir uma entrada no arquivo <code>/etc/hosts</code>, para cada domínio local que se deseja acessar.<br />
-Essa ação fará com que os navegadores web instalados no computador possam acessar páginas locais, servidas no próprio computador, a partir de domínios locais.<br />
-No exemplo abaixo existe uma entrada para o domínio local <code>app1.local</code>, que pode ser acessado no navegador com o endereço “http://app1.local”.<br />
-Mostar o conteúdo do arquivo <code>/etc/hosts</code>:</p>
-<pre class="codehilite"><code class="language-bash">$ cat /etc/hosts
-127.0.0.1   localhost
-127.0.1.1   ARCH-LINUX-PC # este nome é definido na instalação
-127.0.0.1   app1.local # exemplo de entrada para um projeto</code></pre>
               
             </div>
           </div>

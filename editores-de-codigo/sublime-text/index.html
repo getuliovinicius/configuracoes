@@ -97,11 +97,15 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Servidores Web</span>
+    <span class="caption-text">Python</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../servidores-web/apache/">Apache2</a>
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
                 </li>
     </ul>
 	    </li>
@@ -119,26 +123,22 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Python</span>
+    <span class="caption-text">Node.JS</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../python/virtualenv/">virtualenv</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
                 </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Node.JS</span>
+    <span class="caption-text">Servidores Web</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
                 </li>
     </ul>
 	    </li>
@@ -235,16 +235,19 @@
             <div class="section">
               
                 <h1 id="sublime_text">Sublime Text<a class="headerlink" href="#sublime_text" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 05/05/2017</em></p>
+<hr />
 <p>Procedimento para instalação do <em>Sublime Text</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</p>
 <p>Faça o download do pacote para Debian em <a href="https://www.sublimetext.com/">https://www.sublimetext.com/</a></p>
-<p>Comandos para instalação do <em>Sublime Text</em>:</p>
-<pre class="codehilite"><code class="language-sh"># presumindo que o download foi feito no diretório padrão
-$ cd ~/Downloads
-$ sudo dpkg -i sublime-text_build-3126_amd64.deb
-
-# Substitua &quot;sublime-text_build-3126_amd64.deb&quot; pelo nome do arquivo que baixou</code></pre>
+<p>Comandos para instalação do <em>Sublime Text</em> - presumindo que o download foi feito no diretório padrão:</p>
+<pre class="codehilite"><code class="language-bash">$ cd ~/Downloads
+$ sudo dpkg -i sublime-text\_build-3126\_amd64.deb</code></pre>
 
 
+<div class="admonition attention">
+<p class="admonition-title">Atenção</p>
+<p>Substitua &ldquo;sublime-text_build-3126_amd64.deb&rdquo; pelo nome do arquivo que baixou.</p>
+</div>
 <h2 id="plugins">Plugins<a class="headerlink" href="#plugins" title="Permanent link">&para;</a></h2>
 <p>Segue uma lista com bons plugins para o <em>Sublime Text</em>:</p>
 <ul>
@@ -267,7 +270,7 @@ $ sudo dpkg -i sublime-text_build-3126_amd64.deb
 </ul>
 <h2 id="configuracoes_do_usuario">Configurações do usuário<a class="headerlink" href="#configuracoes_do_usuario" title="Permanent link">&para;</a></h2>
 <p>Abaixo um exemplo de configuração do <em>Sublime Text</em> editando o arquivo <code>Preferences.sublime-settings -- User</code> acessado a partir do menu <code>Preferences &gt; Settings</code>:</p>
-<pre class="codehilite"><code class="language-conf">{
+<pre class="codehilite"><code class="language-json">{
     &quot;font_size&quot;: 11,
     &quot;fade_fold_buttons&quot;: false,
     &quot;line_padding_top&quot;: 1,

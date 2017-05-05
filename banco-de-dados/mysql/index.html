@@ -97,11 +97,15 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Servidores Web</span>
+    <span class="caption-text">Python</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../servidores-web/apache/">Apache2</a>
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
                 </li>
     </ul>
 	    </li>
@@ -119,26 +123,22 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Python</span>
+    <span class="caption-text">Node.JS</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../python/virtualenv/">virtualenv</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
                 </li>
     </ul>
 	    </li>
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Node.JS</span>
+    <span class="caption-text">Servidores Web</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
                 </li>
     </ul>
 	    </li>
@@ -152,11 +152,11 @@
     <a class="current" href="./">MySQL</a>
     <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#instalacao_do_mysql">Instalação do MySQL</a></li>
+    <li class="toctree-l3"><a href="#servidor_de_banco_de_dados_mysql">Servidor de Banco de Dados MySQL</a></li>
     
         <ul>
         
-            <li><a class="toctree-l4" href="#instalacao_do_mysql_1">Instalação do MySQL</a></li>
+            <li><a class="toctree-l4" href="#instalacao_do_mysql">Instalação do MySQL</a></li>
         
         </ul>
     
@@ -232,9 +232,11 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="instalacao_do_mysql">Instalação do MySQL<a class="headerlink" href="#instalacao_do_mysql" title="Permanent link">&para;</a></h1>
+                <h1 id="servidor_de_banco_de_dados_mysql">Servidor de Banco de Dados MySQL<a class="headerlink" href="#servidor_de_banco_de_dados_mysql" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 05/05/2017</em></p>
+<hr />
 <p>O MySQL é um sistema gerenciador de bases de dados &ldquo;SGDB&rdquo;. É comum a utilização do MySQL em conjunto com o Apache e PHP para desenvolvimento web.</p>
-<h2 id="instalacao_do_mysql_1">Instalação do <em>MySQL</em><a class="headerlink" href="#instalacao_do_mysql_1" title="Permanent link">&para;</a></h2>
+<h2 id="instalacao_do_mysql">Instalação do <em>MySQL</em><a class="headerlink" href="#instalacao_do_mysql" title="Permanent link">&para;</a></h2>
 <p>Comando para instalar o <em>MySQL</em> nos sistemas operacionais <em>Debian, Ubuntu e Linux Mint</em>:</p>
 <pre class="codehilite"><code class="language-bash">$ sudo apt install mysql-server</code></pre>
 
@@ -257,11 +259,12 @@ O exemplo abaixo é um método que remete a duas palavras: (MySQL local), portan
 <div class="admonition note">
 <p class="admonition-title">Info</p>
 <p>Pode ser útil, caso esteja trabalhando em um servidor de produção, elevar o nível de segurança do servidor MySQL, para isso você pode recorrer ao utilitário <code>mysql_secure_installation</code></p>
-<p><code>bash
-$ sudo mysql_secure_installation</code></p>
-<p>Responda as questões conforme sua necessidade.</p>
 </div>
-<p>Para testar o login use o comando:</p>
+<p>Para executar o utilitário de configuração das diretivas de segurança do MySQL execute o comando:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo mysql_secure_installation</code></pre>
+
+
+<p>Responda as questões conforme sua necessidade e em seguida para testar o login use o comando:</p>
 <pre class="codehilite"><code class="language-bash">$ mysqladmin -p -u root version</code></pre>
               
             </div>
@@ -273,7 +276,7 @@ $ sudo mysql_secure_installation</code></p>
         <a href="../mongodb/" class="btn btn-neutral float-right" title="MongoDB">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../nodejs/nodejs/" class="btn btn-neutral" title="Node.JS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../servidores-web/apache/" class="btn btn-neutral" title="Apache2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -301,7 +304,7 @@ $ sudo mysql_secure_installation</code></p>
           <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../nodejs/nodejs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../servidores-web/apache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../mongodb/" style="color: #fcfcfc">Next &raquo;</a></span>
