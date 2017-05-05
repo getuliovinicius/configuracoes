@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>PHP - Configurações</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "PHP";
+    var mkdocs_page_input_path = "php/php.md";
+    var mkdocs_page_url = "/php/php/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-70830801-12', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Configurações</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Configurações</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sistemas Operacionais</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../sistema-operacional/arch-linux/">Arch Linux</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git/">Git</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Shell</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../shell/zsh/">zsh</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Servidores Web</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">PHP</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#serve_html_as_plaintext_dont_execute_shtml">Serve HTML as plaintext, don't execute SHTML</a></li>
+    
+
+    <li class="toctree-l3"><a href="#old_way_of_registering_php_with_addhandler">Old way of registering php with AddHandler</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recent_way_of_registering_php_with_sethandler">Recent way of registering php with SetHandler</a></li>
+    
+
+    <li class="toctree-l3"><a href="#if_youve_other_scripting_languages_disable_them_too">If you've other scripting languages, disable them too.</a></li>
+    
+
+    <li class="toctree-l3"><a href="#binbash">!/bin/bash</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recebe_o_usuario_atual">RECEBE O USUARIO ATUAL</a></li>
+    
+
+    <li class="toctree-l3"><a href="#le_o_nome_do_dominio_para_o_projeto">LE O NOME DO DOMINIO PARA O PROJETO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#le_a_linguagem_do_projeto">LE A LINGUAGEM DO PROJETO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#cria_o_diretorio_do_projeto">CRIA O DIRETORIO DO PROJETO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mkdir_-pv_homedev_webvhostsdominio">mkdir -pv $HOME/DEV_WEB/VHOSTS/$DOMINIO/</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mudar_para_superusuario">MUDAR PARA SUPERUSUARIO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#altera_a_propriedade_do_grupo_do_diretorio_do_projeto_para_o_grupo_do_apache">ALTERA A PROPRIEDADE DO GRUPO DO DIRETORIO DO PROJETO PARA O GRUPO DO APACHE</a></li>
+    
+
+    <li class="toctree-l3"><a href="#cria_um_link_entre_do_diretorio_do_projeto_para_o_diretorio_do_vhost">CRIA UM LINK ENTRE DO DIRETORIO DO PROJETO PARA O DIRETORIO DO VHOST</a></li>
+    
+
+    <li class="toctree-l3"><a href="#cria_o_vhost_do_apache">CRIA O VHOST DO APACHE</a></li>
+    
+
+    <li class="toctree-l3"><a href="#reinicia_o_apache">REINICIA O APACHE</a></li>
+    
+
+    <li class="toctree-l3"><a href="#cria_uma_entrada_para_o_dominio_no_arquivo_hosts">CRIA UMA ENTRADA PARA O DOMINIO NO ARQUIVO HOSTS</a></li>
+    
+
+    <li class="toctree-l3"><a href="#binbash_1">!/bin/bash</a></li>
+    
+
+    <li class="toctree-l3"><a href="#recebe_o_usuario_atual_1">RECEBE O USUARIO ATUAL</a></li>
+    
+
+    <li class="toctree-l3"><a href="#le_o_nome_do_dominio_para_o_projeto_1">LE O NOME DO DOMINIO PARA O PROJETO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#le_a_linguagem_do_projeto_1">LE A LINGUAGEM DO PROJETO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mudar_para_superusuario_1">MUDAR PARA SUPERUSUARIO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#remove_a_entrada_para_o_dominio_no_arquivo_hosts">REMOVE A ENTRADA PARA O DOMINIO NO ARQUIVO HOSTS</a></li>
+    
+
+    <li class="toctree-l3"><a href="#remove_o_vhost_do_apache">REMOVE O VHOST DO APACHE</a></li>
+    
+
+    <li class="toctree-l3"><a href="#remove_o_link_simbolico_entre_o_diretorio_do_projeto_e_o_vhost">REMOVE O LINK SIMBOLICO ENTRE O DIRETORIO DO PROJETO E O VHOST</a></li>
+    
+
+    <li class="toctree-l3"><a href="#reinicia_o_apache_1">REINICIA O APACHE</a></li>
+    
+
+    <li class="toctree-l3"><a href="#remove_o_diretorio_do_projeto">REMOVE O DIRETORIO DO PROJETO</a></li>
+    
+
+    <li class="toctree-l3"><a href="#as_linhas_abaixo_sao_as_entradas_para_as_aplicacoes_criadas">as linhas abaixo são as entradas para as aplicações criadas.</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mysql">mysql</a></li>
+    
+
+    <li class="toctree-l3"><a href="#apache">apache</a></li>
+    
+
+    <li class="toctree-l3"><a href="#php">php</a></li>
+    
+
+    <li class="toctree-l3"><a href="#mysql_1">mysql</a></li>
+    
+
+    <li class="toctree-l3"><a href="#apache_1">apache</a></li>
+    
+
+    <li class="toctree-l3"><a href="#php_1">php</a></li>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Node.JS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Banco de Dados</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Configurações</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>PHP &raquo;</li>
+        
+      
+    
+    <li>PHP</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/php/php.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p>Configuração do PHP<br />
+PHP é uma linguagem de scripts de propósito geral popular que é especialmente adequado para desenvolvimento web.<br />
+PHP é um acrônimo para Pré Processor Hiper Text. Mas e daí ;)<br />
+Instalação do PHP<br />
+Partindo para a instalação, o comando abaixo vai instalar o básico do PHP em seu desktop Ubuntu 16.04.<br />
+$ sudo apt install php7.0<br />
+PACOTES INSTALADOS: php-common php7.0 php7.0-cli php7.0-common php7.0-fpm php7.0-json php7.0-opcache php7.0-readline<br />
+Para checar a versão do PHP:<br />
+$ php &ndash;version<br />
+Instalação do módulo PHP para o Apache<br />
+Vamos instalar o módulo do apache “libapache2-mod-php”<br />
+$ sudo apt-get install libapache2-mod-php7.0<br />
+PACOTES INSTALADOS: libapache2-mod-php7.0<br />
+VirtualHost para o ambiente PHP<br />
+Para testar o funcionamento vamos criar um VirtualHost que sirva para checar o ambiente PHP e todas as suas características.<br />
+Começaremos com a estrutura de diretórios para projetos de páginas dinâmicas em PHP.<br />
+$ sudo mkdir -p /srv/www/php/ambiente-php.local<br />
+$ cd /srv/www/php/ambiente-php.local<br />
+Crie um arquivo “info.php” dentro do diretório recém criado:<br />
+$ sudo vim index.php<br />
+Copie o conteúdo abaixo para o arquivo:<br />
+&lt;?php<br />
+phpinfo();<br />
+?&gt;<br />
+Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”<br />
+$ sudo chown www-data\: /srv/www -R<br />
+Na sequência é preciso configurar o vhost.<br />
+$ cd /etc/apache2/sites-available<br />
+Criar um arquivo chamado “ambiente-php.local.conf”:<br />
+$ sudo vim /etc/apache2/sites-available/ambiente-php.local.conf<br />
+Copie o conteúdo abaixo para o arquivo:<br />
+<VirtualHost *:80><br />
+DocumentRoot /srv/www/php/ambiente-php.local<br />
+        <Directory /srv/www/php/ambiente-php.local/><br />
+    Options Indexes FollowSymLinks<br />
+        AllowOverride All<br />
+        Order allow,deny<br />
+        allow from all<br />
+    </Directory><br />
+        ServerName ambiente-php.local<br />
+        ServerAdmin root@ambiente-php.local<br />
+        ErrorLog /var/log/apache2/ambiente-php.local_error.log<br />
+        CustomLog /var/log/apache2/ambiente-php.local_access.log common<br />
+</VirtualHost><br />
+O novo VirtualHost deve ser habilitado usando o comando “a2ensite”, e o Apache reiniciado para persistir as mudança.<br />
+$ sudo a2ensite ambiente-php.local.conf<br />
+$ sudo systemctl restart apache2.service<br />
+E adicionar a entrada para o VirtualHost no arquivo “/etc/hosts”.<br />
+$ sudo vim /etc/hosts<br />
+Adicione a linha abaixo após as entradas criadas anteriormente para APP1 e APP2.<br />
+127.0.0.1   ambiente-php.local<br />
+Acesse os endereços “http://ambiente-php.local” para verificar toda a configuração do PHP.<br />
+Extensões do PHP que são Dependências de Muitas Aplicações<br />
+Observação: As extensões do PHP devem ser instaladas e configuradas apenas para satisfazer as necessidades de aplicações que se queira usar. Não devem ser instalados módulos que não serão utilizados por nenhuma aplicação. As extensões que serão instaladas na sequência, são exigências para instalar aplicações como Phpmyadmin, MediaWiki, Drupal e também para desenvolver utilizando os Frameworks: Laravel e CodeIgniter por exemplo.<br />
+gd, mbstring, mcrypt, mysql, intl, xml<br />
+$ sudo apt install php7.0-gd php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-intl php7.0-xml<br />
+PACOTES INSTALADOS: libmcrypt4 php7.0-gd php7.0-intl php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-xml<br />
+curl<br />
+Extensão necessária para quase tudo que envolve de webservices.<br />
+$ sudo apt install curl php7.0-curl<br />
+PACOTES INSTALADOS: php7.0-curl<br />
+Listar as configurações do PHP<br />
+Após instalar as extensões do PHP que lhe forem necessárias, é preciso reiniciar o Apache:<br />
+$ sudo systemctl restart apache2.service<br />
+Para listar os módulos do PHP instalados e habilitados, rode o comando:<br />
+$ php -m<br />
+Gerenciadores dependências e pacotes<br />
+Gerenciador de dependências “PEAR”: (opcional)<br />
+$ sudo apt-get install php-pear<br />
+PACOTES INSTALADOS: php-pear<br />
+Reiniciar o Apache:<br />
+$ sudo systemctl restart apache2.service<br />
+Composer<br />
+O composer pode ser instalado globalmente como explicado logo abaixo, mas eu prefiro instalar apenas no escopo do projeto que está em desenvolvimento.<br />
+As instruções para uso podem ser vistas aqui: https://getcomposer.org/<br />
+Siga as instruções abaixo para instalar globalmente:<br />
+$ php -r &ldquo;copy(&lsquo;https://getcomposer.org/installer&rsquo;, &lsquo;composer-setup.php&rsquo;);&rdquo;<br />
+$ php -r &ldquo;if (hash_file(&lsquo;SHA384&rsquo;, &lsquo;composer-setup.php&rsquo;) === &lsquo;e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae&rsquo;) { echo &lsquo;Installer verified&rsquo;; } else { echo &lsquo;Installer corrupt&rsquo;; unlink(&lsquo;composer-setup.php&rsquo;); } echo PHP_EOL;&rdquo;<br />
+$ php composer-setup.php<br />
+$ php -r &ldquo;unlink(&lsquo;composer-setup.php&rsquo;);&rdquo;<br />
+$ sudo mv composer.phar /usr/local/bin/composer<br />
+Configuração de Aplicações PHP prontas para uso<br />
+PHPMYADMIN<br />
+O Phpmyadmin é uma aplicação para gerenciar o banco de dados MySQL. É uma ferramenta fundamental para o desenvolvimento Web pela facilidade que agrega as etapas de desenvolvimento.<br />
+Instalação do Phpmyadmin:<br />
+Acessar o diretório de hospedagem dos projetos em PHP:<br />
+$ cd /srv/www/php/<br />
+Primeiro é preciso baixar o pacote de instalação direto do site do desenvolvedor com o comando “wget”:<br />
+$ sudo wget<br />
+ https://files.phpmyadmin.net/phpMyAdmin/4.6.6/phpMyAdmin-4.6.6-all-languages.zip<br />
+Existe uma versão do Phpmyadmin nos repositórios do Ubuntu, mas vamos instalar na unha.<br />
+Descompactar o pacote de instalação e renomear o diretório:<br />
+$ sudo unzip phpMyAdmin-4.6.3-all-languages.zip<br />
+$ sudo mv phpMyAdmin-4.6.3-all-languages phpmyadmin.local<br />
+Na sequência é preciso editar o arquivo ”config.inc.php”.<br />
+$ cd /srv/www/php/phpmyadmin.local<br />
+$ sudo cp config.sample.inc.php config.inc.php<br />
+$ sudo vim config.inc.php<br />
+Adicione uma senha na linha 16 do arquivo,:<br />
+$cfg[&lsquo;blowfish_secret&rsquo;] = &lsquo;phpmy4dm1n10293845876857phpmy4dm1n10293845876857phpmy4dm1n10293845876857&rsquo;; /<em> YOU MUST FILL IN THIS FOR COOKIE AUTH! </em>/<br />
+No exemplo foi utilizado:<br />
+ “phpmy4dm1n10293845876857phpmy4dm1n10293845876857phpmy4dm1n10293845876857”<br />
+como senha.<br />
+Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”<br />
+$ sudo chown www-data\: /srv/www -R<br />
+Adicionar o VirtualHost ao Apache<br />
+Por último é preciso configurar o vhost.<br />
+$ cd /etc/apache2/sites-available<br />
+Criar um arquivo chamado “phpmyadmin.local.conf”:<br />
+$ sudo vim /etc/apache2/sites-available/phpmyadmin.local.conf<br />
+Copie o conteúdo abaixo para o arquivo:<br />
+<VirtualHost *:80><br />
+DocumentRoot /srv/www/php/phpmyadmin.local<br />
+        <Directory /srv/www/php/phpmyadmin.local/><br />
+    Options Indexes FollowSymLinks<br />
+        AllowOverride All<br />
+        Order allow,deny<br />
+        allow from all<br />
+    </Directory><br />
+        ServerName phpmyadmin.local<br />
+        ServerAdmin root@phpmyadmin.local<br />
+        ErrorLog /var/log/apache2/phpmyadmin.local_error.log<br />
+        CustomLog /var/log/apache2/phpmyadmin.local_access.log common<br />
+</VirtualHost><br />
+O novo VirtualHost deve ser habilitado usando o comando “a2ensite”, e o Apache reiniciado para persistir as mudança.<br />
+$ sudo a2ensite phpmyadmin.local.conf<br />
+$ sudo systemctl restart apache2.service<br />
+Finalmente adicionar a entrada para o VirtualHost no arquivo “/etc/hosts”.<br />
+$ sudo vim /etc/hosts<br />
+Adicione a linha abaixo após as entradas criadas anteriormente para APP1 e APP2.<br />
+127.0.0.1   phpmyadmin.local<br />
+Usando o Phpmyadmin<br />
+Acesse os endereços “http://phpmyadmin.local” para verificar toda a configuração do PHP.<br />
+Através do Phpmyadmin vamos criar um usuário chamado “gerente_app”, que será utilizado para instalação de todas as aplicações e desenvolvimento de projetos locais que necessitem de base de dados.<br />
+PERCEBE QUE DESSE JEITO VC PASSA A ENTENDER MELHOR O FUNCIONAMENTO DAS COISAS? RETORNANDO AO QUE PONTUEI NO INÍCIO, DOCKER É UMA BOA, MAS AQUI NESSE PONTO VOCÊ JÁ DEVE TER PERCEBIDO QUE SABER COMO ORGANIZAR O SISTEMA É BEM INTERESSANTE.<br />
+Localize na interface o link “Contas de usuário” e crie a nova conta<br />
+Nome de usuário: gerente_app<br />
+Host name: localhost<br />
+Senha: G3r3nt3_4pp<br />
+WORDPRESS<br />
+(https://br.wordpress.org/)<br />
+O WordPress é uma aplicação em PHP para gerenciamento de conteúdo CMS (em inglês content management system).<br />
+É preciso criar uma base de dados no MySQL para instalação da aplicação. Utilize o Phpmyadmin para criar uma base de dados para a instalação do WordPress e conceda todas as permissões ao usuário “gerente_app”.<br />
+usuário: gerente_app<br />
+senha: G3r3nt3_4pp<br />
+base de dados: wordpress_01<br />
+Instalação do WordPress<br />
+Acessar o diretório de hospedagem dos arquivos de aplicações PHP na estrutura de diretórios em “/srv”.<br />
+$ cd /srv/www/php<br />
+No site do projeto WordPress, indicado antes, você encontra o link para download do pacote de instalação da versão estável, compactado no formato tar.gz. Copie o link e faça o download através do terminal do Linux utilizando o comando “wget”:<br />
+$ sudo wget https://br.wordpress.org/wordpress-4.7.1-pt_BR.tar.gz<br />
+Para descompactar o pacote use o utilitário “tar”:<br />
+$ sudo tar -xzvf wordpress-4.7.1-pt_BR.tar.gz<br />
+Agora vamos renomear o diretório descompactado para qualquer coisa .local:<br />
+$ sudo mv wordpress wordpress-01.local<br />
+O nome “wordpress-01.local” é apenas um exemplo, poderia ser “blog.local”.<br />
+Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”<br />
+$ sudo chown www-data\: /srv/www -R<br />
+Adicionar o VirtualHost ao Apache<br />
+É preciso criar um arquivo de configuração do VirtualHost, no diretório “/etc/apache2/sites-available” e a entrada no arquivo “/etc/hosts” da mesma forma como foram criadas para as aplicações de teste APP1 e APP2.<br />
+Após a criação do VirtualHost e da entrada no arquivo “/etc/hosts” é preciso adicionar as configurações do Apache com o comando “a2ensite”:<br />
+$ sudo a2ensite wordpress-01.local.conf<br />
+Reiniciar o apache:<br />
+$ sudo systemctl restart apache2.service<br />
+Para iniciar a instalação do WordPress no servidor local acesse: “http://wordpress-01.local”<br />
+Durante a instalação do WordPress será solicitada a configuração do nome do site do usuário administrador, senha e e-mail.<br />
+usuário: admin<br />
+e-mail: admin@blog.local<br />
+senha: *6oc(oi92ZozFSyYod<br />
+Repositório de extensões PHP<br />
+Para conseguir instalar todas as dependências, ou pelo menos a maioria delas, necessárias a algumas aplicações conceituadas escritas em PHP, sem a necessidade de compilar extensões na unha, você pode adicionar um repositório que possui uma vasta lista de pacotes dedicado a complementos da linguagem PHP.<br />
+Observação: Adicione o repositório abaixo apenas se você tem intenção de instalar alguns CMS como o Drupal ou o MediaWiki.<br />
+Use o comando abaixo para adicionar o repositório:<br />
+$ sudo add-apt-repository ppa:ondrej/php<br />
+MEDIAWIKI<br />
+(https://www.mediawiki.org/wiki/MediaWiki)<br />
+O MediaWikki é uma aplicação em PHP colcaborativa para formação de bases de conhecimento.<br />
+É preciso criar ma base de dados no MySQL para instalação da aplicação. Utilize o Phpmyadmin para criar uma base de dados para a instalação do MediaWiki e conceda todas as permissões ao usuário “gerente_app”.<br />
+usuário: gerente_app<br />
+senha: G3r3nt3_4pp<br />
+base de dados: wiki_01<br />
+$ sudo apt install php-apcu php-apcu-bc<br />
+Instalação do MediaWiki<br />
+Acessar o diretório de hospedagem dos arquivos de aplicações PHP na estrutura de diretórios em “/srv”.<br />
+$ cd /srv/www/php<br />
+No site do projeto MediaWiki, indicado antes, você encontra o link para download do pacote de instalação da versão estável, compactado no formato tar.gz. Copie o link e faça o download através do terminal do Linux utilizando o comando “wget”:<br />
+$ sudo wget https://releases.wikimedia.org/mediawiki/1.27/mediawiki-1.27.0.tar.gz<br />
+Para descompactar o pacote use o utilitário “tar”:<br />
+$ sudo tar -xzvf mediawiki-1.27.0.tar.gz<br />
+Agora vamos renomear o diretório descompactado para qualquer coisa .local:<br />
+$ sudo mv mediawiki-1.27.0 wiki.local<br />
+O nome wiki.local é apenas um exemplo.<br />
+É preciso atualizar o arquivo “images/.htaccess” no diretório de instalação do MediaWiki, “wiki.local”:<br />
+$ cd /srv/www/php/wiki.local/images<br />
+$ sudo vim .htaccess<br />
+Copie o conteúdo abaixo no inicio do arquivo:</p>
+<h1 id="serve_html_as_plaintext_dont_execute_shtml">Serve HTML as plaintext, don&rsquo;t execute SHTML<a class="headerlink" href="#serve_html_as_plaintext_dont_execute_shtml" title="Permanent link">&para;</a></h1>
+<p>AddType text/plain .html .htm .shtml .php .phtml .php5</p>
+<h1 id="old_way_of_registering_php_with_addhandler">Old way of registering php with AddHandler<a class="headerlink" href="#old_way_of_registering_php_with_addhandler" title="Permanent link">&para;</a></h1>
+<p>RemoveHandler .php</p>
+<h1 id="recent_way_of_registering_php_with_sethandler">Recent way of registering php with SetHandler<a class="headerlink" href="#recent_way_of_registering_php_with_sethandler" title="Permanent link">&para;</a></h1>
+<p><FilesMatch "\.ph(p[345]?s?|tml)$"><br />
+   SetHandler None<br />
+</FilesMatch></p>
+<h1 id="if_youve_other_scripting_languages_disable_them_too">If you&rsquo;ve other scripting languages, disable them too.<a class="headerlink" href="#if_youve_other_scripting_languages_disable_them_too" title="Permanent link">&para;</a></h1>
+<p>Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”<br />
+$ sudo chown www-data\: /srv/www -R<br />
+Adicionar o VirtualHost ao Apache<br />
+É preciso criar um arquivo de configuração do VirtualHost, no diretório “/etc/apache2/sites-available” e a entrada no arquivo “/etc/hosts” da mesma forma como foram criadas para as aplicações de teste APP1 e APP2.<br />
+Após a criação do VirtualHost e da entrada no arquivo “/etc/hosts” é preciso adicionar as configurações do Apache com o comando “a2ensite”:<br />
+$ sudo a2ensite wiki.local.conf<br />
+Reiniciar o apache:<br />
+$ sudo systemctl restart apache2.service<br />
+Para iniciar a instalação do MediaWiki no servidor local acesse: “http://wiki.local”<br />
+Durante a instalação do MediaWiki será solicitada a configuração do nome do site do usuário administrador, senha e e-mail.<br />
+usuário: admin<br />
+e-mail: admin@wiki.local<br />
+senha: <em>6oc(oi92ZozFSyYod<br />
+Extensões apcu e apcu-bc<br />
+Caso não dê certo a tentativa de instalar o MEDIAWIKI e durante a instalação ele reclame da falta de extensões do php, existe uma grande chance de ser a “apcu”. Instale com o comando abaixo e depois volte para a instalação da aplicação.<br />
+Quando concluir a instalação será realizado o download do arquivo de configuração que deve ser enviado para a raiz do MediaWiki:<br />
+$ cd /srv/www/php/wiki.local<br />
+$ sudo mv ~/Downloads/LocalSettings.php .<br />
+Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”<br />
+$ sudo chown www-data\: /srv/www -R<br />
+DRUPAL<br />
+“Drupal é um software de gerenciamento de conteúdo. É usado para fazer muitos dos sites e aplicativos que você usa todos os dias. Drupal tem grandes recursos padrão, como criação fácil de conteúdo, desempenho confiável e excelente segurança. Mas o que o diferencia é a sua flexibilidade; modularidade é um dos seus princípios fundamentais. Suas ferramentas ajuda a construir o conteúdo versátil, estruturados que as experiências Web dinâmicas precisam.” - (https://www.drupal.org/)<br />
+Banco de dados<br />
+É preciso criar uma base de dados no MySQL para instalação da aplicação. Utilize o Phpmyadmin para criar uma base de dados para a instalação do Drupal.<br />
+usuário: gerente_app<br />
+senha: G3r3nt3_4pp<br />
+base de dados: drupal_01<br />
+Instalação do Drupal<br />
+Acessar o diretório de hospedagem dos arquivos de aplicações PHP na estrutura de diretórios em “/srv”.<br />
+$ cd /srv/www/php<br />
+No site do projeto Drupal, indicado antes, você encontra o link para download do pacote de instalação da versão estável compactado no formato “tar.gz”. Copie o link e faça o download através do terminal do Linux utilizando o comando “wget”:<br />
+$ sudo wget https://ftp.drupal.org/files/projects/drupal-8.0.2.tar.gz<br />
+Para descompactar o pacote use o utilitário “tar”:<br />
+$ sudo tar -xzvf drupal-8.0.1.tar.gz<br />
+Agora vamos renomear o diretório descompactado para qualquer coisa .local:<br />
+$ sudo mv drupal-8.0.1 aplicacao.local<br />
+O nome aplicacao.local é apenas um exemplo.<br />
+Permissões para os Diretórios e Arquivos de Configuração<br />
+Para inciar a instalação do Drupal é preciso criar os arquivos “../site/default/settings.php” e “../site/default/services.yml”. Ambos podem ser copiados de arquivos padrões que já existem no diretório.<br />
+$ cd /srv/www/php/aplicacao.local/sites/default/<br />
+$ sudo cp default.settings.php settings.php<br />
+$ sudo cp default.services.yml services.yml<br />
+Ajustar as permissões dos dois arquivos para que possam ser escritos durante a instalação do Drupal:<br />
+$ sudo chmod a+w se</em><br />
+Criar o diretório de traduções:<br />
+$ cd /srv/www/php/aplicacao.local/<br />
+$ sudo mkdir -p sites/default/files/translations<br />
+Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”<br />
+$ sudo chown www-data\: /srv/www -R<br />
+Adicionar o VirtualHost ao Apache<br />
+É preciso criar um arquivo de configuração do VirtualHost, no diretório “/etc/apache2/sites-available” e a entrada no arquivo “/etc/hosts” da mesma forma como foram criadas para as aplicações de teste APP1 e APP2.<br />
+Após a criação do VirtualHost e da entrada no arquivo “/etc/hosts” é preciso adicionar as configurações do Apache com o comando “a2ensite”:<br />
+$ sudo a2ensite aplicacao.local.conf<br />
+Reiniciar o apache:<br />
+$ sudo systemctl restart apache2.service<br />
+Para inciar a instalação do Drupal no servidor local acesse: “http://aplicacao.local”<br />
+Durante a instalação do Drupal será solicitada a configuração do nome do site do usuário administrador, senha e e-mail.<br />
+usuário: admin<br />
+e-mail: admin@aplicacao.local<br />
+senha: *6oc(oi92ZozFSyYod<br />
+Extensões<br />
+php-dev (opcional)<br />
+$ sudo apt-get install php-dev<br />
+PACOTES INSTALADOS: autoconf automake autotools-dev debhelper dh-php dh-strip-nondeterminism gettext intltool-debian libarchive-zip-perl libasprintf-dev libfile-stripnondeterminism-perl libgettextpo-dev libgettextpo0 libltdl-dev libmail-sendmail-perl libpcre3-dev libpcre32-3 libpcrecpp0v5 libssl-dev libssl-doc libssl1.0.2 libsys-hostname-long-perl libtool m4 php7.0-dev pkg-php-tools po-debconf shtool xml2 zlib1g-dev<br />
+Por questões de segurança o pacote “php-dev” deve ser removido após a instalação das bibliotecas compiladas em servidores que estejam em produção. No caso de ambientes de desenvolvimento como este, pode se manter o pacote, pois podemos precisar de algumas dependências para compilar bibliotecas.<br />
+uploadprogress (necessária para o Drupal)<br />
+$ sudo apt-get install uploadprogress<br />
+php-twig (necessária para o Drupal)<br />
+$ sudo apt-get install php-twig<br />
+Configurar Aplicações em Diretórios Acessíveis<br />
+No Linux o único diretório com permissão de escrita para o usuário padrão, o usuário da instalação do sistema operacional, é o diretório “home” de sua conta: “/home/nome_usuario”.<br />
+Por essa razão não dá pra editar o código PHP no local que decidimos instalar as aplicações, ou seja, o diretório “/srv/www/php”. Sendo assim vamos mudar as configurações de forma sutil para termos acesso de leitura e escrita aos arquivos de código fonte das aplicações.<br />
+As aplicações: Drupal, Phpmyadmin, MediaWiki e WordPress mostradas acima não necessitam de alterações no código, portanto não sofrerão alterações nas permissões. A configuração mostrada até agora reflete de forma fidedigna as configurações ideais para instalação de aplicações PHP em servidores de produção.<br />
+Configuração do Diretório de Desenvolvimento<br />
+O primeiro passo é criar um diretório no diretório home do usuário padrão, criado durante a instalação do sistema operacional Linux, por exemplo “/home/nome_usuario/DEV_WEB/VHOSTS”:<br />
+$ mkdir -p ~/DEV_WEB/VHOSTS<br />
+O “~” (til) é um curinga que substitui o diretório home no momento de digitar comandos no prompt.<br />
+Na pasta projetos iremos criar propriamente nossas aplicações, portanto será ali que iremos colocar os diretórios “.local”, por exemplo:<br />
+$ cd ~/DEV_WEB/VHOSTS<br />
+$ mkdir projeto1.local<br />
+Agora vamos criar um link simbólico para o diretório “projeto1.local” dentro do diretório reconhecido pelo Apache “/srv/www/php/”:<br />
+$ cd /srv/www/php/<br />
+$ sudo ln -s ~/DEV_WEB/VHOSTS/projeto1.local .<br />
+$ sudo chown -R www-data\: projeto1.local<br />
+Acessamos o diretório de desenvolvimento criado na home do usuário padrão:<br />
+$ cd ~/DEV_WEB/VHOSTS/<br />
+Então passamos para a mudança sutil que nos permitirá o acesso com leitura e escrita aos códigos fonte de aplicações desenvolvidas em PHP.<br />
+Alteramos o usuário dono, mas não o grupo, do diretório “~/DEV_WEB/VHOSTS/projeto1.local” para o usuário padrão:<br />
+$ sudo chown -R seu_uruario:www-data projeto1.local/<br />
+De agora em diante é possível editar projetos, códigos de aplicações desenvolvidas em PHP, com editores de texto como o Sublime Text que iremos instalar logo mais.<br />
+Sempre que for rodar uma aplicação desenvolvida por você mesmo repita os passos na sequência, substituindo “projetoX.local” pelo nome que você deseja:<br />
+$ cd /srv/www/php/<br />
+$ sudo ln -s ~/DEV_WEB/VHOSTS/projetoX.local<br />
+$ sudo chown -R www-data\: projetoX.local<br />
+$ cd ~/DEV_WEB/VHOSTS<br />
+$ mkdir projetoX.local<br />
+$ sudo chown -R seu_uruario:www-data projetoX.local/<br />
+A configuração dos VirtualHosts e as entradas no arquivo “/etc/hosts” podem ser feitas conforme os exemplos anteriores.<br />
+Veja um exemplo prático na configuração do primeiro projeto em Laravel, logo mais.<br />
+Acostume-se a lidar com permissões de arquivos, principalmente com os comandos chown e chmod, pois isso é fundamental no desenvolvimento e quem não sabe usar corretamente esses comandos faz cagada em servidores.<br />
+Não é brincadeira. Saber usar o prompt de comando e conhecer o funcionamento de permissões e propriedades de arquivos e diretórios faz toda diferença.<br />
+Se você não se empolgou com isso, fica então esses dois scripts, um para criar um novo projeto e outro para remover um projeto.<br />
+Basta copiar o código e salvar em um arquivo dentro de um diretório de sua preferência, eu aconselho o deixar em “~/DEV_WEB/” e logo após dar permissão de execução,<br />
+novo-projeto.sh<br />
+$ cd ~/DEV_WEB<br />
+$ vim novo-projeto.sh</p>
+<h1 id="binbash">!/bin/bash<a class="headerlink" href="#binbash" title="Permanent link">&para;</a></h1>
+<h1 id="recebe_o_usuario_atual">RECEBE O USUARIO ATUAL<a class="headerlink" href="#recebe_o_usuario_atual" title="Permanent link">&para;</a></h1>
+<p>USER_DEV=$USER</p>
+<h1 id="le_o_nome_do_dominio_para_o_projeto">LE O NOME DO DOMINIO PARA O PROJETO<a class="headerlink" href="#le_o_nome_do_dominio_para_o_projeto" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;Informe o dominio para o projeto (Ex.: projeto-01.local):&rdquo;<br />
+read DOMINIO<br />
+if [ -e &ldquo;/etc/apache2/sites-available/$DOMINIO.conf&rdquo; ]; then<br />
+    echo &ldquo;ERRO: O dominio já existe.&rdquo;<br />
+    exit 1<br />
+fi</p>
+<h1 id="le_a_linguagem_do_projeto">LE A LINGUAGEM DO PROJETO<a class="headerlink" href="#le_a_linguagem_do_projeto" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;Informe a linguagem principal de desenvolvimento do projeto (Ex.: php):&rdquo;<br />
+read LINGUAGEM</p>
+<h1 id="cria_o_diretorio_do_projeto">CRIA O DIRETORIO DO PROJETO<a class="headerlink" href="#cria_o_diretorio_do_projeto" title="Permanent link">&para;</a></h1>
+<h1 id="mkdir_-pv_homedev_webvhostsdominio">mkdir -pv $HOME/DEV_WEB/VHOSTS/$DOMINIO/<a class="headerlink" href="#mkdir_-pv_homedev_webvhostsdominio" title="Permanent link">&para;</a></h1>
+<h1 id="mudar_para_superusuario">MUDAR PARA SUPERUSUARIO<a class="headerlink" href="#mudar_para_superusuario" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;&gt;&gt;&gt;&rdquo;<br />
+echo &ldquo;Para criar o vHost no Apache é preciso rodar o script como super usuario.&rdquo;<br />
+echo &ldquo;Certifique-se que seu usuario ($USER_DEV) tem permissao para usar o comando sudo.&rdquo;<br />
+echo &ldquo;&gt;&gt;&gt;&rdquo;<br />
+sudo -u root bash &lt;&lt; EOF</p>
+<h1 id="altera_a_propriedade_do_grupo_do_diretorio_do_projeto_para_o_grupo_do_apache">ALTERA A PROPRIEDADE DO GRUPO DO DIRETORIO DO PROJETO PARA O GRUPO DO APACHE<a class="headerlink" href="#altera_a_propriedade_do_grupo_do_diretorio_do_projeto_para_o_grupo_do_apache" title="Permanent link">&para;</a></h1>
+<p>chown -v $USER_DEV:www-data $HOME/DEV_WEB/VHOSTS/$DOMINIO</p>
+<h1 id="cria_um_link_entre_do_diretorio_do_projeto_para_o_diretorio_do_vhost">CRIA UM LINK ENTRE DO DIRETORIO DO PROJETO PARA O DIRETORIO DO VHOST<a class="headerlink" href="#cria_um_link_entre_do_diretorio_do_projeto_para_o_diretorio_do_vhost" title="Permanent link">&para;</a></h1>
+<p>ln -s $HOME/DEV_WEB/VHOSTS/$DOMINIO /srv/www/$LINGUAGEM/$DOMINIO<br />
+chown -Rv www-data\: /srv/www/$LINGUAGEM/$DOMINIO</p>
+<h1 id="cria_o_vhost_do_apache">CRIA O VHOST DO APACHE<a class="headerlink" href="#cria_o_vhost_do_apache" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;<VirtualHost *:80><br />
+    DocumentRoot /srv/www/$LINGUAGEM/$DOMINIO<br />
+    <Directory /srv/www/$LINGUAGEM/$DOMINIO/><br />
+        Options Indexes FollowSymLinks<br />
+        AllowOverride All<br />
+        Order allow,deny<br />
+        allow from all<br />
+    </Directory><br />
+    ServerName $DOMINIO<br />
+    ServerAdmin root@$DOMINIO<br />
+    ErrorLog /var/log/apache2/$DOMINIO-error.log<br />
+    CustomLog /var/log/apache2/$DOMINIO-access.log common<br />
+</VirtualHost>&rdquo; &gt; /etc/apache2/sites-available/$DOMINIO.conf<br />
+a2ensite $DOMINIO.conf</p>
+<h1 id="reinicia_o_apache">REINICIA O APACHE<a class="headerlink" href="#reinicia_o_apache" title="Permanent link">&para;</a></h1>
+<p>systemctl restart apache2.service</p>
+<h1 id="cria_uma_entrada_para_o_dominio_no_arquivo_hosts">CRIA UMA ENTRADA PARA O DOMINIO NO ARQUIVO HOSTS<a class="headerlink" href="#cria_uma_entrada_para_o_dominio_no_arquivo_hosts" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;127.0.0.1     $DOMINIO&rdquo; &gt;&gt; /etc/hosts<br />
+EOF<br />
+echo &ldquo;acesse: http://$DOMINIO&rdquo;<br />
+exit<br />
+$ chmod +x novo-projeto.sh<br />
+Para chamar na linha de comando digite:<br />
+$ ./novo-projeto.sh<br />
+remover-projeto.sh<br />
+$ cd ~/DEV_WEB<br />
+$ vim remover-projeto.sh</p>
+<h1 id="binbash_1">!/bin/bash<a class="headerlink" href="#binbash_1" title="Permanent link">&para;</a></h1>
+<h1 id="recebe_o_usuario_atual_1">RECEBE O USUARIO ATUAL<a class="headerlink" href="#recebe_o_usuario_atual_1" title="Permanent link">&para;</a></h1>
+<p>USER_DEV=$USER</p>
+<h1 id="le_o_nome_do_dominio_para_o_projeto_1">LE O NOME DO DOMINIO PARA O PROJETO<a class="headerlink" href="#le_o_nome_do_dominio_para_o_projeto_1" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;Informe o projeto que quer remover (Ex.: projeto-01.local):&rdquo;<br />
+read DOMINIO<br />
+if [ ! -e &ldquo;/etc/apache2/sites-available/$DOMINIO.conf&rdquo; ]; then<br />
+    echo &ldquo;ERRO: O dominio não existe.&rdquo;<br />
+    exit 1<br />
+fi</p>
+<h1 id="le_a_linguagem_do_projeto_1">LE A LINGUAGEM DO PROJETO<a class="headerlink" href="#le_a_linguagem_do_projeto_1" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;Informe a linguagem principal de desenvolvimento do projeto (Ex.: php):&rdquo;<br />
+read LINGUAGEM<br />
+if [ ! -d &ldquo;/srv/www/$LINGUAGEM/$DOMINIO&rdquo; ]; then<br />
+    echo &ldquo;ERRO: Link do projeto não existe.&rdquo;<br />
+    exit 1<br />
+fi</p>
+<h1 id="mudar_para_superusuario_1">MUDAR PARA SUPERUSUARIO<a class="headerlink" href="#mudar_para_superusuario_1" title="Permanent link">&para;</a></h1>
+<p>echo &ldquo;&gt;&gt;&gt;&rdquo;<br />
+echo &ldquo;Para remover o vHost no Apache é preciso rodar o script como super usuario.&rdquo;<br />
+echo &ldquo;Certifique-se que seu usuario ($USER_DEV) tem permissao para usar o comando sudo.&rdquo;<br />
+echo &ldquo;&gt;&gt;&gt;&rdquo;<br />
+sudo -u root bash &lt;&lt; EOF</p>
+<h1 id="remove_a_entrada_para_o_dominio_no_arquivo_hosts">REMOVE A ENTRADA PARA O DOMINIO NO ARQUIVO HOSTS<a class="headerlink" href="#remove_a_entrada_para_o_dominio_no_arquivo_hosts" title="Permanent link">&para;</a></h1>
+<p>sed -i &lsquo;/$DOMINIO/Id&rsquo; /etc/hosts</p>
+<h1 id="remove_o_vhost_do_apache">REMOVE O VHOST DO APACHE<a class="headerlink" href="#remove_o_vhost_do_apache" title="Permanent link">&para;</a></h1>
+<p>a2dissite $DOMINIO.conf<br />
+rm /etc/apache2/sites-available/$DOMINIO.conf</p>
+<h1 id="remove_o_link_simbolico_entre_o_diretorio_do_projeto_e_o_vhost">REMOVE O LINK SIMBOLICO ENTRE O DIRETORIO DO PROJETO E O VHOST<a class="headerlink" href="#remove_o_link_simbolico_entre_o_diretorio_do_projeto_e_o_vhost" title="Permanent link">&para;</a></h1>
+<p>rm /srv/www/$LINGUAGEM/$DOMINIO</p>
+<h1 id="reinicia_o_apache_1">REINICIA O APACHE<a class="headerlink" href="#reinicia_o_apache_1" title="Permanent link">&para;</a></h1>
+<p>systemctl restart apache2.service<br />
+EOF</p>
+<h1 id="remove_o_diretorio_do_projeto">REMOVE O DIRETORIO DO PROJETO<a class="headerlink" href="#remove_o_diretorio_do_projeto" title="Permanent link">&para;</a></h1>
+<p>rm -rfv $HOME/DEV_WEB/VHOSTS/$DOMINIO/<br />
+$ chmod +x remover-projeto.sh<br />
+Para chamar na linha de comando digite:<br />
+$ ./remover-projeto.sh<br />
+Configuração do Framework Laravel<br />
+(http://laravel.com/)<br />
+O Laravel é um framework escrito em PHP que facilita o desenvolvimento de aplicações web. Existem diversos cursos no YouTube para iniciar os estudos, aqui eu vou mostrar como instalar apenas.<br />
+Banco de Dados<br />
+É preciso criar uma base de dados no MySQL para utilização em projetos. Utilize o Phpmyadmin para criar uma base de dados para a instalação do Laravel.<br />
+usuário: gerente_app<br />
+senha: G3r3nt3_4pp<br />
+base de dados: laravel_01<br />
+Download e Instalação do Laravel<br />
+Vamos iniciar criando o link simbólico do vhost:<br />
+$ cd /srv/www/php/<br />
+$ sudo ln -s ~/DEV_WEB/VHOSTS/projeto-laravel-01.local<br />
+$ sudo chown -R www-data\: projeto-laravel-01.local<br />
+Acessar o diretório de hospedagem dos arquivos de aplicações PHP na estrutura de diretórios criada na home do usuário padrão:<br />
+$ cd ~/DEV_WEB/VHOSTS<br />
+No site do projeto Laravel, indicado antes, você encontra o link para documentação do framework. Seguiremos as instruções e faremos a instalação através do terminal do Linux utilizando o comando “composer”:<br />
+$ composer create-project &ndash;prefer-dist laravel/laravel projeto-laravel-01.local<br />
+O nome projeto-laravel-01.local é apenas um exemplo.<br />
+Alterar o dono e o grupo dos arquivos respectivamente para: seu_usuario e www-data:<br />
+$ sudo chown -R seu_usuario:www-data projeto-laravel-01.local/<br />
+Adicionar o VirtualHost ao Apache<br />
+É preciso criar um arquivo de configuração do VirtualHost, no diretório “/etc/apache2/sites-available” e a entrada no arquivo “/etc/hosts” da mesma forma como foram criadas para as aplicações de teste APP1 e APP2.<br />
+Editar o arquivo “projeto2.local.conf”:<br />
+$ sudo vim /etc/apache2/sites-available/projeto-laravel-01.local.conf<br />
+<VirtualHost *:80><br />
+        DocumentRoot /srv/www/php/projeto-laravel-01.local/public<br />
+        <Directory /srv/www/vhosts/projeto-laravel-01.local/public/><br />
+        Options Indexes FollowSymLinks<br />
+        AllowOverride All<br />
+        Order allow,deny<br />
+        allow from all<br />
+        </Directory><br />
+        ServerName projeto-laravel-01.local<br />
+        ServerAdmin root@projeto-laravel-01.local<br />
+        ErrorLog /var/log/apache2/projeto-laravel-01.local_error.log<br />
+        CustomLog /var/log/apache2/projeto-laravel-01.local_access.log common<br />
+</VirtualHost><br />
+O novo VirtualHost deve ser habilitado usando o comando “a2ensite”, e o Apache reiniciado para assimilar as mudanças.<br />
+$ sudo a2ensite projeto-laravel-01.local.conf<br />
+$ sudo systemctl restart apache2.service<br />
+Para concluir tudo é preciso criar as entradas no arquivo “/etc/hosts”.<br />
+$ sudo vim /etc/hosts<br />
+127.0.0.1   localhost<br />
+127.0.1.1   UBUNTU-NOTE-01</p>
+<h1 id="as_linhas_abaixo_sao_as_entradas_para_as_aplicacoes_criadas">as linhas abaixo são as entradas para as aplicações criadas.<a class="headerlink" href="#as_linhas_abaixo_sao_as_entradas_para_as_aplicacoes_criadas" title="Permanent link">&para;</a></h1>
+<p>&hellip;<br />
+127.0.0.1   projeto-laravel-01.local<br />
+Acesse o endereço “http://projeto-laravel-01.local” para ver o resultado do desenvolvimento da aplicação.<br />
+Para editar o código da aplicação abra o Sublime (instalação mostrada no final), vá em File &gt; Open Folder, localize o diretório “~/DEV_WEB/VHOSTS/projeto-laravel-01.local”, e abra-o.<br />
+Configurando os serviços para inicialização<br />
+Não é necessário manter os seRviços funcionando no seu Desktop caso não esteja desenvolvendo, sendo assim fica a dica:<br />
+Remova da inicialização do sistema os serviços “mysql, php7.0-fpm e apache2”:<br />
+$ sudo systemctl disable mysql.service<br />
+$ sudo systemctl disable php7.0-fpm.service<br />
+$ sudo systemctl disable apache2.service<br />
+Crie o arquivo “iniciar-ambiente-web”:<br />
+$ sudo vim iniciar-ambiente-web</p>
+<h1 id="mysql">mysql<a class="headerlink" href="#mysql" title="Permanent link">&para;</a></h1>
+<p>systemctl start mysql.service</p>
+<h1 id="apache">apache<a class="headerlink" href="#apache" title="Permanent link">&para;</a></h1>
+<p>systemctl start apache2.service</p>
+<h1 id="php">php<a class="headerlink" href="#php" title="Permanent link">&para;</a></h1>
+<p>systemctl start php7.0-fpm.service<br />
+Crie o arquivo “parar-ambiente-web”:<br />
+$ sudo vim iniciar-ambiente-web</p>
+<h1 id="mysql_1">mysql<a class="headerlink" href="#mysql_1" title="Permanent link">&para;</a></h1>
+<p>systemctl stop mysql.service</p>
+<h1 id="apache_1">apache<a class="headerlink" href="#apache_1" title="Permanent link">&para;</a></h1>
+<p>systemctl stop apache2.service</p>
+<h1 id="php_1">php<a class="headerlink" href="#php_1" title="Permanent link">&para;</a></h1>
+<p>systemctl stop php7.0-fpm.service<br />
+Mova os arquivos “parar-ambiente-web e iniciar-ambiente-web” para um diretório de sistema:<br />
+$ sudo mv *-ambiente-web /usr/local/bin/<br />
+Quando quiser desenvolver execute:<br />
+$ sudo iniciar-ambiente-web<br />
+Quando quiser parar de desenvolver momentaneamente execute:<br />
+$ sudo parar-ambiente-web<br />
+Pau no gato.<br />
+E isso é tudo sobre PHP no momento&hellip;<br />
+Aplicativos para Auxiliar no Desenvolvimento<br />
+Editor de Textos Sublime<br />
+O Editor de textos “Sublime” é uma boa ferramenta para lidar com projetos de aplicações.<br />
+Pense na possibilidade de comprar uma licença deste software.<br />
+Instalação do Editor “Sublime”<br />
+$ sudo add-apt-repository ppa:webupd8team/sublime-text-3<br />
+$ sudo apt-get update<br />
+$ sudo apt-get install sublime-text<br />
+Sistema de Controle de Versão “Git”<br />
+O “Git” é um sistema de versionamento de aquivos, projetos, etc.<br />
+A playlist do canal RB Tech no YouTube é extremamente recomendada para compreensão do Git:<br />
+(https://youtu.be/WVLhm1AMeYE?list=PLInBAd9OZCzzHBJjLFZzRl6DgUmOeG3H0):<br />
+Intalação do Git<br />
+$ sudo apt-get install git<br />
+Configuração do Git<br />
+Informar nome de usuário e e-mail:<br />
+$ git config &ndash;global user.name &ldquo;Seu Nome&rdquo;<br />
+$ git config &ndash;global user.email &ldquo;seunome@subdominio.dominio&rdquo;<br />
+$ git config &ndash;list<br />
+GitHub - (github.com)<br />
+O GitHub é uma espécie de rede social de programadores no qual podemos disponibilizar nossos projetos, receber contribuições e também contribuir com outros projetos. Basta criar uma conta e depois adicionar as chaves ssh do computador no perfil do GitHub.<br />
+Gerar Chaves ssh - Acessso ao GitHub<br />
+(https://help.github.com/articles/generating-ssh-keys/)<br />
+$ ls -la .ssh/<br />
+$ ssh-keygen -t rsa -b 4096 -C &ldquo;seuemail@example.com&rdquo;<br />
+$ eval &ldquo;$(ssh-agent -s)&rdquo;<br />
+$ ssh-add ~/.ssh/id_rsa<br />
+$ ls -la .ssh/<br />
+Instalar o “xclip” que copia textos para área de transferência:<br />
+$ sudo apt-get install xclip<br />
+$ xclip -sel clip &lt; ~/.ssh/id_rsa.pub<br />
+Por fim, adicionar a chave no GitHub, testar a conexão:<br />
+$ ssh -vT git@github.com<br />
+```</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../python/virtualenv/" class="btn btn-neutral float-right" title="virtualenv">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../servidores-web/apache/" class="btn btn-neutral" title="Apache2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../servidores-web/apache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../python/virtualenv/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

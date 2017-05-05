@@ -97,11 +97,22 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Editores</span>
+    <span class="caption-text">Servidores Web</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php/">PHP</a>
                 </li>
     </ul>
 	    </li>
@@ -144,7 +155,34 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
                 </li>
     </ul>
 	    </li>
@@ -191,16 +229,15 @@
                 <h1 id="mkdocs">Mkdocs<a class="headerlink" href="#mkdocs" title="Permanent link">&para;</a></h1>
 <p>O <em><a href="http://www.mkdocs.org/">Mkdocs</a></em> é uma ferramenta desenvolvida em <em>Python</em>, especialmente para desenvolvimento de documentação de software, com qual é possível geral sites HTML estáticos a partir de arquivos escritos com a linguagem de marcação de texto <em>Markdown</em>.</p>
 <p>Comando para criar o diretório onde ficaram os arquivos fonte da documentação:</p>
-<pre class="codehilite"><code class="language-sh">$ mkdir -p ~/DEV_WEB/PHP/VHOSTS/projeto-x.local/docs
-
-# neste exemplo o diretório onde seriam mantidos os códigos fontes
-# da aplicação que está sendo desenvolvida seria:
-# ~/DEV_WEB/PHP/VHOSTS/projeto-x.local</code></pre>
+<pre class="codehilite"><code class="language-bash">$ mkdir -p ~/DEV_WEB/PHP/VHOSTS/projeto-x.local/docs</code></pre>
 
 
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p>Neste exemplo o diretório onde seriam mantidos os códigos fontes da aplicação que está sendo desenvolvida seria: <code>~/DEV_WEB/PHP/VHOSTS/projeto-x.local</code></p>
+</div>
 <p>Comando para criar o <em>virtualenv</em> com o auxílio da ferramenta <em>virtualenvwrapper</em>:</p>
-<pre class="codehilite"><code class="language-sh"># exemplo
-$ mkvirtualenv docs_mkdocs</code></pre>
+<pre class="codehilite"><code class="language-bash">$ mkvirtualenv docs_mkdocs</code></pre>
 
 
 <div class="admonition attention">
@@ -208,29 +245,28 @@ $ mkvirtualenv docs_mkdocs</code></pre>
 <p>Para executar o comando anterior é preciso ter o <a href="../virtualenv/">Python - virtualenv</a> configurado.</p>
 </div>
 <p>Comando para sair do <em>virtualenv</em>:</p>
-<pre class="codehilite"><code class="language-sh">$ deactivate</code></pre>
+<pre class="codehilite"><code class="language-bash">$ deactivate</code></pre>
 
 
 <p>Comando para voltar para <em>virtualenv</em>:</p>
-<pre class="codehilite"><code class="language-sh"># exemplo
-$ workon docs_mkdocs</code></pre>
+<pre class="codehilite"><code class="language-bash">$ workon docs_mkdocs</code></pre>
 
 
 <p>Comando para atualizar o cache do repositório:</p>
-<pre class="codehilite"><code class="language-sh">$ pip install --upgrade pip</code></pre>
+<pre class="codehilite"><code class="language-bash">$ pip install --upgrade pip</code></pre>
 
 
 <p>Comandos para instalar o <em>Mkdocs</em>:</p>
-<pre class="codehilite"><code class="language-sh">$ pip install mkdocs</code></pre>
+<pre class="codehilite"><code class="language-bash">$ pip install mkdocs</code></pre>
 
 
 <p>Comando para checar a instalação:</p>
-<pre class="codehilite"><code class="language-sh">$ mkdocs --version
+<pre class="codehilite"><code class="language-bash">$ mkdocs --version
 mkdocs, version x.x.x</code></pre>
 
 
 <p>Comando para iniciar o projeto de documentação no diretório corrente:</p>
-<pre class="codehilite"><code class="language-sh">$ mkdocs new .</code></pre>
+<pre class="codehilite"><code class="language-bash">$ mkdocs new .</code></pre>
               
             </div>
           </div>

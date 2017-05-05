@@ -97,11 +97,22 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Editores</span>
+    <span class="caption-text">Servidores Web</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php/">PHP</a>
                 </li>
     </ul>
 	    </li>
@@ -152,7 +163,34 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
                 </li>
     </ul>
 	    </li>
@@ -200,58 +238,62 @@
 <p>Este é um roteiro para configuração de um ambiente virtual <em>Python</em>, de modo que o trabalho e o Sistema Operacional se mantenham organizados enquanto as bibliotécas de código, os <em>frameworks</em>, etc vão sendo instalados, assim como os projetos.</p>
 <h2 id="pip">pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h2>
 <p>O <em>pip</em> é um gerenciador de pacotes e dependências usado para instalar pacotes de software escritos em <em>Python</em> a partir de um grande repositório da comunidade: <a href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a>.</p>
-<p>Comando para instalar o <em>pip</em> em qualquer sistema operacional <em>Linux</em>:</p>
-<pre class="codehilite"><code class="language-sh">wget https://bootstrap.pypa.io/get-pip.py
+<p>Comandos para instalar o <em>pip</em> em qualquer sistema operacional <em>Linux</em>:</p>
+<pre class="codehilite"><code class="language-bash">wget https://bootstrap.pypa.io/get-pip.py
 sudo python get-pip.py</code></pre>
 
 
+<p>Fonte: <a href="https://pip.pypa.io/en/latest/installing/">https://pip.pypa.io/en/latest/installing/</a></p>
 <p>Comando para instalar o <em>pip</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
-<pre class="codehilite"><code class="language-sh">$ sudo pacman -S python-pip</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S python-pip</code></pre>
 
 
 <h2 id="virtualenv">virtualenv<a class="headerlink" href="#virtualenv" title="Permanent link">&para;</a></h2>
 <p>O <em>virtualenv</em> é uma ferramenta que permite diferentes ambientes virtuais de <em>Python</em> na mesma máquina. Isso facilita a organização do sistema operacional - SO, pois com o <em>virtualenv</em> não é preciso manter um pacote instalado globalmente no <em>SO</em> sendo que o mesmo só é útil para um dos projetos que eventualmente está se desenvolvendo, essa prática evita conflitos de dependências.</p>
 <p>Comando para instalar o <em>virtualenv</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
-<pre class="codehilite"><code class="language-sh">$ sudo pip install virtualenv</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo pip install virtualenv</code></pre>
 
 
 <h3 id="virtualenvwrapper">virtualenvwrapper<a class="headerlink" href="#virtualenvwrapper" title="Permanent link">&para;</a></h3>
 <p>0 <em>virtualenvwrapper</em> é um conjunto de extensões para a ferramenta <em>virtualenv</em>. As extensões incluem comandos para criar e excluir ambientes virtuais, tornando mais fácil gerenciar e trabalhar em mais de um projeto no computador sem introduzir conflitos em suas dependências.</p>
 <p>Comando para instalar o <em>virtualenvwrapper</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
-<pre class="codehilite"><code class="language-sh">$ sudo pip install virtualenvwrapper</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo pip install virtualenvwrapper</code></pre>
 
 
 <p>Para concluir a instalação é preciso editar o arquivo <code>~/.bashrc</code> ou <code>~/.zshrc</code>, depende do <em>shell</em> que está definido como padrão no <em>SO</em>.</p>
 <p>Pode-se usar o editor <em>vim</em> para fazer a edição:</p>
-<pre class="codehilite"><code class="language-sh">$ vim ~/.bashrc
-
-# ou
-
-$ vim ~/.zshrc</code></pre>
+<pre class="codehilite"><code class="language-bash">$ vim ~/.bashrc</code></pre>
 
 
-<p>As linhas abaixo devem ser adicionadas no final do arquivo:</p>
-<pre class="codehilite"><code class="language-conf"># Para Arch Linux e Manjaro Linux utilize as linhas abaixo:
+<p>ou</p>
+<pre class="codehilite"><code class="language-bash">$ vim ~/.zshrc</code></pre>
 
-# Virtualenv
+
+<p>As linhas abaixo devem ser adicionadas no final do arquivo de configuração do shell para que se possa chamar os comandos do <em>virtualenvwrapper</em>:</p>
+<ul>
+<li>Para <em>Arch Linux e Manjaro Linux</em> utilize as linhas abaixo:</li>
+</ul>
+<pre class="codehilite"><code class="language-rc"># Virtualenv
 export WORKON_HOME=$HOME/Virtualenvs
 export PROJECT_HOME=$HOME/Devel
-source /usr/bin/virtualenvwrapper.sh
+source /usr/bin/virtualenvwrapper.sh</code></pre>
 
-# Para _Debian, Ubuntu, Linux Mint_ utilize as linhas abaixo:
 
-# Virtualenvwrapper
+<ul>
+<li>Para <em>Debian, Ubuntu, Linux Mint</em> utilize as linhas abaixo:</li>
+</ul>
+<pre class="codehilite"><code class="language-rc"># Virtualenvwrapper
 export WORKON_HOME=~/.virtualenvs
 source /usr/local/bin/virtualenvwrapper.sh
 export PIP_REQUIRE_VIRTUALENV=true</code></pre>
 
 
 <p>É preciso recarregar as configurações do <em>bash</em> ou <em>zsh</em> com o comando:</p>
-<pre class="codehilite"><code class="language-sh">$ source ~/.bashrc
+<pre class="codehilite"><code class="language-bash">$ source ~/.bashrc</code></pre>
 
-# ou
 
-$ source ~/.zshrc</code></pre>
+<p>ou</p>
+<pre class="codehilite"><code class="language-bash">$ source ~/.zshrc</code></pre>
               
             </div>
           </div>
@@ -262,7 +304,7 @@ $ source ~/.zshrc</code></pre>
         <a href="../mkdocs/" class="btn btn-neutral float-right" title="Mkdocs">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../editores-de-codigo/atom/" class="btn btn-neutral" title="Atom"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../php/php/" class="btn btn-neutral" title="PHP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -290,7 +332,7 @@ $ source ~/.zshrc</code></pre>
           <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../editores-de-codigo/atom/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../php/php/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../mkdocs/" style="color: #fcfcfc">Next &raquo;</a></span>

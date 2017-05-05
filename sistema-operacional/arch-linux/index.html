@@ -138,11 +138,22 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Editores</span>
+    <span class="caption-text">Servidores Web</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php/">PHP</a>
                 </li>
     </ul>
 	    </li>
@@ -179,7 +190,34 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
                 </li>
     </ul>
 	    </li>
@@ -226,28 +264,28 @@
                 <h1 id="arch_linux">Arch Linux<a class="headerlink" href="#arch_linux" title="Permanent link">&para;</a></h1>
 <h2 id="instlacao_basica">Instlação Básica:<a class="headerlink" href="#instlacao_basica" title="Permanent link">&para;</a></h2>
 <p>Mudar o layout do eclado para abnt2:</p>
-<pre class="codehilite"><code class="language-sh">$ loadkeys br-abnt2</code></pre>
+<pre class="codehilite"><code class="language-bash">$ loadkeys br-abnt2</code></pre>
 
 
 <p>Configurar o idioma de intalação:</p>
-<pre class="codehilite"><code class="language-sh">$ vim /etc/locale.gen</code></pre>
+<pre class="codehilite"><code class="language-bash">$ vim /etc/locale.gen</code></pre>
 
 
 <p>descomentar essas linhas:</p>
-<pre class="codehilite"><code class="language-conf">en_US.UTF-8 UTF-8
+<pre class="codehilite"><code>en_US.UTF-8 UTF-8
 pt_BR.UTF-8 UTF-8</code></pre>
 
 
-<pre class="codehilite"><code class="language-sh">$ locale-gen
+<pre class="codehilite"><code class="language-bash">$ locale-gen
 $ export LANG=pt_BR.UTF-8</code></pre>
 
 
 <p>Testar conexão com a internet:</p>
-<pre class="codehilite"><code class="language-sh">$ ping -c 3 www.google.com</code></pre>
+<pre class="codehilite"><code class="language-bash">$ ping -c 3 www.google.com</code></pre>
 
 
 <p>Particionar o disco:</p>
-<pre class="codehilite"><code class="language-sh">$ fdisk -l
+<pre class="codehilite"><code class="language-bash">$ fdisk -l
 $ cfdisk /dev/sda</code></pre>
 
 
@@ -258,86 +296,86 @@ $ cfdisk /dev/sda</code></pre>
 <li>2GB - swap</li>
 </ul>
 <p>Formatar as particoes:</p>
-<pre class="codehilite"><code class="language-sh">$ mkfs.ext4 /dev/sda2
+<pre class="codehilite"><code class="language-bash">$ mkfs.ext4 /dev/sda2
 $ mkswap /dev/sda3
 $ swapon /dev/sda3
 $ lsblk /dev/sda</code></pre>
 
 
 <p>Montar as partições:</p>
-<pre class="codehilite"><code class="language-sh">$ mount /dev/sda2 /mnt</code></pre>
+<pre class="codehilite"><code class="language-bash">$ mount /dev/sda2 /mnt</code></pre>
 
 
 <p>Ajustar o mirrorlist:</p>
-<pre class="codehilite"><code class="language-sh">$ vim /etc/pacman.d/mirrorlist</code></pre>
+<pre class="codehilite"><code class="language-bash">$ vim /etc/pacman.d/mirrorlist</code></pre>
 
 
 <p>Colocar os espelhos do brasil no inicio do arquivo.</p>
 <p>Instalar o sistema base:</p>
-<pre class="codehilite"><code class="language-sh">$ pacstrap /mnt base grub</code></pre>
+<pre class="codehilite"><code class="language-bash">$ pacstrap /mnt base grub</code></pre>
 
 
 <p>Gerar o arquivo fstab que decreve as particoes:</p>
-<pre class="codehilite"><code class="language-sh">$ genfstab -p /mnt &gt;&gt; /mnt/etc/fstab
+<pre class="codehilite"><code class="language-bash">$ genfstab -p /mnt &gt;&gt; /mnt/etc/fstab
 $ cat /mnt/etc/fstab</code></pre>
 
 
 <p>Logar na instalação:</p>
-<pre class="codehilite"><code class="language-sh">$ arch-chroot /mnt</code></pre>
+<pre class="codehilite"><code class="language-bash">$ arch-chroot /mnt</code></pre>
 
 
 <p>Setar o hostname:</p>
-<pre class="codehilite"><code class="language-sh">$ vi /etc/hostname</code></pre>
+<pre class="codehilite"><code class="language-bash">$ vi /etc/hostname</code></pre>
 
 
 <p>colocar &ldquo;ArchLinuxVM-01&rdquo;</p>
-<pre class="codehilite"><code class="language-conf">ArchLinuxVM-01</code></pre>
+<pre class="codehilite"><code>ArchLinuxVM-01</code></pre>
 
 
 <p>Configurar o fuso horário:</p>
-<pre class="codehilite"><code class="language-sh">$ ls /usr/share/zoneinfo/America
+<pre class="codehilite"><code class="language-bash">$ ls /usr/share/zoneinfo/America
 $ ln -sf /usr/share/zoneinfo/America/Recife /etc/localtime</code></pre>
 
 
 <p>Configurar o idioma:</p>
-<pre class="codehilite"><code class="language-sh">$ vi /etc/locale.gen</code></pre>
+<pre class="codehilite"><code class="language-bash">$ vi /etc/locale.gen</code></pre>
 
 
 <p>descomentar as linhas:</p>
-<pre class="codehilite"><code class="language-config">en_US.UTF-8 UTF-8
+<pre class="codehilite"><code class="language-ig">en_US.UTF-8 UTF-8
 en_US.ISO-8859-1
 pt_BR.UTF-8 UTF-8
 pt_BR.ISO-8859-1</code></pre>
 
 
-<pre class="codehilite"><code class="language-sh">$ locale-gen
+<pre class="codehilite"><code class="language-bash">$ locale-gen
 $ echo LANG=pt_BR.UTF-8 &gt;&gt; /etc/locale.conf
 $ export LANG=pt_BR.UTF-8</code></pre>
 
 
 <p>Configurar o layout do teclado:</p>
-<pre class="codehilite"><code class="language-sh">$ vi /etc/vconsole.conf</code></pre>
+<pre class="codehilite"><code class="language-bash">$ vi /etc/vconsole.conf</code></pre>
 
 
-<pre class="codehilite"><code class="language-conf">KEYMAP=br-abnt2
+<pre class="codehilite"><code>KEYMAP=br-abnt2
 FONT=Lat2-Terminus16
 FONT_MAP=</code></pre>
 
 
 <p>Configurar a inicialização:</p>
-<pre class="codehilite"><code class="language-sh">$ mkinitcpio -p linux</code></pre>
+<pre class="codehilite"><code class="language-bash">$ mkinitcpio -p linux</code></pre>
 
 
 <p>Configurar a rede cabeada:</p>
-<pre class="codehilite"><code class="language-sh">_$ systemctl enable dhcpcd@eth0.service_</code></pre>
+<pre class="codehilite"><code class="language-bash">_$ systemctl enable dhcpcd@eth0.service_</code></pre>
 
 
 <p>Criar senha de root:</p>
-<pre class="codehilite"><code class="language-sh">$ passwd</code></pre>
+<pre class="codehilite"><code class="language-bash">$ passwd</code></pre>
 
 
 <p>Intalando o Grub</p>
-<pre class="codehilite"><code class="language-sh">$ pacman -S grub-bios
+<pre class="codehilite"><code class="language-bash">$ pacman -S grub-bios
 $ grub-install --target=i386-pc --recheck /dev/sda
 $ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 $ grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
@@ -345,66 +383,66 @@ $ grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
 
 <p><em>$ arch-chroot /mnt pacman -S grub-bios</em></p>
 <p>Sair do chroot:</p>
-<pre class="codehilite"><code class="language-sh">$ exit</code></pre>
+<pre class="codehilite"><code class="language-bash">$ exit</code></pre>
 
 
 <p>Desmontar as particoes:</p>
-<pre class="codehilite"><code class="language-sh">$ umount /mnt</code></pre>
+<pre class="codehilite"><code class="language-bash">$ umount /mnt</code></pre>
 
 
 <p>Reiniciar</p>
-<pre class="codehilite"><code class="language-sh">$ reboot</code></pre>
+<pre class="codehilite"><code class="language-bash">$ reboot</code></pre>
 
 
 <h1 id="configuracao_do_archlinux">Configuração do ArchLinux<a class="headerlink" href="#configuracao_do_archlinux" title="Permanent link">&para;</a></h1>
 <h3 id="atulizar_o_sistema">Atulizar o sistema<a class="headerlink" href="#atulizar_o_sistema" title="Permanent link">&para;</a></h3>
 <p>Ajustes nos repositórios</p>
-<pre class="codehilite"><code class="language-sh">$ vim /etc/pacman.conf</code></pre>
+<pre class="codehilite"><code class="language-bash">$ vim /etc/pacman.conf</code></pre>
 
 
 <p>descomentar multilib</p>
-<pre class="codehilite"><code class="language-sh">$ pacman -Syu</code></pre>
+<pre class="codehilite"><code class="language-bash">$ pacman -Syu</code></pre>
 
 
 <h3 id="instalar_o_vim_pelo_amor_de_deus">Instalar o vim (pelo amor de Deus)<a class="headerlink" href="#instalar_o_vim_pelo_amor_de_deus" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ pacman -S vim</code></pre>
+<pre class="codehilite"><code class="language-bash">$ pacman -S vim</code></pre>
 
 
 <h3 id="criar_usuario_e_definir_senha">Criar usuario e definir senha<a class="headerlink" href="#criar_usuario_e_definir_senha" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ useradd -m -g users -G wheel,storage,power -s /bin/bash usuario
+<pre class="codehilite"><code class="language-bash">$ useradd -m -g users -G wheel,storage,power -s /bin/bash usuario
 $ passwd usuario</code></pre>
 
 
 <h3 id="instalar_sudo">Instalar sudo<a class="headerlink" href="#instalar_sudo" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ pacman -S sudo</code></pre>
+<pre class="codehilite"><code class="language-bash">$ pacman -S sudo</code></pre>
 
 
 <p>Editar as permissões:</p>
-<pre class="codehilite"><code class="language-sh">$ EDITOR=vim visudo</code></pre>
+<pre class="codehilite"><code class="language-bash">$ EDITOR=vim visudo</code></pre>
 
 
 <p>Descomentar a linha que mostra o grupo (wheel).</p>
 <h3 id="configurar_o_som">Configurar o som<a class="headerlink" href="#configurar_o_som" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ pacman -S alsa-utils
+<pre class="codehilite"><code class="language-bash">$ pacman -S alsa-utils
 $ alsamixer</code></pre>
 
 
 <h3 id="driver_virtualbox">Driver virtualbox:<a class="headerlink" href="#driver_virtualbox" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ sudo pacman -S virtualbox-guest-utils</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S virtualbox-guest-utils</code></pre>
 
 
 <h3 id="instalar_xorg">Instalar xorg<a class="headerlink" href="#instalar_xorg" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ sudo pacman -S xorg-server
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S xorg-server
 $ sudo pacman -S xorg-xinit
 $ sudo pacman -S xorg-server-utils</code></pre>
 
 
 <h3 id="instalar_fonts">Instalar fonts<a class="headerlink" href="#instalar_fonts" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ sudo pacman -S ttf-dejavu</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S ttf-dejavu</code></pre>
 
 
 <h3 id="gerenciador_de_rede">Gerenciador de rede<a class="headerlink" href="#gerenciador_de_rede" title="Permanent link">&para;</a></h3>
-<pre class="codehilite"><code class="language-sh">$ sudo pacman -S networkmanager
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S networkmanager
 
 # NÃO PRECISA - MAS PRECISO CHECAR
 _$ sudo pacman -S networkmanager-vpnc
@@ -412,11 +450,11 @@ $ sudo pacman -S networkmanager-pptp
 $ sudo pacman -S networkmanager-openconnect_</code></pre>
 
 
-<pre class="codehilite"><code class="language-sh">$ sudo pacman -S network-manager-applet</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S network-manager-applet</code></pre>
 
 
 <p>Ativar o gerenciador de rede na inicialização do sistema:</p>
-<pre class="codehilite"><code class="language-sh">$ sudo systemctl enable NetworkManager</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo systemctl enable NetworkManager</code></pre>
 
 
 <h3 id="ssh">ssh<a class="headerlink" href="#ssh" title="Permanent link">&para;</a></h3>
@@ -428,7 +466,7 @@ $ sudo pacman -S networkmanager-openconnect_</code></pre>
 Essa ação fará com que os navegadores web instalados no computador possam acessar páginas locais, servidas no próprio computador, a partir de domínios locais.<br />
 No exemplo abaixo existe uma entrada para o domínio local <code>app1.local</code>, que pode ser acessado no navegador com o endereço “http://app1.local”.<br />
 Mostar o conteúdo do arquivo <code>/etc/hosts</code>:</p>
-<pre class="codehilite"><code class="language-sh">$ cat /etc/hosts
+<pre class="codehilite"><code class="language-bash">$ cat /etc/hosts
 127.0.0.1   localhost
 127.0.1.1   ARCH-LINUX-PC # este nome é definido na instalação
 127.0.0.1   app1.local # exemplo de entrada para um projeto</code></pre>

@@ -8,7 +8,7 @@
   
   <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Git - Configurações</title>
+  <title>MySQL - Configurações</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Git";
-    var mkdocs_page_input_path = "git/git.md";
-    var mkdocs_page_url = "/git/git/";
+    var mkdocs_page_name = "MySQL";
+    var mkdocs_page_input_path = "banco-de-dados/mysql.md";
+    var mkdocs_page_url = "/banco-de-dados/mysql/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -77,27 +77,9 @@
 		
     <span class="caption-text">Git</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Git</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#o_que_e_o_git">O que é o Git?</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#instalacao">Instalação</a></li>
-        
-            <li><a class="toctree-l4" href="#configuracao">Configuração</a></li>
-        
-            <li><a class="toctree-l4" href="#bitbucket_e_github">Bitbucket e GitHub</a></li>
-        
-            <li><a class="toctree-l4" href="#repositorios">Repositórios</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../git/git/">Git</a>
                 </li>
     </ul>
 	    </li>
@@ -165,13 +147,25 @@
 		
     <span class="caption-text">Banco de Dados</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+    <a class="current" href="./">MySQL</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#instalacao_do_mysql">Instalação do MySQL</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#instalacao_do_mysql_1">Instalação do MySQL</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+    <a class="" href="../mongodb/">MongoDB</a>
                 </li>
     </ul>
 	    </li>
@@ -221,14 +215,14 @@
     
       
         
-          <li>Git &raquo;</li>
+          <li>Banco de Dados &raquo;</li>
         
       
     
-    <li>Git</li>
+    <li>MySQL</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/git/git.md"
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/banco-de-dados/mysql.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -238,89 +232,37 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="o_que_e_o_git">O que é o <em>Git</em>?<a class="headerlink" href="#o_que_e_o_git" title="Permanent link">&para;</a></h1>
-<p>O <em>“Git”</em> é um sistema de versionamento de aquivos, projetos, etc.<br />
-Existe uma <a href="https://youtu.be/WVLhm1AMeYE?list=PLInBAd9OZCzzHBJjLFZzRl6DgUmOeG3H0"><em>playlist no YouTube</em></a> de um curso no canal <strong>RB Tech</strong> que é extremamente recomendada para compreensão do <em>Git</em>.</p>
-<h2 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">&para;</a></h2>
-<p>Comando para instalar o <em>Git</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo pacman -S git</code></pre>
+                <h1 id="instalacao_do_mysql">Instalação do MySQL<a class="headerlink" href="#instalacao_do_mysql" title="Permanent link">&para;</a></h1>
+<p>O MySQL é um sistema gerenciador de bases de dados &ldquo;SGDB&rdquo;. É comum a utilização do MySQL em conjunto com o Apache e PHP para desenvolvimento web.</p>
+<h2 id="instalacao_do_mysql_1">Instalação do <em>MySQL</em><a class="headerlink" href="#instalacao_do_mysql_1" title="Permanent link">&para;</a></h2>
+<p>Comando para instalar o <em>MySQL</em> nos sistemas operacionais <em>Debian, Ubuntu e Linux Mint</em>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install mysql-server</code></pre>
 
 
-<p>Comando para instalar o <em>Git</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo apt install git</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p><strong>Pacotes instalados:</strong> <em>libaio1 libdbd-mysql-perl libdbi-perl libhtml-template-perl libmysqlclient18 libterm-readkey-perl mysql-client-5.5 mysql-common mysql-server mysql-server-5.5 mysql-server-core-5.5</em></p>
+<p>Durante a instalação do <em>MyQSL</em> é pedida a senha para o usuário root. Defina uma senha fácil, mas, se quer administrar esses trem já vai se acostumando a criar padrões de senha os quais você seja capaz de se lembrar.<br />
+O exemplo abaixo é um método que remete a duas palavras: (MySQL local), portanto podemos, juntar as palavras, colocar um números antes e&hellip;<br />
+<strong>Senha para o usuário root: “mysqll0c4l”</strong></p>
+</div>
+<p>Para checar a versão do MySQL execute o comando:</p>
+<pre class="codehilite"><code class="language-bash">$ mysql --version</code></pre>
 
 
-<h2 id="configuracao">Configuração<a class="headerlink" href="#configuracao" title="Permanent link">&para;</a></h2>
-<p>Comandos para configurar as opções globais do <em>git</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ git config --global user.name &quot;Seu Nome&quot;
-$ git config --global user.email &quot;seunome@exemplo.com&quot;
-$ git config --list</code></pre>
+<p>Para checar se o MySQL está ativo execute o comando:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo systemctl status mysql.service</code></pre>
 
 
-<h2 id="bitbucket_e_github">Bitbucket e GitHub<a class="headerlink" href="#bitbucket_e_github" title="Permanent link">&para;</a></h2>
-<p>O <em>Bitbucket e o GitHub</em> são serviços para hospedagem de repositórios <em>git</em> e também uma espécie de rede social de programadores na qual podemos disponibilizar projetos, receber contribuições e também contribuir com outros projetos.<br />
-Basta criar uma conta no serviço que desejar e depois adicionar as chaves <em>ssh</em> do computador no perfil.<br />
-Links para os serviços:</p>
-<ul>
-<li><a href="http://bitbucket.org">bitbucket.org</a></li>
-<li><a href="http://github.com">github.com</a></li>
-</ul>
-<h3 id="xclip">xclip<a class="headerlink" href="#xclip" title="Permanent link">&para;</a></h3>
-<p>Para facilitar a cópia da chave <em>ssh</em> pode-se usar o <em>xclip</em>, que copia textos para área de transferência.</p>
-<p>Comando para instalar o <em>xclip</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo pacman -S xclip</code></pre>
-
-
-<p>Comando para instalar o <em>xclip</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo apt install xclip</code></pre>
-
-
-<h3 id="chaves_ssh">Chaves SSH<a class="headerlink" href="#chaves_ssh" title="Permanent link">&para;</a></h3>
-<p>Para autorizar o acesso as contas, ou no <em>Bitbucket</em> ou no <em>GitHub</em>, a partir do<br />
-computador local sem a necessidade de informar usuário e senha para cada novo<br />
-acesso, basta criar um par de chaves <em>ssh</em> e adicionar a chave publica na conta.</p>
-<p>Com o <em>xclip</em> instalado e com a conta configurada pode-se gerar as chaves <em>ssh</em> com o seguinte comando:</p>
-<pre class="codehilite"><code class="language-bash">$ ssh-keygen -t rsa -b 4096 -C &quot;seunome@exemplo.com&quot;</code></pre>
-
-
-<p>Comando para verificar a criação da chave <em>ssh</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ ls -la .ssh/</code></pre>
-
-
-<p>Comando para copiar a chave <em>ssh</em> para a área de transferência usando o <em>xclip</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ xclip -sel clip &lt; ~/.ssh/id_rsa.pub</code></pre>
-
-
-<p>Com a chave copiada, basta localizar a função de autorização de chaves no <em>Bitbucket</em> ou no <em>GitHub</em>,</p>
-<ul>
-<li><strong>Bitbucket:</strong> <code>https://bitbucket.org/account/user/seu_usuario/ssh-keys/</code></li>
-<li><strong>GitHub:</strong> <code>https://github.com/settings/keys</code></li>
-</ul>
-<p>Após adicionar a chave <em>ssh</em> no <em>Bitbucket</em> ou no <em>GitHub</em>, pode-se testar a conexão com o comando:</p>
-<ul>
-<li><strong>Bitbucket</strong></li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ ssh -vT git@bitbucket.org</code></pre>
-
-
-<ul>
-<li><strong>GitHub</strong></li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ ssh -vT git@github.com</code></pre>
-
-
-<h2 id="repositorios">Repositórios<a class="headerlink" href="#repositorios" title="Permanent link">&para;</a></h2>
-<p>Comando para iniciar um repositório local - em seu computador:</p>
-<pre class="codehilite"><code class="language-bash">$ git init</code></pre>
-
-
-<p>Comando para relacionar um repositório local a um repositório criado em um dos serviços de hospedagem de repositório <em>Git</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ git remote add origin https://github.com/xxxxx/xxxxx.git</code></pre>
-
-
-<blockquote>
-<p>&ldquo;xxxxx&rdquo; representa parte da url que aponta para o repositório especícfico que se deseja relacionar ao repositório local.</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p>Pode ser útil, caso esteja trabalhando em um servidor de produção, elevar o nível de segurança do servidor MySQL, para isso você pode recorrer ao utilitário <code>mysql_secure_installation</code></p>
+<p><code>bash
+$ sudo mysql_secure_installation</code></p>
+<p>Responda as questões conforme sua necessidade.</p>
+</div>
+<p>Para testar o login use o comando:</p>
+<pre class="codehilite"><code class="language-bash">$ mysqladmin -p -u root version</code></pre>
               
             </div>
           </div>
@@ -328,10 +270,10 @@ acesso, basta criar um par de chaves <em>ssh</em> e adicionar a chave publica na
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../shell/zsh/" class="btn btn-neutral float-right" title="zsh">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../mongodb/" class="btn btn-neutral float-right" title="MongoDB">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../sistema-operacional/arch-linux/" class="btn btn-neutral" title="Arch Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../nodejs/nodejs/" class="btn btn-neutral" title="Node.JS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -359,10 +301,10 @@ acesso, basta criar um par de chaves <em>ssh</em> e adicionar a chave publica na
           <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../sistema-operacional/arch-linux/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../nodejs/nodejs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../shell/zsh/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../mongodb/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

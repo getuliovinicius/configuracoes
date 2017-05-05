@@ -109,11 +109,22 @@
           
             <li class="toctree-l1">
 		
-    <span class="caption-text">Editores</span>
+    <span class="caption-text">Servidores Web</span>
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php/">PHP</a>
                 </li>
     </ul>
 	    </li>
@@ -150,7 +161,34 @@
     <ul class="subnav">
                 <li class="">
                     
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
     <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
                 </li>
     </ul>
 	    </li>
@@ -196,29 +234,34 @@
               
                 <h1 id="zsh">zsh<a class="headerlink" href="#zsh" title="Permanent link">&para;</a></h1>
 <p>Comando para instalar o <em>zsh</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
-<pre class="codehilite"><code class="language-sh">$ sudo pacman -S zsh</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S zsh</code></pre>
 
 
 <p>Comando para instalar o <em>zsh</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</p>
-<pre class="codehilite"><code class="language-sh">$ sudo apt install zsh</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install zsh</code></pre>
 
 
 <p>Comandos para tornar o <em>zsh</em> o shell padrão para o seu usuário:</p>
-<pre class="codehilite"><code class="language-sh">$ sudo usermod -s /bin/zsh seu_usuario
+<pre class="codehilite"><code class="language-bash">$ sudo usermod -s /bin/zsh seu_usuario</code></pre>
 
-# ou
 
-$ chsh -s /bin/zsh</code></pre>
+<p>ou</p>
+<pre class="codehilite"><code class="language-bash">$ chsh -s /bin/zsh</code></pre>
 
 
 <h2 id="oh-my-zsh"><em>oh-my-zsh</em><a class="headerlink" href="#oh-my-zsh" title="Permanent link">&para;</a></h2>
 <p>O <em><a href="http://ohmyz.sh/">oh-my-zsh</a></em> é um <em>framework</em> que facilita a configuração do <em>shell</em> <em>ZSH</em>.</p>
 <p>Comandos para instalar o <em>oh-my-zsh</em> em qualquer sistema operacional <em>Linux</em>:</p>
-<pre class="codehilite"><code class="language-sh"># framework
-$ sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;
+<ul>
+<li>Framework</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sh -c &quot;$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)&quot;</code></pre>
 
-# fonts com icones para o terminal (opicional)
-$ git clone https://github.com/powerline/fonts.git
+
+<ul>
+<li>Fontes com icones para o terminal (opicional)</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ git clone https://github.com/powerline/fonts.git
 $ cd fonts
 $ ./install.sh
 $ cd ..
@@ -230,7 +273,7 @@ $ rm -rf fonts</code></pre>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../editores-de-codigo/atom/" class="btn btn-neutral float-right" title="Atom">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../servidores-web/apache/" class="btn btn-neutral float-right" title="Apache2">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../../git/git/" class="btn btn-neutral" title="Git"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -264,7 +307,7 @@ $ rm -rf fonts</code></pre>
         <span><a href="../../git/git/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../editores-de-codigo/atom/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../servidores-web/apache/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
