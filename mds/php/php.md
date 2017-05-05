@@ -1,283 +1,219 @@
-Configuração do PHP
-PHP é uma linguagem de scripts de propósito geral popular que é especialmente adequado para desenvolvimento web.
-PHP é um acrônimo para Pré Processor Hiper Text. Mas e daí ;)
-Instalação do PHP
-Partindo para a instalação, o comando abaixo vai instalar o básico do PHP em seu desktop Ubuntu 16.04.
+Ambiente PHP
+============
+
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
+
+_PHP_ é uma linguagem de _scripts_ de propósito geral que é especialmente adequado para desenvolvimento web. _PHP_ é um acrônimo para "Pré Processor HiperText", mas e daí ;)
+
+## Instalação do PHP
+
+**Procedimento para instalar o _Apache_ nos sistemas operacionais _Debian, Ubuntu e Linux Mint_:**
+
+Antes antes de realizar a instalação do _PHP_ é recomendável adicionar um repositório que possibilite a atualização e o uso da última versão da linguagem, o que não costuma ser fácil especialmente no _Debian_.
+Sendo assim, podemos adicionar os repositórios do site [https://www.dotdeb.org](https://www.dotdeb.org) ao arquivo `sources.list`, vamos lá:
+
+```bash
+$ sudo vim /etc/apt/sources.list
+```
+
+Copie o conteúdo abaixo para o final da lista
+
+```
+# Dotdeb
+deb http://packages.dotdeb.org jessie all
+deb-src http://packages.dotdeb.org jessie all
+```
+
+Na sequência instale a chave do repositório:
+
+```bash
+$ wget https://www.dotdeb.org/dotdeb.gpg
+$ sudo apt-key add dotdeb.gpg
+```
+
+Por fim, quanto a adicão dos repositórios do site _dotdeb.org_, podemos atualizar a lista de pacotes disponíveis para instalação:
+
+```bash
+$ sudo apt update
+```
+
+Partindo para a instalação, o comando abaixo vai instalar o básico do PHP:
+
+```bash
 $ sudo apt install php7.0
-PACOTES INSTALADOS: php-common php7.0 php7.0-cli php7.0-common php7.0-fpm php7.0-json php7.0-opcache php7.0-readline
-Para checar a versão do PHP:
+```
+
+!!! note "Info"
+	**Pacotes instalados:** _libapache2-mod-php7.0 php-common php7.0 php7.0-cli php7.0-common php7.0-json php7.0-opcache php7.0-readline_
+
+	**Observação:** A lista de pacotes instalados não deveria incluir o pacote _libapache2-mod-php7.0_, ocorre que eu já havia instalado o _Apache_ antes e talvez por essa razão tal pacote tenha sido instalado neste momento. Se isso ocorrer não há necessidade de seguir os passos descritos em **"Instalação do módulo PHP para o Apache"**.
+
+Para checar a instalação do PHP execute o comando:
+
+```bash
 $ php --version
-Instalação do módulo PHP para o Apache
-Vamos instalar o módulo do apache “libapache2-mod-php”
+```
+## Instalação do módulo PHP para o Apache
+
+!!! note "Info"
+	Neste exemplo irei utilizar o _Apache_ como servidor web, mas o _PHP_ pode ser utilizado com outros servidores web.
+
+Vamos instalar o módulo do apache _libapache2-mod-php_:
+
+```bash
 $ sudo apt-get install libapache2-mod-php7.0
-PACOTES INSTALADOS: libapache2-mod-php7.0
-VirtualHost para o ambiente PHP
-Para testar o funcionamento vamos criar um VirtualHost que sirva para checar o ambiente PHP e todas as suas características.
-Começaremos com a estrutura de diretórios para projetos de páginas dinâmicas em PHP.
+```
+
+## VirtualHost para o ambiente PHP
+
+!!! note "Info"
+	Totalmente opcional.
+
+Para testar o funcionamento vamos criar um _VirtualHost_, ou simplesmente _vHost_, que sirva para checar o ambiente PHP e todas as suas características. Começaremos com a estrutura de diretórios para projetos de páginas dinâmicas em PHP.
+
+```bash
 $ sudo mkdir -p /srv/www/php/ambiente-php.local
 $ cd /srv/www/php/ambiente-php.local
-Crie um arquivo “info.php” dentro do diretório recém criado:
+```
+
+Crie um arquivo `info.php` dentro do diretório recém criado:
+
+```bash
 $ sudo vim index.php
+```
+
 Copie o conteúdo abaixo para o arquivo:
+
+```php
 <?php
 phpinfo();
 ?>
-Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”
+```
+
+Alterar o proprietário dos diretórios e arquivos em `/srv/www` para o usuário e grupo `www-data`:
+
+```bash
 $ sudo chown www-data\: /srv/www -R
-Na sequência é preciso configurar o vhost.
+```
+
+Na sequência é preciso configurar o _vhost_.
+
+```bash
 $ cd /etc/apache2/sites-available
-Criar um arquivo chamado “ambiente-php.local.conf”:
+```
+
+Criar um arquivo chamado `ambiente-php.local.conf`:
+
+```bash
 $ sudo vim /etc/apache2/sites-available/ambiente-php.local.conf
+```
+
 Copie o conteúdo abaixo para o arquivo:
+
+```apacheconf
 <VirtualHost *:80>
-DocumentRoot /srv/www/php/ambiente-php.local
-		<Directory /srv/www/php/ambiente-php.local/>
-	Options Indexes FollowSymLinks
-   		AllowOverride All
-   		Order allow,deny
-   		allow from all
+	DocumentRoot /srv/www/php/ambiente-php.local
+	<Directory /srv/www/php/ambiente-php.local/>
+		Options Indexes FollowSymLinks
+		AllowOverride All
+		Order allow, deny
+		allow from all
 	</Directory>
-		ServerName ambiente-php.local
-		ServerAdmin root@ambiente-php.local
-		ErrorLog /var/log/apache2/ambiente-php.local_error.log
-		CustomLog /var/log/apache2/ambiente-php.local_access.log common
+	ServerName ambiente-php.local
+	ServerAdmin root@ambiente-php.local
+	ErrorLog /var/log/apache2/ambiente-php.local_error.log
+	CustomLog /var/log/apache2/ambiente-php.local_access.log common
 </VirtualHost>
-O novo VirtualHost deve ser habilitado usando o comando “a2ensite”, e o Apache reiniciado para persistir as mudança.
+```
+
+O novo _vHost_ deve ser habilitado usando o comando `a2ensite`, e o Apache reiniciado para persistir as mudança.
+
+```bash
 $ sudo a2ensite ambiente-php.local.conf
 $ sudo systemctl restart apache2.service
-E adicionar a entrada para o VirtualHost no arquivo “/etc/hosts”.
+```
+
+E adicionar a entrada para o _vHost_ no arquivo `/etc/hosts`:
+
+```bash
 $ sudo vim /etc/hosts
+```
+
 Adicione a linha abaixo após as entradas criadas anteriormente para APP1 e APP2.
+
+```rc
 127.0.0.1	ambiente-php.local
-Acesse os endereços “http://ambiente-php.local” para verificar toda a configuração do PHP.
-Extensões do PHP que são Dependências de Muitas Aplicações
-Observação: As extensões do PHP devem ser instaladas e configuradas apenas para satisfazer as necessidades de aplicações que se queira usar. Não devem ser instalados módulos que não serão utilizados por nenhuma aplicação. As extensões que serão instaladas na sequência, são exigências para instalar aplicações como Phpmyadmin, MediaWiki, Drupal e também para desenvolver utilizando os Frameworks: Laravel e CodeIgniter por exemplo.
-gd, mbstring, mcrypt, mysql, intl, xml
+```
+
+Acesse os endereços [http://ambiente-php.local](http://ambiente-php.local) para verificar toda a configuração do PHP.
+
+## Extensões do PHP
+
+!!! attention "Atenção"
+	As extensões do PHP devem ser instaladas e configuradas apenas para satisfazer as necessidades de aplicações que se queira usar. Não devem ser instalados módulos que não serão utilizados por nenhuma aplicação. As extensões que serão instaladas na sequência, são exigências para instalar aplicações como Phpmyadmin, MediaWiki, Drupal e também para desenvolver utilizando os Frameworks: Laravel e CodeIgniter por exemplo.
+
+Comando para instalar as extensões _gd, mbstring, mcrypt, mysql, intl, xml_:
+
+```bash
 $ sudo apt install php7.0-gd php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-intl php7.0-xml
-PACOTES INSTALADOS: libmcrypt4 php7.0-gd php7.0-intl php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-xml
-curl
-Extensão necessária para quase tudo que envolve de webservices.
-$ sudo apt install curl php7.0-curl
-PACOTES INSTALADOS: php7.0-curl
-Listar as configurações do PHP
-Após instalar as extensões do PHP que lhe forem necessárias, é preciso reiniciar o Apache:
-$ sudo systemctl restart apache2.service
-Para listar os módulos do PHP instalados e habilitados, rode o comando:
-$ php -m
-Gerenciadores dependências e pacotes
-Gerenciador de dependências “PEAR”: (opcional)
+```
+!!! note "Info"
+	**Pacotes instalados:** _libmcrypt4 php7.0-gd php7.0-intl php7.0-mbstring php7.0-mcrypt php7.0-mysql php7.0-xml_
+
+Extensão _php7.0-curl_ usada para conectar _webservices_.
+
+```bash
+$ sudo apt install php7.0-curl
+```
+
+Gerenciador de dependências "PEAR": (opcional)
+
+```bash
 $ sudo apt-get install php-pear
-PACOTES INSTALADOS: php-pear
-Reiniciar o Apache:
+```
+
+Após instalar as extensões do PHP que julgar necessárias, é preciso reiniciar o Apache:
+
+```bash
 $ sudo systemctl restart apache2.service
-Composer
-O composer pode ser instalado globalmente como explicado logo abaixo, mas eu prefiro instalar apenas no escopo do projeto que está em desenvolvimento.
-As instruções para uso podem ser vistas aqui: https://getcomposer.org/
-Siga as instruções abaixo para instalar globalmente:
+```
+
+Para listar os módulos do PHP instalados e habilitados, rode o comando:
+
+```bash
+$ php -m
+```
+
+## Gerenciador de dependências Composer
+
+O _Composer_ pode ser instalado globalmente ou apenas no escopo do projeto que está em desenvolvimento. Siga as instruções abaixo para instalar globalmente, as mesmas podem podem ser vistas no site do gerenciador [https://getcomposer.org/](https://getcomposer.org/).
+
+```bash
 $ php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
-$ php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+$ php -r "if (hash_file('SHA384', 'composer-setup.php') === '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
 $ php composer-setup.php
 $ php -r "unlink('composer-setup.php');"
 $ sudo mv composer.phar /usr/local/bin/composer
-Configuração de Aplicações PHP prontas para uso
-PHPMYADMIN
-O Phpmyadmin é uma aplicação para gerenciar o banco de dados MySQL. É uma ferramenta fundamental para o desenvolvimento Web pela facilidade que agrega as etapas de desenvolvimento.
-Instalação do Phpmyadmin:
-Acessar o diretório de hospedagem dos projetos em PHP:
-$ cd /srv/www/php/
-Primeiro é preciso baixar o pacote de instalação direto do site do desenvolvedor com o comando “wget”:
-$ sudo wget
- https://files.phpmyadmin.net/phpMyAdmin/4.6.6/phpMyAdmin-4.6.6-all-languages.zip
-Existe uma versão do Phpmyadmin nos repositórios do Ubuntu, mas vamos instalar na unha.
-Descompactar o pacote de instalação e renomear o diretório:
-$ sudo unzip phpMyAdmin-4.6.3-all-languages.zip
-$ sudo mv phpMyAdmin-4.6.3-all-languages phpmyadmin.local
-Na sequência é preciso editar o arquivo ”config.inc.php”.
-$ cd /srv/www/php/phpmyadmin.local
-$ sudo cp config.sample.inc.php config.inc.php
-$ sudo vim config.inc.php
-Adicione uma senha na linha 16 do arquivo,:
-$cfg['blowfish_secret'] = 'phpmy4dm1n10293845876857phpmy4dm1n10293845876857phpmy4dm1n10293845876857'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */
-No exemplo foi utilizado:
- “phpmy4dm1n10293845876857phpmy4dm1n10293845876857phpmy4dm1n10293845876857”
-como senha.
-Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”
-$ sudo chown www-data\: /srv/www -R
-Adicionar o VirtualHost ao Apache
-Por último é preciso configurar o vhost.
-$ cd /etc/apache2/sites-available
-Criar um arquivo chamado “phpmyadmin.local.conf”:
-$ sudo vim /etc/apache2/sites-available/phpmyadmin.local.conf
-Copie o conteúdo abaixo para o arquivo:
-<VirtualHost *:80>
-DocumentRoot /srv/www/php/phpmyadmin.local
-		<Directory /srv/www/php/phpmyadmin.local/>
-	Options Indexes FollowSymLinks
-   		AllowOverride All
-   		Order allow,deny
-   		allow from all
-	</Directory>
-		ServerName phpmyadmin.local
-		ServerAdmin root@phpmyadmin.local
-		ErrorLog /var/log/apache2/phpmyadmin.local_error.log
-		CustomLog /var/log/apache2/phpmyadmin.local_access.log common
-</VirtualHost>
-O novo VirtualHost deve ser habilitado usando o comando “a2ensite”, e o Apache reiniciado para persistir as mudança.
-$ sudo a2ensite phpmyadmin.local.conf
-$ sudo systemctl restart apache2.service
-Finalmente adicionar a entrada para o VirtualHost no arquivo “/etc/hosts”.
-$ sudo vim /etc/hosts
-Adicione a linha abaixo após as entradas criadas anteriormente para APP1 e APP2.
-127.0.0.1	phpmyadmin.local
-Usando o Phpmyadmin
-Acesse os endereços “http://phpmyadmin.local” para verificar toda a configuração do PHP.
-Através do Phpmyadmin vamos criar um usuário chamado “gerente_app”, que será utilizado para instalação de todas as aplicações e desenvolvimento de projetos locais que necessitem de base de dados.
-PERCEBE QUE DESSE JEITO VC PASSA A ENTENDER MELHOR O FUNCIONAMENTO DAS COISAS? RETORNANDO AO QUE PONTUEI NO INÍCIO, DOCKER É UMA BOA, MAS AQUI NESSE PONTO VOCÊ JÁ DEVE TER PERCEBIDO QUE SABER COMO ORGANIZAR O SISTEMA É BEM INTERESSANTE.
-Localize na interface o link “Contas de usuário” e crie a nova conta
-Nome de usuário: gerente_app
-Host name: localhost
-Senha: G3r3nt3_4pp
-WORDPRESS
-(https://br.wordpress.org/)
-O WordPress é uma aplicação em PHP para gerenciamento de conteúdo CMS (em inglês content management system).
-É preciso criar uma base de dados no MySQL para instalação da aplicação. Utilize o Phpmyadmin para criar uma base de dados para a instalação do WordPress e conceda todas as permissões ao usuário “gerente_app”.
-usuário: gerente_app
-senha: G3r3nt3_4pp
-base de dados: wordpress_01
-Instalação do WordPress
-Acessar o diretório de hospedagem dos arquivos de aplicações PHP na estrutura de diretórios em “/srv”.
-$ cd /srv/www/php
-No site do projeto WordPress, indicado antes, você encontra o link para download do pacote de instalação da versão estável, compactado no formato tar.gz. Copie o link e faça o download através do terminal do Linux utilizando o comando “wget”:
-$ sudo wget https://br.wordpress.org/wordpress-4.7.1-pt_BR.tar.gz
-Para descompactar o pacote use o utilitário “tar”:
-$ sudo tar -xzvf wordpress-4.7.1-pt_BR.tar.gz
-Agora vamos renomear o diretório descompactado para qualquer coisa .local:
-$ sudo mv wordpress wordpress-01.local
-O nome “wordpress-01.local” é apenas um exemplo, poderia ser “blog.local”.
-Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”
-$ sudo chown www-data\: /srv/www -R
-Adicionar o VirtualHost ao Apache
-É preciso criar um arquivo de configuração do VirtualHost, no diretório “/etc/apache2/sites-available” e a entrada no arquivo “/etc/hosts” da mesma forma como foram criadas para as aplicações de teste APP1 e APP2.
-Após a criação do VirtualHost e da entrada no arquivo “/etc/hosts” é preciso adicionar as configurações do Apache com o comando “a2ensite”:
-$ sudo a2ensite wordpress-01.local.conf
-Reiniciar o apache:
-$ sudo systemctl restart apache2.service
-Para iniciar a instalação do WordPress no servidor local acesse: “http://wordpress-01.local”
-Durante a instalação do WordPress será solicitada a configuração do nome do site do usuário administrador, senha e e-mail.
-usuário: admin
-e-mail: admin@blog.local
-senha: *6oc(oi92ZozFSyYod
-Repositório de extensões PHP
-Para conseguir instalar todas as dependências, ou pelo menos a maioria delas, necessárias a algumas aplicações conceituadas escritas em PHP, sem a necessidade de compilar extensões na unha, você pode adicionar um repositório que possui uma vasta lista de pacotes dedicado a complementos da linguagem PHP.
-Observação: Adicione o repositório abaixo apenas se você tem intenção de instalar alguns CMS como o Drupal ou o MediaWiki.
-Use o comando abaixo para adicionar o repositório:
-$ sudo add-apt-repository ppa:ondrej/php
-MEDIAWIKI
-(https://www.mediawiki.org/wiki/MediaWiki)
-O MediaWikki é uma aplicação em PHP colcaborativa para formação de bases de conhecimento.
-É preciso criar ma base de dados no MySQL para instalação da aplicação. Utilize o Phpmyadmin para criar uma base de dados para a instalação do MediaWiki e conceda todas as permissões ao usuário “gerente_app”.
-usuário: gerente_app
-senha: G3r3nt3_4pp
-base de dados: wiki_01
-$ sudo apt install php-apcu php-apcu-bc
-Instalação do MediaWiki
-Acessar o diretório de hospedagem dos arquivos de aplicações PHP na estrutura de diretórios em “/srv”.
-$ cd /srv/www/php
-No site do projeto MediaWiki, indicado antes, você encontra o link para download do pacote de instalação da versão estável, compactado no formato tar.gz. Copie o link e faça o download através do terminal do Linux utilizando o comando “wget”:
-$ sudo wget https://releases.wikimedia.org/mediawiki/1.27/mediawiki-1.27.0.tar.gz
-Para descompactar o pacote use o utilitário “tar”:
-$ sudo tar -xzvf mediawiki-1.27.0.tar.gz
-Agora vamos renomear o diretório descompactado para qualquer coisa .local:
-$ sudo mv mediawiki-1.27.0 wiki.local
-O nome wiki.local é apenas um exemplo.
-É preciso atualizar o arquivo “images/.htaccess” no diretório de instalação do MediaWiki, “wiki.local”:
-$ cd /srv/www/php/wiki.local/images
-$ sudo vim .htaccess
-Copie o conteúdo abaixo no inicio do arquivo:
-# Serve HTML as plaintext, don't execute SHTML
-AddType text/plain .html .htm .shtml .php .phtml .php5
-# Old way of registering php with AddHandler
-RemoveHandler .php
-# Recent way of registering php with SetHandler
-<FilesMatch "\.ph(p[345]?s?|tml)$">
-   SetHandler None
-</FilesMatch>
-# If you've other scripting languages, disable them too.
-Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”
-$ sudo chown www-data\: /srv/www -R
-Adicionar o VirtualHost ao Apache
-É preciso criar um arquivo de configuração do VirtualHost, no diretório “/etc/apache2/sites-available” e a entrada no arquivo “/etc/hosts” da mesma forma como foram criadas para as aplicações de teste APP1 e APP2.
-Após a criação do VirtualHost e da entrada no arquivo “/etc/hosts” é preciso adicionar as configurações do Apache com o comando “a2ensite”:
-$ sudo a2ensite wiki.local.conf
-Reiniciar o apache:
-$ sudo systemctl restart apache2.service
-Para iniciar a instalação do MediaWiki no servidor local acesse: “http://wiki.local”
-Durante a instalação do MediaWiki será solicitada a configuração do nome do site do usuário administrador, senha e e-mail.
-usuário: admin
-e-mail: admin@wiki.local
-senha: *6oc(oi92ZozFSyYod
-Extensões apcu e apcu-bc
-Caso não dê certo a tentativa de instalar o MEDIAWIKI e durante a instalação ele reclame da falta de extensões do php, existe uma grande chance de ser a “apcu”. Instale com o comando abaixo e depois volte para a instalação da aplicação.
-Quando concluir a instalação será realizado o download do arquivo de configuração que deve ser enviado para a raiz do MediaWiki:
-$ cd /srv/www/php/wiki.local
-$ sudo mv ~/Downloads/LocalSettings.php .
-Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”
-$ sudo chown www-data\: /srv/www -R
-DRUPAL
-“Drupal é um software de gerenciamento de conteúdo. É usado para fazer muitos dos sites e aplicativos que você usa todos os dias. Drupal tem grandes recursos padrão, como criação fácil de conteúdo, desempenho confiável e excelente segurança. Mas o que o diferencia é a sua flexibilidade; modularidade é um dos seus princípios fundamentais. Suas ferramentas ajuda a construir o conteúdo versátil, estruturados que as experiências Web dinâmicas precisam.” - (https://www.drupal.org/)
-Banco de dados
-É preciso criar uma base de dados no MySQL para instalação da aplicação. Utilize o Phpmyadmin para criar uma base de dados para a instalação do Drupal.
-usuário: gerente_app
-senha: G3r3nt3_4pp
-base de dados: drupal_01
-Instalação do Drupal
-Acessar o diretório de hospedagem dos arquivos de aplicações PHP na estrutura de diretórios em “/srv”.
-$ cd /srv/www/php
-No site do projeto Drupal, indicado antes, você encontra o link para download do pacote de instalação da versão estável compactado no formato “tar.gz”. Copie o link e faça o download através do terminal do Linux utilizando o comando “wget”:
-$ sudo wget https://ftp.drupal.org/files/projects/drupal-8.0.2.tar.gz
-Para descompactar o pacote use o utilitário “tar”:
-$ sudo tar -xzvf drupal-8.0.1.tar.gz
-Agora vamos renomear o diretório descompactado para qualquer coisa .local:
-$ sudo mv drupal-8.0.1 aplicacao.local
-O nome aplicacao.local é apenas um exemplo.
-Permissões para os Diretórios e Arquivos de Configuração
-Para inciar a instalação do Drupal é preciso criar os arquivos “../site/default/settings.php” e “../site/default/services.yml”. Ambos podem ser copiados de arquivos padrões que já existem no diretório.
-$ cd /srv/www/php/aplicacao.local/sites/default/
-$ sudo cp default.settings.php settings.php
-$ sudo cp default.services.yml services.yml
-Ajustar as permissões dos dois arquivos para que possam ser escritos durante a instalação do Drupal:
-$ sudo chmod a+w se*
-Criar o diretório de traduções:
-$ cd /srv/www/php/aplicacao.local/
-$ sudo mkdir -p sites/default/files/translations
-Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”
-$ sudo chown www-data\: /srv/www -R
-Adicionar o VirtualHost ao Apache
-É preciso criar um arquivo de configuração do VirtualHost, no diretório “/etc/apache2/sites-available” e a entrada no arquivo “/etc/hosts” da mesma forma como foram criadas para as aplicações de teste APP1 e APP2.
-Após a criação do VirtualHost e da entrada no arquivo “/etc/hosts” é preciso adicionar as configurações do Apache com o comando “a2ensite”:
-$ sudo a2ensite aplicacao.local.conf
-Reiniciar o apache:
-$ sudo systemctl restart apache2.service
-Para inciar a instalação do Drupal no servidor local acesse: “http://aplicacao.local”
-Durante a instalação do Drupal será solicitada a configuração do nome do site do usuário administrador, senha e e-mail.
-usuário: admin
-e-mail: admin@aplicacao.local
-senha: *6oc(oi92ZozFSyYod
-Extensões
-php-dev (opcional)
-$ sudo apt-get install php-dev
-PACOTES INSTALADOS: autoconf automake autotools-dev debhelper dh-php dh-strip-nondeterminism gettext intltool-debian libarchive-zip-perl libasprintf-dev libfile-stripnondeterminism-perl libgettextpo-dev libgettextpo0 libltdl-dev libmail-sendmail-perl libpcre3-dev libpcre32-3 libpcrecpp0v5 libssl-dev libssl-doc libssl1.0.2 libsys-hostname-long-perl libtool m4 php7.0-dev pkg-php-tools po-debconf shtool xml2 zlib1g-dev
-Por questões de segurança o pacote “php-dev” deve ser removido após a instalação das bibliotecas compiladas em servidores que estejam em produção. No caso de ambientes de desenvolvimento como este, pode se manter o pacote, pois podemos precisar de algumas dependências para compilar bibliotecas.
-uploadprogress (necessária para o Drupal)
-$ sudo apt-get install uploadprogress
-php-twig (necessária para o Drupal)
-$ sudo apt-get install php-twig
-Configurar Aplicações em Diretórios Acessíveis
+```
+
+!!! attention "Atenção"
+	A chave '669656bab3166a7aff8a7506b8cb2d1c292f042046c5a994c43155c0be6190fa0355160742ab2e1c88d40d5be660b410' pode não ser a mesma quando em uma instalação futura, é preciso conferir em [https://getcomposer.org/download/](https://getcomposer.org/download/).
+
+Para verificar a versão do composer:
+
+```bash
+$ composer -V
+```
+
+## Configurar diretórios de desenvolvimento
+
 No Linux o único diretório com permissão de escrita para o usuário padrão, o usuário da instalação do sistema operacional, é o diretório “home” de sua conta: “/home/nome_usuario”.
 Por essa razão não dá pra editar o código PHP no local que decidimos instalar as aplicações, ou seja, o diretório “/srv/www/php”. Sendo assim vamos mudar as configurações de forma sutil para termos acesso de leitura e escrita aos arquivos de código fonte das aplicações.
 As aplicações: Drupal, Phpmyadmin, MediaWiki e WordPress mostradas acima não necessitam de alterações no código, portanto não sofrerão alterações nas permissões. A configuração mostrada até agora reflete de forma fidedigna as configurações ideais para instalação de aplicações PHP em servidores de produção.
-Configuração do Diretório de Desenvolvimento
-O primeiro passo é criar um diretório no diretório home do usuário padrão, criado durante a instalação do sistema operacional Linux, por exemplo “/home/nome_usuario/DEV_WEB/VHOSTS”:
+O primeiro passo é criar um diretório no diretório home do usuário padrão, criado durante a instalação do sistema operacional Linux, por exemplo
+“/home/nome_usuario/DEV_WEB/VHOSTS”:
 $ mkdir -p ~/DEV_WEB/VHOSTS
 O “~” (til) é um curinga que substitui o diretório home no momento de digitar comandos no prompt.
 Na pasta projetos iremos criar propriamente nossas aplicações, portanto será ali que iremos colocar os diretórios “.local”, por exemplo:
@@ -480,37 +416,3 @@ Quando quiser parar de desenvolver momentaneamente execute:
 $ sudo parar-ambiente-web
 Pau no gato.
 E isso é tudo sobre PHP no momento...
-Aplicativos para Auxiliar no Desenvolvimento
-Editor de Textos Sublime
-O Editor de textos “Sublime” é uma boa ferramenta para lidar com projetos de aplicações.
-Pense na possibilidade de comprar uma licença deste software.
-Instalação do Editor “Sublime”
-$ sudo add-apt-repository ppa:webupd8team/sublime-text-3
-$ sudo apt-get update
-$ sudo apt-get install sublime-text
-Sistema de Controle de Versão “Git”
-O “Git” é um sistema de versionamento de aquivos, projetos, etc.
-A playlist do canal RB Tech no YouTube é extremamente recomendada para compreensão do Git:
-(https://youtu.be/WVLhm1AMeYE?list=PLInBAd9OZCzzHBJjLFZzRl6DgUmOeG3H0):
-Intalação do Git
-$ sudo apt-get install git
-Configuração do Git
-Informar nome de usuário e e-mail:
-$ git config --global user.name "Seu Nome"
-$ git config --global user.email "seunome@subdominio.dominio"
-$ git config --list
-GitHub - (github.com)
-O GitHub é uma espécie de rede social de programadores no qual podemos disponibilizar nossos projetos, receber contribuições e também contribuir com outros projetos. Basta criar uma conta e depois adicionar as chaves ssh do computador no perfil do GitHub.
-Gerar Chaves ssh - Acessso ao GitHub
-(https://help.github.com/articles/generating-ssh-keys/)
-$ ls -la .ssh/
-$ ssh-keygen -t rsa -b 4096 -C "seuemail@example.com"
-$ eval "$(ssh-agent -s)"
-$ ssh-add ~/.ssh/id_rsa
-$ ls -la .ssh/
-Instalar o “xclip” que copia textos para área de transferência:
-$ sudo apt-get install xclip
-$ xclip -sel clip < ~/.ssh/id_rsa.pub
-Por fim, adicionar a chave no GitHub, testar a conexão:
-$ ssh -vT git@github.com
-```
