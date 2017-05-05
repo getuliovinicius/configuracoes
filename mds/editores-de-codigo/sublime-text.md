@@ -1,19 +1,23 @@
 Sublime Text
 ============
 
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
+
 Procedimento para instalação do _Sublime Text_ nos sistemas operacionais _Debian, Ubuntu, Linux Mint_:
 
 Faça o download do pacote para Debian em [https://www.sublimetext.com/](https://www.sublimetext.com/)
 
-Comandos para instalação do _Sublime Text_:
+Comandos para instalação do _Sublime Text_ - presumindo que o download foi feito no diretório padrão:
 
-``` sh
-# presumindo que o download foi feito no diretório padrão
+```bash
 $ cd ~/Downloads
-$ sudo dpkg -i sublime-text_build-3126_amd64.deb
-
-# Substitua "sublime-text_build-3126_amd64.deb" pelo nome do arquivo que baixou
+$ sudo dpkg -i sublime-text\_build-3126\_amd64.deb
 ```
+
+!!! attention "Atenção"
+	Substitua "sublime-text\_build-3126\_amd64.deb" pelo nome do arquivo que baixou.
 
 ## Plugins
 
@@ -40,7 +44,7 @@ Segue uma lista com bons plugins para o _Sublime Text_:
 
 Abaixo um exemplo de configuração do _Sublime Text_ editando o arquivo `Preferences.sublime-settings -- User` acessado a partir do menu `Preferences > Settings`:
 
-``` conf
+```json
 {
 	"font_size": 11,
 	"fade_fold_buttons": false,

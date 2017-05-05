@@ -1,6 +1,10 @@
 Mkdocs
 ======
 
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
+
 O _[Mkdocs](http://www.mkdocs.org/)_ é uma ferramenta desenvolvida em _Python_, especialmente para desenvolvimento de documentação de software, com qual é possível geral sites HTML estáticos a partir de arquivos escritos com a linguagem de marcação de texto _Markdown_.
 
 Comando para criar o diretório onde ficaram os arquivos fonte da documentação:

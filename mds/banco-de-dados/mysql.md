@@ -1,5 +1,9 @@
-Instalação do MySQL
-=====================
+Servidor de Banco de Dados MySQL
+================================
+
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
 
 O MySQL é um sistema gerenciador de bases de dados "SGDB". É comum a utilização do MySQL em conjunto com o Apache e PHP para desenvolvimento web.
 
@@ -33,13 +37,13 @@ $ sudo systemctl status mysql.service
 !!! note "Info"
     Pode ser útil, caso esteja trabalhando em um servidor de produção, elevar o nível de segurança do servidor MySQL, para isso você pode recorrer ao utilitário `mysql_secure_installation`
 
-    ```bash
-    $ sudo mysql_secure_installation
-    ```
+Para executar o utilitário de configuração das diretivas de segurança do MySQL execute o comando:
 
-    Responda as questões conforme sua necessidade.
+```bash
+$ sudo mysql_secure_installation
+```
 
-Para testar o login use o comando:
+Responda as questões conforme sua necessidade e em seguida para testar o login use o comando:
 
 ```bash
 $ mysqladmin -p -u root version

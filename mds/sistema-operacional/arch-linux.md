@@ -1,6 +1,10 @@
 Arch Linux
 ==========
 
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
+
 ## Instlação Básica:
 
 Mudar o layout do eclado para abnt2:
@@ -165,6 +169,7 @@ $ grub-install --target=i386-pc --recheck /dev/sda
 $ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
 $ grub-mkconfig -o /boot/grub/grub.cfg
 ```
+
 _$ arch-chroot /mnt pacman -S grub-bios_
 
 Sair do chroot:
@@ -261,9 +266,9 @@ $ sudo pacman -S ttf-dejavu
 $ sudo pacman -S networkmanager
 
 # NÃO PRECISA - MAS PRECISO CHECAR
-_$ sudo pacman -S networkmanager-vpnc
+$ sudo pacman -S networkmanager-vpnc
 $ sudo pacman -S networkmanager-pptp
-$ sudo pacman -S networkmanager-openconnect_
+$ sudo pacman -S networkmanager-openconnect
 ```
 
 ```bash
@@ -280,18 +285,4 @@ $ sudo systemctl enable NetworkManager
 
 ```
 $ sudo pacman -S openssh
-```
-
-### Arquivo “/etc/hosts”
-
-Para o ambiente de desenvolvimento pretendido é preciso atribuir uma entrada no arquivo `/etc/hosts`, para cada domínio local que se deseja acessar.
-Essa ação fará com que os navegadores web instalados no computador possam acessar páginas locais, servidas no próprio computador, a partir de domínios locais.
-No exemplo abaixo existe uma entrada para o domínio local `app1.local`, que pode ser acessado no navegador com o endereço “http://app1.local”.
-Mostar o conteúdo do arquivo `/etc/hosts`:
-
-```bash
-$ cat /etc/hosts
-127.0.0.1	localhost
-127.0.1.1	ARCH-LINUX-PC # este nome é definido na instalação
-127.0.0.1	app1.local # exemplo de entrada para um projeto
 ```

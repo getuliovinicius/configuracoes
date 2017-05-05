@@ -1,8 +1,14 @@
 O que é o _Git_?
 ================
 
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
+
 O _“Git”_ é um sistema de versionamento de aquivos, projetos, etc.
-Existe uma [_playlist no YouTube_](https://youtu.be/WVLhm1AMeYE?list=PLInBAd9OZCzzHBJjLFZzRl6DgUmOeG3H0) de um curso no canal **RB Tech** que é extremamente recomendada para compreensão do _Git_.
+
+!!! note "Info"
+	Existe uma [_playlist no YouTube_](https://youtu.be/WVLhm1AMeYE?list=PLInBAd9OZCzzHBJjLFZzRl6DgUmOeG3H0) de um curso no canal **RB Tech** que é extremamente recomendada para compreensão do _Git_.
 
 ## Instalação
 
@@ -109,4 +115,5 @@ Comando para relacionar um repositório local a um repositório criado em um dos
 $ git remote add origin https://github.com/xxxxx/xxxxx.git
 ```
 
->"xxxxx" representa parte da url que aponta para o repositório especícfico que se deseja relacionar ao repositório local.
+!!! note "Info"
+	"xxxxx" representa parte da url que aponta para o repositório especícfico que se deseja relacionar ao repositório local.

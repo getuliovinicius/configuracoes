@@ -1,6 +1,10 @@
 zsh
 ===
 
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
+
 Comando para instalar o _zsh_ nos sistemas operacionais _Arch Linux e Manjaro Linux_:
 
 ```bash

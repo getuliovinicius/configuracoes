@@ -1,6 +1,10 @@
 Ambiente Virtual _Python_
 =========================
 
+_Versão 1 - atualizada em 05/05/2017_
+
+-----
+
 Este é um roteiro para configuração de um ambiente virtual _Python_, de modo que o trabalho e o Sistema Operacional se mantenham organizados enquanto as bibliotécas de código, os _frameworks_, etc vão sendo instalados, assim como os projetos.
 
 ## pip
@@ -61,7 +65,7 @@ As linhas abaixo devem ser adicionadas no final do arquivo de configuração do 
 + Para _Arch Linux e Manjaro Linux_ utilize as linhas abaixo:
 
 ```rc
-# Virtualenv
+# Virtualenvwrapper
 export WORKON_HOME=$HOME/Virtualenvs
 export PROJECT_HOME=$HOME/Devel
 source /usr/bin/virtualenvwrapper.sh

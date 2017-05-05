@@ -508,6 +508,19 @@ $ sudo a2ensite app2.local.conf
 $ sudo systemctl restart apache2.service
 ```
 
+### Arquivo “/etc/hosts”
+
+Para o ambiente de desenvolvimento pretendido é preciso atribuir uma entrada no arquivo `/etc/hosts`, para cada domínio local que se deseja acessar.
+Essa ação fará com que os navegadores web instalados no computador possam acessar páginas locais, servidas pelo Apache, a partir de domínios locais.
+No exemplo abaixo existe uma entrada para o domínio local, _app1.local_, que pode ser acessado no navegador com o endereço [http://app1.local](http://app1.local).
+Mostar o conteúdo do arquivo `/etc/hosts`:
+
+```
+$ cat /etc/hosts
+127.0.0.1	localhost
+127.0.1.1	ARCH-LINUX-PC # este nome é definido na instalação
+```
+
 Para concluir tudo é preciso criar as entradas para os `vHost` no arquivo `/etc/hosts`.
 
 ```bash
@@ -516,7 +529,8 @@ $ sudo vim /etc/hosts
 
 ```
 127.0.0.1	localhost
-127.0.1.1	DEBIAN-01
+127.0.1.1	DEBIAN-01 # este nome é definido na instalação
+
 # As linhas abaixo são as entradas para as aplicações criadas.
 127.0.0.1	app1.local
 127.0.0.1	app2.local
