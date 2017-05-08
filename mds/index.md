@@ -16,6 +16,8 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 	- [Mkdocs](python/mkdocs.md)
 - PHP:
 	- [PHP](php/php.md)
+	- [Phpmyadmin](php/phpmyadmin.md)
+	- [Hesk](php/hesk.md)
 - Node.JS:
 	- [Node.JS](nodejs/nodejs.md)
 - Servidores Web:
