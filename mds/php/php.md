@@ -169,6 +169,9 @@ Extensão _php7.0-curl_ usada para conectar _webservices_.
 $ sudo apt install php7.0-curl
 ```
 
+!!! note "Info"
+	**Pacotes instalados:** _libcurl3 php7.0-curl_
+
 Gerenciador de dependências "PEAR": (opcional)
 
 ```bash
