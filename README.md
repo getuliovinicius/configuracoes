@@ -16,6 +16,8 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 	- [PHP](mds/php/php.md)
 	- [Phpmyadmin](mds/php/phpmyadmin.md)
 	- [Hesk](mds/php/hesk.md)
+- Java:
+	- [Java](mds/java/jre.md)
 - Node.JS:
 	- [Node.JS](mds/nodejs/nodejs.md)
 - Servidores Web:
