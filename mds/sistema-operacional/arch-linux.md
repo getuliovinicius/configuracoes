@@ -1,129 +1,100 @@
 Arch Linux
 ==========
 
-_Versão 1 - atualizada em 05/05/2017_
+_Versão 1 - atualizada em 09/07/2017_
 
 -----
 
-## Instlação Básica:
+# Instalação Básica
 
-Mudar o layout do eclado para abnt2:
++ Rodar o boot pela imagem ".iso" baixada.
++ Mudar o layout do teclado para **abnt2**:
 
 ```bash
 $ loadkeys br-abnt2
 ```
 
-Configurar o idioma de intalação:
++ Testar a conexão com a internet com o comando `ping`:
 
 ```bash
-$ vim /etc/locale.gen
+$ ping -c 3 google.com
 ```
 
-descomentar essas linhas:
-
-```
-en_US.UTF-8 UTF-8
-pt_BR.UTF-8 UTF-8
-```
++ Atualizar a base de dados de pacotes:
 
 ```bash
-$ locale-gen
-$ export LANG=pt_BR.UTF-8
+$ pacman -Syy
 ```
 
-Testar conexão com a internet:
-
-```bash
-$ ping -c 3 www.google.com
-```
-
-Particionar o disco:
++ Listar os discos e as partições:
 
 ```bash
 $ fdisk -l
+```
+
++ Particionar o disco:
+
+```bash
 $ cfdisk /dev/sda
 ```
 
-Tamannhos das partições:
++ Escolher o modelo de tabela de discos **dos** e configurar os Tamanhos das partições:
 
-- 2MB - inicialização
-- 38GB - /
-- 2GB - swap
-
-Formatar as particoes:
-
-```bash
-$ mkfs.ext4 /dev/sda2
-$ mkswap /dev/sda3
-$ swapon /dev/sda3
-$ lsblk /dev/sda
+```
+36GB - no inicio para a raiz do sistema "/"
+4GB - para swap
 ```
 
-Montar as partições:
++ Formatar as partições:
 
 ```bash
-$ mount /dev/sda2 /mnt
-```
-Ajustar o mirrorlist:
-
-```bash
-$ vim /etc/pacman.d/mirrorlist
+$ mkfs.ext4 /dev/sda1
+$ mkswap /dev/sda2
+$ swapon /dev/sda2
 ```
 
-Colocar os espelhos do brasil no inicio do arquivo.
-
-Instalar o sistema base:
++ Montar as partições:
 
 ```bash
-$ pacstrap /mnt base grub
+$ mount /dev/sda1 /mnt
+$ lsblk
 ```
 
-Gerar o arquivo fstab que decreve as particoes:
++ Instalar o sistema base:
 
 ```bash
-$ genfstab -p /mnt >> /mnt/etc/fstab
+$ pacstrap -i /mnt base base-devel
+```
+
++ Gerar o arquivo `/etc/fstab` que descreve as partições:
+
+```bash
+$ genfstab -U -p /mnt >> /mnt/etc/fstab
 $ cat /mnt/etc/fstab
 ```
 
-Logar na instalação:
++ Fazer login na instalação e chamar o `bash` para interagir na linha de comando:
 
 ```bash
-$ arch-chroot /mnt
+$ arch-chroot /mnt /bin/bash
 ```
 
-Setar o hostname:
-
-```bash
-$ vi /etc/hostname
-```
-
-colocar "ArchLinuxVM-01"
-
-```
-ArchLinuxVM-01
-```
-
-Configurar o fuso horário:
-
-```bash
-$ ls /usr/share/zoneinfo/America
-$ ln -sf /usr/share/zoneinfo/America/Recife /etc/localtime
-```
-
-Configurar o idioma:
++ Configurar o idioma de instalação editando o arquivo `/etc/locale.gen`:
 
 ```bash
 $ vi /etc/locale.gen
 ```
 
-descomentar as linhas:
++ Descomentar as seguintes linhas no arquivo:
 
-```ig
+```
 en_US.UTF-8 UTF-8
 en_US.ISO-8859-1
 pt_BR.UTF-8 UTF-8
 pt_BR.ISO-8859-1
 ```
+
++ Persistir a alteração do idioma:
 
 ```bash
 $ locale-gen
@@ -131,7 +102,7 @@ $ echo LANG=pt_BR.UTF-8 >> /etc/locale.conf
 $ export LANG=pt_BR.UTF-8
 ```
 
-Configurar o layout do teclado:
++ Configurar o layout do teclado:
 
 ```bash
 $ vi /etc/vconsole.conf
@@ -143,146 +114,229 @@ FONT=Lat2-Terminus16
 FONT_MAP=
 ```
 
-Configurar a inicialização:
++ Configurar o fuso horário:
 
 ```bash
-$ mkinitcpio -p linux
+$ ls /usr/share/zoneinfo/America
+$ ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+# não rode o comando abaixo pois ainda não entendo o pq ele não funciona
+$ hwclock --systohc --local
 ```
 
-Configurar a rede cabeada:
++ Setar o `hostname`:
 
 ```bash
-_$ systemctl enable dhcpcd@eth0.service_
+$ echo ArchLinuxVM-modelo /etc/hostname
 ```
 
-Criar senha de root:
++ Editar o arquivo `/etc/hosts`:
+
+```bash
+$ vi /etc/hosts
+```
+
++ Adicionar a linha abaixo na sessão apropriada do arquivo, antes da linha `# End of file`:
+
+```
+127.0.1.1   ArchLinuxVM-modelo.localdomain  ArchLinuxVM-modelo
+```
+
++ Ativar a busca por IP automático, DHCP, na inicialisação do sistema:
+
+```bash
+$ systemctl enable dhcpcd.service
+```
+
++ Criar senha de root:
 
 ```bash
 $ passwd
 ```
 
-Intalando o Grub
+123456
+
++ Instalar o Grub
 
 ```bash
-$ pacman -S grub-bios
-$ grub-install --target=i386-pc --recheck /dev/sda
-$ cp /usr/share/locale/en\@quot/LC_MESSAGES/grub.mo /boot/grub/locale/en.mo
+$ pacman -S grub
+$ grub-install /dev/sda
 $ grub-mkconfig -o /boot/grub/grub.cfg
 ```
 
-_$ arch-chroot /mnt pacman -S grub-bios_
-
-Sair do chroot:
++ Fazer logout na instalação:
 
 ```bash
 $ exit
 ```
 
-Desmontar as particoes:
++ Desmontar as partições:
 
 ```bash
-$ umount /mnt
+$ umount -R /mnt
 ```
 
-Reiniciar
++ Reiniciar
 
 ```bash
 $ reboot
 ```
-Configuração do ArchLinux
-=========================
 
-### Atulizar o sistema
+# Configuração do ArchLinux
 
-Ajustes nos repositórios
-
-```bash
-$ vim /etc/pacman.conf
-```
-
-descomentar multilib
++ Logar como root
++ Atualizar o ArchLinux:
 
 ```bash
 $ pacman -Syu
 ```
 
-### Instalar o vim (pelo amor de Deus)
++ Instalar o pacote `reflector` que recupera a lista de espelhos de rede mais rápidos:
+
+```bash
+$ pacman -S reflector
+```
+
++ Copiar a lista de espelhos para um backup:
+
+```bash
+$ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.original
+```
+
++ Localizar e salvar os melhores espelhos de rede no arquivo `/etc/pacman.d/mirrorlist`:
+
+```bash
+$ reflector -c Brazil --save /etc/pacman.d/mirrorlist
+$ cat /etc/pacman.d/mirrorlist
+```
+
+!!! note "Nota"
+    Se o `reflector` não funcionar, não reconhecia urls do tipo `https`, tente instalar o o `openssl`, comando abaixo, e depois tente o comando para salvar os espelhos de rede.
+
++ Instalar o `openssl`:
+
+```bash
+$ pacman -S openssl
+```
+
++ Instalar o vim **(pelo amor de Deus)**:
 
 ```bash
 $ pacman -S vim
 ```
 
-### Criar usuario e definir senha
-
-```bash
-$ useradd -m -g users -G wheel,storage,power -s /bin/bash usuario
-$ passwd usuario
-```
-
-### Instalar sudo
++ Instalar o `sudo`:
 
 ```bash
 $ pacman -S sudo
 ```
 
-Editar as permissões:
++ Criar usuário comum e definir senha:
+
+```bash
+$ useradd -m -g users -G wheel -s /bin/bash usuario
+$ passwd usuario
+```
+
++ Editar as permissões:
 
 ```bash
 $ EDITOR=vim visudo
 ```
 
-Descomentar a linha que mostra o grupo (wheel).
++ Descomentar a linha que mostra o grupo (wheel).
 
-### Configurar o som
-
-```bash
-$ pacman -S alsa-utils
-$ alsamixer
+```
+%wheel ALL=(ALL) ALL
 ```
 
-### Driver virtualbox:
++ Fazer logout do usuário root:
+
+```bash
+$ exit
+```
+
++ Logar com o novo usuário:
++ Instalar os drivers de audio:
+
+```bash
+$ pacman -S pulseaudio pulseaudio-alsa
+```
+
++ Instalar o servidor de interface gráfica `xorg`:
+
+```bash
+$ sudo pacman -S xorg xorg-xinit
+```
+
++ Driver gráfico do Virtualbox:
 
 ```bash
 $ sudo pacman -S virtualbox-guest-utils
 ```
 
-### Instalar xorg
+!!! note "Nota"
+    Apenas se a instalação foi realizada em Máquina Virtual com o Virtualbox.
+
+# Instalação da interface gráfica KDE
+
++ Configurar o arquivo `~/.xinitrc`:
 
 ```bash
-$ sudo pacman -S xorg-server
-$ sudo pacman -S xorg-xinit
-$ sudo pacman -S xorg-server-utils
+$ echo "exec startkde" > ~/.xinitrc
 ```
 
-### Instalar fonts
++ Instalar o KDE mínimo:
+
+```bash
+$ sudo pacman -S plasma-desktop
+```
+
++ Instalar alguns programas básicos:
+
+```bash
+$ sudo pacman -S konsole dolphin firefox kate
+```
+
++ Iniciar a interface gráfica:
+
+```bash
+$ startx
+```
+
++ Abrir um terminal gráfico, instalar o gerenciador de sessão e ativá-lo na inicialização do sistema:
+
+```bash
+$ sudo pacman -S sddm
+$ sudo systemctl enable sddm.service
+```
+
+!!! warning "Nota"
+    Os passos abaixo ainda não foram testados.
+
++ Configurar...:
+
+```bash
+$ mkinitcpio -p linux
+```
+
++ Instalar fonts:
 
 ```bash
 $ sudo pacman -S ttf-dejavu
 ```
 
-### Gerenciador de rede
++ Instalar gerenciador de rede:
 
 ```bash
 $ sudo pacman -S networkmanager
-
-# NÃO PRECISA - MAS PRECISO CHECAR
-$ sudo pacman -S networkmanager-vpnc
-$ sudo pacman -S networkmanager-pptp
-$ sudo pacman -S networkmanager-openconnect
 ```
 
 ```bash
 $ sudo pacman -S network-manager-applet
 ```
 
-Ativar o gerenciador de rede na inicialização do sistema:
++ Ativar o gerenciador de rede na inicialização do sistema:
 
 ```bash
 $ sudo systemctl enable NetworkManager
-```
-
-### ssh
-
-```
-$ sudo pacman -S openssh
 ```
