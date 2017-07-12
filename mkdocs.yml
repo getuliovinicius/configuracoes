@@ -12,6 +12,7 @@ pages:
     - Configurações: index.md
     - Sistemas Operacionais:
         - Arch Linux: 'sistema-operacional/arch-linux.md'
+        - Debian9: 'sistema-operacional/debian9.md'
     - Git:
         - Git: 'git/git.md'
     - Shell:
