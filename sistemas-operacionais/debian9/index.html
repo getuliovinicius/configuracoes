@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Debian9 - Configurações</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Debian9";
+    var mkdocs_page_input_path = "sistemas-operacionais/debian9.md";
+    var mkdocs_page_url = "/sistemas-operacionais/debian9/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-70830801-12', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Configurações</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Configurações</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sistemas Operacionais</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../arch-linux/">Arch Linux</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Debian9</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#debian_9_-_strech">Debian 9 - Strech</a></li>
+    
+
+    <li class="toctree-l3"><a href="#objetivo">Objetivo</a></li>
+    
+
+    <li class="toctree-l3"><a href="#preparacao_do_ambiente_no_virtualbox">Preparação do ambiente no VirtualBox</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#descricao_e_tipo">Descrição e Tipo</a></li>
+        
+            <li><a class="toctree-l4" href="#hardware">Hardware</a></li>
+        
+        </ul>
+    
+
+    <li class="toctree-l3"><a href="#instalacao_basica">Instalação Básica</a></li>
+    
+
+    <li class="toctree-l3"><a href="#clone">Clone</a></li>
+    
+
+    <li class="toctree-l3"><a href="#pos_clone">Pós clone</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#configuracoes_de_rede">Configurações de Rede</a></li>
+        
+            <li><a class="toctree-l4" href="#configuracao_do_ambiente">Configuração do Ambiente</a></li>
+        
+            <li><a class="toctree-l4" href="#servidor_x">Servidor X</a></li>
+        
+            <li><a class="toctree-l4" href="#interface_grafica_xfce_4">Interface Gráfica XFCE 4</a></li>
+        
+            <li><a class="toctree-l4" href="#aplicativos_comuns">Aplicativos comuns</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git/">Git</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Shell</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../shell/zsh/">zsh</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php/">PHP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/phpmyadmin/">Phpmyadmin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/hesk/">Hesk</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/jre/">JRE</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Node.JS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Servidores Web</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Banco de Dados</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Configurações</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Sistemas Operacionais &raquo;</li>
+        
+      
+    
+    <li>Debian9</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/sistemas-operacionais/debian9.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="debian_9_-_strech">Debian 9 - Strech<a class="headerlink" href="#debian_9_-_strech" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 21/07/2017</em></p>
+<hr />
+<h1 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h1>
+<p>Este tutorial objetiva demonstrar a instalação e configuração do sistema operacional <em>Debian9 - Strech</em> com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser personalizada de acordo com as necessidades do usuário.</p>
+<h1 id="preparacao_do_ambiente_no_virtualbox">Preparação do ambiente no <em>VirtualBox</em><a class="headerlink" href="#preparacao_do_ambiente_no_virtualbox" title="Permanent link">&para;</a></h1>
+<p>Para este exemplo de instalação e configuração de um sistema operacional <em>Debian9</em> foi criada uma máquina virtual utilizado o software de virtualização <em>VirtualBox</em> com as seguintes especificações:  </p>
+<h2 id="descricao_e_tipo">Descrição e Tipo<a class="headerlink" href="#descricao_e_tipo" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Nome:</strong> DebianVM-02-modelo-02</li>
+<li><strong>Tipo:</strong> Linux</li>
+<li><strong>Versão:</strong> Debian (64-bit)</li>
+</ul>
+<p><img alt="Imagem 1" src="../imgs/debian9-1.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Após instalação básica do <em>Debian9</em> a máquina virtual foi clonada, para que permaneça como modelo para outras personalizações de ambiente.</p>
+<p>O <em>VirtualBox</em> possui a funcionalidade de criação de clones das máquinas virtuais. Essa funcionalidade é especialmente adequada para situações em que se planeja utilizar o mesmo sistema operacional para configurar ambientes com diversas finalidades, por exemplo: ambiente de programação em PHP, ambiente de programação em Java, ambiente de edição de imagens, ambiente de teste de redes ou qualquer outro ambiente. Basta clonar uma máquina virtual com uma instalação básica do sistema operacional que pretende utilizar e posteriormente configurá-lo de acordo com as necessidades do ambiente desejado.</p>
+<p>Este tipo de abordagem evita o acumulo de programas instalados no sistema operacional, tornando-o mais eficiente em termos de utilização de recursos, ademais é possível manter muitas máquinas virtuais em um computador.</p>
+</div>
+<h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
+<p>Foram disponibilizados até 4GB de Memória RAM.</p>
+<p><img alt="Imagem 2" src="../imgs/debian9-2.png" /></p>
+<p>Foi criado um disco virtual com até 40GB de espaço de armazenamento.</p>
+<p><img alt="Imagem 3" src="../imgs/debian9-3.png" /></p>
+<p><img alt="Imagem 4" src="../imgs/debian9-4.png" /></p>
+<p><img alt="Imagem 5" src="../imgs/debian9-5.png" /></p>
+<p>Foram disponibilizados 2 Processadores(CPUs).</p>
+<p><img alt="Imagem 7" src="../imgs/debian9-7.png" /></p>
+<p>A memória dedicada a vídeo foi configurada para 128MB e a Aceleração 3D foi habilitada.</p>
+<p><img alt="Imagem 8" src="../imgs/debian9-8.png" /></p>
+<p>A imagem de instalação do Debian9 foi carregada.</p>
+<p><img alt="Imagem 9" src="../imgs/debian9-9.png" /></p>
+<p>Foi definida a utilização de uma placa de rede em modo Bridge, deste modo trafego de rede é direcionado para a placa de rede da maquina virtual normalmente pois essa pode participar da rede física normalmente.</p>
+<p><img alt="Imagem 10" src="../imgs/debian9-10.png" /></p>
+<p>O restante das opções do da máquina foram mantidas como padrão do <em>VirtualBox</em>.</p>
+<h1 id="instalacao_basica">Instalação Básica<a class="headerlink" href="#instalacao_basica" title="Permanent link">&para;</a></h1>
+<p>Foi escolhida a opção de instalação em modo texto.</p>
+<p><img alt="Imagem 13" src="../imgs/debian9-13.png" /></p>
+<p>Foi escolhido o idioma de instalação <strong>Português do Brasil</strong>.</p>
+<p><img alt="Imagem 14" src="../imgs/debian9-14.png" /></p>
+<p>Foi escolhido o país <strong>Brasil</strong>.</p>
+<p><img alt="Imagem 15" src="../imgs/debian9-15.png" />.</p>
+<p>Foi escolhido o layout de teclado <strong>Português do Brasil</strong>.</p>
+<p><img alt="Imagem 16" src="../imgs/debian9-16.png" /></p>
+<p>Foi definido o nome de máquina <strong>DebianVM-02-modelo-02</strong>.</p>
+<p><img alt="Imagem 17" src="../imgs/debian9-17.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Posteriormente o nome de máquina foi alterado na máquina clonada.</p>
+</div>
+<p>Foi definido o nome de domínio <strong>local</strong>.</p>
+<p><img alt="Imagem 18" src="../imgs/debian9-18.png" /></p>
+<p>A senha do super-usuário, <strong>root</strong>, foi deixada em branco.</p>
+<p><img alt="Imagem 19" src="../imgs/debian9-19.png" /></p>
+<p><img alt="Imagem 20" src="../imgs/debian9-20.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A senha de super-usuário foi deixada em branco propositalmente para que o comando sudo seja configurado automaticamente durante a instalação.</p>
+</div>
+<p>Foi preenchido o nome completo, para exibição em determinadas partes do sistema, uma conta de usuário comum. Este usuário pode exercer os privilégios de super-usuário com o comando <code>sudo</code>.</p>
+<p><img alt="Imagem 21" src="../imgs/debian9-21.png" /></p>
+<p>Depois foi definido o nome de usuário para login no sistema.</p>
+<p><img alt="Imagem 22" src="../imgs/debian9-22.png" /></p>
+<p>E por fim foi definida a senha da conta do usuário.</p>
+<p><img alt="Imagem 23" src="../imgs/debian9-23.png" /></p>
+<p>Para configurar o relógio da máquina e o Fuzo Horário do sistema foi definido o estado de São Paulo como local de moradia.</p>
+<p><img alt="Imagem 24" src="../imgs/debian9-24.png" /></p>
+<p>O particionamento do disco pode ser realizado de &ldquo;n&rdquo; maneiras, entretanto, neste caso foi aceito que o sistema definisse automaticamente o esquema de partições. Caso existisse um motivo especial para se optar por exemplo para montar diretórios específicos de armazenamento de dados e partições separadas, a melhor opção nesta etapa seria o particionamento manual.</p>
+<p><img alt="Imagem 25" src="../imgs/debian9-25.png" /></p>
+<p><img alt="Imagem 26" src="../imgs/debian9-26.png" /></p>
+<p><img alt="Imagem 27" src="../imgs/debian9-27.png" /></p>
+<p><img alt="Imagem 28" src="../imgs/debian9-28.png" /></p>
+<p><img alt="Imagem 29" src="../imgs/debian9-29.png" /></p>
+<p><img alt="Imagem 30" src="../imgs/debian9-30.png" /></p>
+<p>Os pacote que por ventura são selecionados mas não estão na mídia de instalação são obtidos conexão com um espelho de rede do <em>Debian9</em>, portanto, não foi necessário inserir outro CD/DVD.</p>
+<p><img alt="Imagem 31" src="../imgs/debian9-31.png" /></p>
+<p>Foram configurados no momento da instalação os espelhos de rede do <em>Debian9</em> localizados no Brasil.</p>
+<p><img alt="Imagem 32" src="../imgs/debian9-32.png" /></p>
+<p><img alt="Imagem 33" src="../imgs/debian9-33.png" /></p>
+<p><img alt="Imagem 34" src="../imgs/debian9-34.png" /></p>
+<p>Não foi preciso configurar um <em>proxy</em> pois havia uma conexão direta.</p>
+<p><img alt="Imagem 35" src="../imgs/debian9-35.png" /></p>
+<p>Para não alongar muito a instalação, foi rejeitada a participação no concurso de utilização de pacotes.</p>
+<p><img alt="Imagem 36" src="../imgs/debian9-36.png" /></p>
+<p>Nenhuma interface gráfica foi instalada neste momento pois o objetivo era obter uma instalação enxuta do sistema para que posteriormente fosse personalizado.</p>
+<p><img alt="Imagem 37" src="../imgs/debian9-37.png" /></p>
+<p>Por fim foi instalado o gerenciador de Boot no registro mestre de inicialização do disco principal.</p>
+<p><img alt="Imagem 38" src="../imgs/debian9-38.png" /></p>
+<p><img alt="Imagem 39" src="../imgs/debian9-39.png" /></p>
+<p><img alt="Imagem 40" src="../imgs/debian9-40.png" /></p>
+<h1 id="clone">Clone<a class="headerlink" href="#clone" title="Permanent link">&para;</a></h1>
+<p>Foi feito um clone completo da máquina virtual já com o <em>Debian9</em> instalado e o nome da máquina foi definido como <code>DebianVM-02</code>. O objetivo deste ponto em diante é personalizar o sistema operacional de acordo com a necessidade especifica. Se por ventura algo der errado com a personalização basta excluir a máquina clonada e clonar a partir do modelo novamente.</p>
+<p><img alt="Imagem 11" src="../imgs/debian9-11.png" /></p>
+<p><img alt="Imagem 11" src="../imgs/debian9-12.png" /></p>
+<h1 id="pos_clone">Pós clone<a class="headerlink" href="#pos_clone" title="Permanent link">&para;</a></h1>
+<h2 id="configuracoes_de_rede">Configurações de Rede<a class="headerlink" href="#configuracoes_de_rede" title="Permanent link">&para;</a></h2>
+<p>Depois que o clone foi feito a máquina virtual poderia ser configurada para atender diversos propósitos, mas antes de qualquer coisa o nome de <em>host</em> foi alterado logo após o do primeiro login de <strong>DebianVM-02-modelo-02</strong> para <strong>DebianVM-02</strong>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo su
+$ echo DebianVM-02 &gt; /etc/hostname
+$ exit</code></pre>
+
+
+<p>O resultado foi verificado na saída do comando <code>cat</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ cat /etc/hostname</code></pre>
+
+
+<pre class="codehilite"><code>DebianVM-02</code></pre>
+
+
+<p>O arquivo <code>/etc/hosts</code> também foi editado para referenciar corretamente o nome de <em>host</em>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/hostname</code></pre>
+
+
+<p>Todas as ocorrências de <strong>DebianVM-02-modelo-02</strong> foram alteradas para <strong>DebianVM-02</strong>. O resultado foi verificado na saída do comando <code>cat</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ cat /etc/hosts</code></pre>
+
+
+<pre class="codehilite"><code>...</code></pre>
+
+
+<p>Para concluir o ajuste no nome de <em>host</em> o sistema foi reiniciado.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo init 6</code></pre>
+
+
+<p>As configurações de IP, Mascara de Rede e Servidores DNS foram obtidas automaticamente por DHCP.</p>
+<h2 id="configuracao_do_ambiente">Configuração do Ambiente<a class="headerlink" href="#configuracao_do_ambiente" title="Permanent link">&para;</a></h2>
+<p>Foram feitos ajustes no arquivo de apontamento dos espelhos de rede, <code>/etc/apt/sources.list</code>, para permitir a instalação de pacotes a partir de repositórios <em>Debian9</em> distribuídos pela comunidade de contribuintes do projeto e também dos repositórios de software não livre. Antes de editar foi feita uma cópia do arquivo original.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.original
+$ sudo vi /etc/apt/sources.list</code></pre>
+
+
+<p>A linha que aponta para o CD/DVD de instalação como fonte foi comentada e ao final de cada uma das linhas que apontavam para um espelho de rede foram adicionadas as palavras <code>contrib</code> e <code>non-free</code>.</p>
+<p>O resultado foi verificado na saída do comando <code>cat</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ cat /etc/apt/sources.list</code></pre>
+
+
+<pre class="codehilite"><code>...</code></pre>
+
+
+<p>Após a edição do arquivo de apontamento dos espelhos de rede foram executados os comandos para atulização da base de dados de pacotes de software disponíveis e em seguida para atualização do Sistema Operacional.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt update
+$ sudo apt upgrade</code></pre>
+
+
+<h3 id="editor_de_texto">Editor de texto<a class="headerlink" href="#editor_de_texto" title="Permanent link">&para;</a></h3>
+<p>Foi instalado o editor de textos <strong>VIM</strong> que não faz parte da instalação padrão do <em>Debian9</em>, que traz apenas o <strong>VI</strong> e o <strong>Nano</strong>, ambos com menos recursos de edição que o editor <strong>VIM</strong>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install vim</code></pre>
+
+
+<p>Para tornar o <strong>VIM</strong> o editor padrão do Sistema Operacional foi executado o comando <code>update-alternatives</code> e em seguida a opção referente ao <strong>VIM</strong> foi escolhida.</p>
+<pre class="codehilite"><code class="language-bash">$ update-alternatives --config editor</code></pre>
+
+
+<p>Também foi editado o arquivo <code>/etc/vim/vimrc</code> para configurar o VIM fazendo-o exibir o número das linhas dos aquivos.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/vim/vimrc</code></pre>
+
+
+<p>Foram adicionadas duas linhas no final do arquivo.</p>
+<pre class="codehilite"><code>&quot; Line number
+set number</code></pre>
+
+
+<h3 id="htop">HTOP<a class="headerlink" href="#htop" title="Permanent link">&para;</a></h3>
+<p>Foi instalado o utilitário de monitoramento dos processos do sistema <strong>HTOP</strong>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install htop</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Desempenho da máquina</p>
+<p>O <strong>HTOP</strong> pode ser executado através da linha de comando com o comando <code>htop</code>.</p>
+<p>Não era necessário instalar o <strong>HTOP</strong> neste momento, todavia é interessante observar o desempenho da máquina antes de continuar com a instalação do restante dos softwares, e seguir observando a cada nova instalação a mudança no consumo dos recursos de memória e processamento.</p>
+</div>
+<h3 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h3>
+<p>Foram feitos ajustes no arquivo <code>/etc/profile</code> para que o comando <code>history</code> exiba a data e o horário que cada comando executado, além do número de identificação e obviamente o comando.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/profile</code></pre>
+
+
+<p>Foram adicionadas quatro linhas no final do aquivo.</p>
+<pre class="codehilite"><code># Historico
+export HISTSIZE=5000
+export HISTFILESIZE=10000
+export HISTTIMEFORMAT=&quot;%F %T &quot;</code></pre>
+
+
+<h3 id="opcoes_de_idioma">Opções de idioma<a class="headerlink" href="#opcoes_de_idioma" title="Permanent link">&para;</a></h3>
+<p>Com o comando <code>dpkg-reconfigure</code> foram adicionados os idiomas Português e Inglês com as variações de caracteres UTF-8 e ISO-8859-1.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo dpkg-reconfigure locales</code></pre>
+
+
+<p>No utilitário foram marcadas as opções:</p>
+<pre class="codehilite"><code>en_US.ISO-8859-1
+en_US.UTF-8
+pt_BR.ISO-8859-1
+pt_BR.UTF-8</code></pre>
+
+
+<p>O resultado foi verificado com o comando <code>locale</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ locale -a</code></pre>
+
+
+<pre class="codehilite"><code>C
+C.UTF-8
+en_US
+en_US.iso88591
+en_US.utf8
+POSIX
+pt_BR
+pt_BR.iso88591
+pt_BR.utf8</code></pre>
+
+
+<hr />
+<div class="admonition warning">
+<p class="admonition-title">Não concluído</p>
+<p>Este tutorial foi executado até este ponto. Vou concluir em breve.</p>
+</div>
+<hr />
+<h2 id="servidor_x">Servidor X<a class="headerlink" href="#servidor_x" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Instalar o servidor de interface gráfica <code>xorg</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S xorg xorg-xinit</code></pre>
+
+
+<ul>
+<li>Driver gráfico do Virtualbox:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S virtualbox-guest-utils</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A instalação do pacote <code>virtualbox-guest-utils</code> deve ser feita apenas se a instalação foi realizada em Máquina Virtual com o <em>Virtualbox</em>.</p>
+</div>
+<h2 id="interface_grafica_xfce_4">Interface Gráfica XFCE 4<a class="headerlink" href="#interface_grafica_xfce_4" title="Permanent link">&para;</a></h2>
+<h2 id="aplicativos_comuns">Aplicativos comuns<a class="headerlink" href="#aplicativos_comuns" title="Permanent link">&para;</a></h2>
+<p>Foram instalados os seguintes Aplicativos para completar a experiêcia de uso do Sistema Operacional:</p>
+<ul>
+<li><strong>Unzip:</strong> utilitário para compactação em descompactação de arquivos em formato <code>.zip</code>.</li>
+<li><strong>Firefox:</strong></li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install unzip</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../git/git/" class="btn btn-neutral float-right" title="Git">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../arch-linux/" class="btn btn-neutral" title="Arch Linux"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../arch-linux/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../git/git/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
   
   <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>MongoDB - Configurações</title>
+  <title>JRE - Configurações</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "MongoDB";
-    var mkdocs_page_input_path = "banco-de-dados/mongodb.md";
-    var mkdocs_page_url = "/banco-de-dados/mongodb/";
+    var mkdocs_page_name = "JRE";
+    var mkdocs_page_input_path = "java/jre.md";
+    var mkdocs_page_url = "/java/jre/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -137,9 +137,12 @@
 		
     <span class="caption-text">Java</span>
     <ul class="subnav">
-                <li class="">
+                <li class=" current">
                     
-    <a class="" href="../../java/jre/">JRE</a>
+    <a class="current" href="./">JRE</a>
+    <ul class="subnav">
+            
+    </ul>
                 </li>
     </ul>
 	    </li>
@@ -172,23 +175,11 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../mysql/">MySQL</a>
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
                 </li>
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">MongoDB</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#mongodb">MongoDB</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#instalacao">Instalação</a></li>
-        
-        </ul>
-    
-
-    </ul>
+    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
                 </li>
     </ul>
 	    </li>
@@ -238,14 +229,14 @@
     
       
         
-          <li>Banco de Dados &raquo;</li>
+          <li>Java &raquo;</li>
         
       
     
-    <li>MongoDB</li>
+    <li>JRE</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/banco-de-dados/mongodb.md"
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/java/jre.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -255,36 +246,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="mongodb">MongoDB<a class="headerlink" href="#mongodb" title="Permanent link">&para;</a></h1>
-<p><em>Versão 1 - atualizada em 05/05/2017</em></p>
-<hr />
-<p>O <em>MongoDB</em> é um banco de dados <em>NoSQL</em>.</p>
-<h2 id="instalacao">Instalação<a class="headerlink" href="#instalacao" title="Permanent link">&para;</a></h2>
-<p>Comando para instalar o <em>MongoDB</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo pacman -S mongodb</code></pre>
-
-
-<p>Comandos para instalar o <em>MongoDB</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 0C49F3730359A14518585931BC711F9BA15703C6
-
-echo &quot;deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.4 main&quot; | sudo tee /etc/apt/sources.list.d/mongodb-org-3.4.list
-
-sudo apt-get update
-
-sudo apt-get install -y mongodb-org</code></pre>
-
-
-<p>Comando para iniciar o <em>MongoDB</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo systemctl start mongodb</code></pre>
-
-
-<p>Comando para acessar a interface de linha de comando do <em>MongoDB</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ mongo</code></pre>
-
-
-<p>Para sair da interface de linha de comando digite <code>CTRL + C</code>.</p>
-<p>Comando para parar o <em>MongoDB</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo systemctl start mongodb</code></pre>
+                
               
             </div>
           </div>
@@ -292,10 +254,10 @@ sudo apt-get install -y mongodb-org</code></pre>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../editores-de-codigo/atom/" class="btn btn-neutral float-right" title="Atom">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../nodejs/nodejs/" class="btn btn-neutral float-right" title="Node.JS">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../mysql/" class="btn btn-neutral" title="MySQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../php/hesk/" class="btn btn-neutral" title="Hesk"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -323,10 +285,10 @@ sudo apt-get install -y mongodb-org</code></pre>
           <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../mysql/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../php/hesk/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../editores-de-codigo/atom/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../nodejs/nodejs/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Arch Linux - Configurações</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Arch Linux";
+    var mkdocs_page_input_path = "sistemas-operacionais/arch-linux.md";
+    var mkdocs_page_url = "/sistemas-operacionais/arch-linux/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-70830801-12', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Configurações</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Configurações</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sistemas Operacionais</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Arch Linux</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#arch_linux">Arch Linux</a></li>
+    
+
+    <li class="toctree-l3"><a href="#instalacao_basica">Instalação Básica</a></li>
+    
+
+    <li class="toctree-l3"><a href="#configuracao_do_archlinux">Configuração do ArchLinux</a></li>
+    
+
+    <li class="toctree-l3"><a href="#servidor_x">Servidor X</a></li>
+    
+
+    <li class="toctree-l3"><a href="#instalacao_da_interface_grafica_kde">Instalação da interface gráfica KDE</a></li>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../debian9/">Debian9</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git/">Git</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Shell</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../shell/zsh/">zsh</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php/">PHP</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/phpmyadmin/">Phpmyadmin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/hesk/">Hesk</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/jre/">JRE</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Node.JS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Servidores Web</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Banco de Dados</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Configurações</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Sistemas Operacionais &raquo;</li>
+        
+      
+    
+    <li>Arch Linux</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/sistemas-operacionais/arch-linux.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="arch_linux">Arch Linux<a class="headerlink" href="#arch_linux" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 09/07/2017</em></p>
+<hr />
+<h1 id="instalacao_basica">Instalação Básica<a class="headerlink" href="#instalacao_basica" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Rodar o boot pela imagem &ldquo;.iso&rdquo; baixada.</li>
+<li>Mudar o layout do teclado para <strong>abnt2</strong>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ loadkeys br-abnt2</code></pre>
+
+
+<ul>
+<li>Testar a conexão com a internet com o comando <code>ping</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ ping -c 3 google.com</code></pre>
+
+
+<ul>
+<li>Atualizar a base de dados de pacotes:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -Syy</code></pre>
+
+
+<ul>
+<li>Listar os discos e as partições:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ fdisk -l</code></pre>
+
+
+<ul>
+<li>Particionar o disco:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ cfdisk /dev/sda</code></pre>
+
+
+<ul>
+<li>Escolher o modelo de tabela de discos <strong>dos</strong> e configurar os Tamanhos das partições:</li>
+</ul>
+<pre class="codehilite"><code>36GB - no inicio para a raiz do sistema &quot;/&quot;
+4GB - para swap</code></pre>
+
+
+<ul>
+<li>Formatar as partições:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ mkfs.ext4 /dev/sda1
+$ mkswap /dev/sda2
+$ swapon /dev/sda2</code></pre>
+
+
+<ul>
+<li>Montar as partições:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ mount /dev/sda1 /mnt
+$ lsblk</code></pre>
+
+
+<ul>
+<li>Instalar o sistema base:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacstrap -i /mnt base base-devel</code></pre>
+
+
+<ul>
+<li>Gerar o arquivo <code>/etc/fstab</code> que descreve as partições:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab
+$ cat /mnt/etc/fstab</code></pre>
+
+
+<ul>
+<li>Fazer login na instalação e chamar o <code>bash</code> para interagir na linha de comando:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ arch-chroot /mnt /bin/bash</code></pre>
+
+
+<ul>
+<li>Configurar o idioma de instalação editando o arquivo <code>/etc/locale.gen</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ vi /etc/locale.gen</code></pre>
+
+
+<ul>
+<li>Descomentar as seguintes linhas no arquivo:</li>
+</ul>
+<pre class="codehilite"><code>en_US.UTF-8 UTF-8
+en_US.ISO-8859-1
+pt_BR.UTF-8 UTF-8
+pt_BR.ISO-8859-1</code></pre>
+
+
+<ul>
+<li>Persistir a alteração do idioma:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ locale-gen
+$ echo LANG=pt_BR.UTF-8 &gt;&gt; /etc/locale.conf
+$ export LANG=pt_BR.UTF-8</code></pre>
+
+
+<ul>
+<li>Configurar o layout do teclado:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ vi /etc/vconsole.conf</code></pre>
+
+
+<pre class="codehilite"><code>KEYMAP=br-abnt2
+FONT=Lat2-Terminus16
+FONT_MAP=</code></pre>
+
+
+<ul>
+<li>Configurar o fuso horário:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ ls /usr/share/zoneinfo/America
+$ ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
+# não rode o comando abaixo pois ainda não entendo o pq ele não funciona
+$ hwclock --systohc --local</code></pre>
+
+
+<ul>
+<li>Setar o <code>hostname</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ echo ArchLinuxVM-modelo &gt;&gt; /etc/hostname</code></pre>
+
+
+<ul>
+<li>Editar o arquivo <code>/etc/hosts</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ vi /etc/hosts</code></pre>
+
+
+<ul>
+<li>Adicionar a linha abaixo na sessão apropriada do arquivo, antes da linha <code># End of file</code>:</li>
+</ul>
+<pre class="codehilite"><code>127.0.1.1   ArchLinuxVM-modelo.localdomain  ArchLinuxVM-modelo</code></pre>
+
+
+<ul>
+<li>Ativar a busca por IP automático, DHCP, na inicialisação do sistema:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ systemctl enable dhcpcd.service</code></pre>
+
+
+<ul>
+<li>Criar senha de root:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ passwd</code></pre>
+
+
+<p>123456</p>
+<ul>
+<li>Instalar o Grub</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -S grub
+$ grub-install /dev/sda
+$ grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
+
+
+<ul>
+<li>Fazer logout na instalação:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ exit</code></pre>
+
+
+<ul>
+<li>Desmontar as partições:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ umount -R /mnt</code></pre>
+
+
+<ul>
+<li>Reiniciar</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ reboot</code></pre>
+
+
+<h1 id="configuracao_do_archlinux">Configuração do ArchLinux<a class="headerlink" href="#configuracao_do_archlinux" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Logar como root</li>
+<li>Atualizar o ArchLinux:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -Syu</code></pre>
+
+
+<ul>
+<li>Instalar o pacote <code>reflector</code> que recupera a lista de espelhos de rede mais rápidos:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -S reflector</code></pre>
+
+
+<ul>
+<li>Copiar a lista de espelhos para um backup:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.original</code></pre>
+
+
+<ul>
+<li>Localizar e salvar os melhores espelhos de rede no arquivo <code>/etc/pacman.d/mirrorlist</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ reflector -c Brazil --save /etc/pacman.d/mirrorlist
+$ cat /etc/pacman.d/mirrorlist</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Se o <code>reflector</code> não funcionar, não reconhecia urls do tipo <code>https</code>, tente instalar o o <code>openssl</code>, comando abaixo, e depois tente o comando para salvar os espelhos de rede.</p>
+</div>
+<ul>
+<li>Instalar o <code>openssl</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -S openssl</code></pre>
+
+
+<ul>
+<li>Instalar o vim <strong>(pelo amor de Deus)</strong>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -S vim</code></pre>
+
+
+<ul>
+<li>Instalar o <code>sudo</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -S sudo</code></pre>
+
+
+<ul>
+<li>Criar usuário comum e definir senha:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ useradd -m -g users -G wheel -s /bin/bash usuario
+$ passwd usuario</code></pre>
+
+
+<ul>
+<li>Editar as permissões:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ EDITOR=vim visudo</code></pre>
+
+
+<ul>
+<li>Descomentar a linha que mostra o grupo (wheel).</li>
+</ul>
+<pre class="codehilite"><code>%wheel ALL=(ALL) ALL</code></pre>
+
+
+<ul>
+<li>Fazer logout do usuário root:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ exit</code></pre>
+
+
+<ul>
+<li>Logar com o novo usuário:</li>
+<li>Instalar os drivers de audio:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ pacman -S pulseaudio pulseaudio-alsa</code></pre>
+
+
+<h1 id="servidor_x">Servidor X<a class="headerlink" href="#servidor_x" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Instalar o servidor de interface gráfica <code>xorg</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S xorg xorg-xinit</code></pre>
+
+
+<ul>
+<li>Driver gráfico do Virtualbox:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S virtualbox-guest-utils</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>A instalação do pacote <code>virtualbox-guest-utils</code> deve ser feita apenas se a instalação foi realizada em Máquina Virtual com o Virtualbox.</p>
+</div>
+<h1 id="instalacao_da_interface_grafica_kde">Instalação da interface gráfica KDE<a class="headerlink" href="#instalacao_da_interface_grafica_kde" title="Permanent link">&para;</a></h1>
+<ul>
+<li>Configurar o arquivo <code>~/.xinitrc</code>:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ echo &quot;exec startkde&quot; &gt; ~/.xinitrc</code></pre>
+
+
+<ul>
+<li>Instalar o KDE mínimo:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S plasma-desktop</code></pre>
+
+
+<ul>
+<li>Instalar alguns programas básicos:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S konsole dolphin firefox kate</code></pre>
+
+
+<ul>
+<li>Iniciar a interface gráfica:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ startx</code></pre>
+
+
+<ul>
+<li>Abrir um terminal gráfico, instalar o gerenciador de sessão e ativá-lo na inicialização do sistema:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S sddm
+$ sudo systemctl enable sddm.service</code></pre>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Nota</p>
+<p>Os passos abaixo ainda não foram testados.</p>
+</div>
+<ul>
+<li>Configurar&hellip;:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ mkinitcpio -p linux</code></pre>
+
+
+<ul>
+<li>Instalar fonts:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S ttf-dejavu</code></pre>
+
+
+<ul>
+<li>Instalar gerenciador de rede:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S networkmanager</code></pre>
+
+
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S network-manager-applet</code></pre>
+
+
+<ul>
+<li>Ativar o gerenciador de rede na inicialização do sistema:</li>
+</ul>
+<pre class="codehilite"><code class="language-bash">$ sudo systemctl enable NetworkManager</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../debian9/" class="btn btn-neutral float-right" title="Debian9">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Configurações"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../debian9/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
