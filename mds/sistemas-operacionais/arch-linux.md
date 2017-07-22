@@ -126,7 +126,7 @@ $ hwclock --systohc --local
 + Setar o `hostname`:
 
 ```bash
-$ echo ArchLinuxVM-modelo /etc/hostname
+$ echo ArchLinuxVM-modelo >> /etc/hostname
 ```
 
 + Editar o arquivo `/etc/hosts`:
@@ -262,6 +262,8 @@ $ exit
 $ pacman -S pulseaudio pulseaudio-alsa
 ```
 
+# Servidor X
+
 + Instalar o servidor de interface gráfica `xorg`:
 
 ```bash
@@ -275,7 +277,7 @@ $ sudo pacman -S virtualbox-guest-utils
 ```
 
 !!! note "Nota"
-    Apenas se a instalação foi realizada em Máquina Virtual com o Virtualbox.
+    A instalação do pacote `virtualbox-guest-utils` deve ser feita apenas se a instalação foi realizada em Máquina Virtual com o Virtualbox.
 
 # Instalação da interface gráfica KDE
 

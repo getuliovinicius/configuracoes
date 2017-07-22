@@ -11,8 +11,8 @@ docs_dir: 'mds'
 pages:
     - Configurações: index.md
     - Sistemas Operacionais:
-        - Arch Linux: 'sistema-operacional/arch-linux.md'
-        - Debian9: 'sistema-operacional/debian9.md'
+        - Arch Linux: 'sistemas-operacionais/arch-linux.md'
+        - Debian9: 'sistemas-operacionais/debian9.md'
     - Git:
         - Git: 'git/git.md'
     - Shell:

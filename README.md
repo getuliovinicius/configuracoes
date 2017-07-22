@@ -4,7 +4,8 @@ Configurações
 Repositório de tutoriais para configuração de sistemas, serviços, aplicações, etc.
 
 - Sistemas Operacionais:
-	- [Arch Linux](mds/sistema-operacional/arch-linux.md)
+	- [Arch Linux](mds/sistemas-operacionais/arch-linux.md)
+	- [Debian 9](mds/sistemas-operacionais/debian9.md)
 - Git:
 	- [Git](mds/git/git.md)
 - Shell:
