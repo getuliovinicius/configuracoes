@@ -23,9 +23,7 @@ Para este exemplo de instalação e configuração de um sistema operacional _De
 
 !!! note "Nota"
     Após instalação básica do _Debian9_ a máquina virtual foi clonada, para que permaneça como modelo para outras personalizações de ambiente.
-
     O _VirtualBox_ possui a funcionalidade de criação de clones das máquinas virtuais. Essa funcionalidade é especialmente adequada para situações em que se planeja utilizar o mesmo sistema operacional para configurar ambientes com diversas finalidades, por exemplo: ambiente de programação em PHP, ambiente de programação em Java, ambiente de edição de imagens, ambiente de teste de redes ou qualquer outro ambiente. Basta clonar uma máquina virtual com uma instalação básica do sistema operacional que pretende utilizar e posteriormente configurá-lo de acordo com as necessidades do ambiente desejado.
-
     Este tipo de abordagem evita o acumulo de programas instalados no sistema operacional, tornando-o mais eficiente em termos de utilização de recursos, ademais é possível manter muitas máquinas virtuais em um computador.
 
 ## Hardware
@@ -284,7 +282,6 @@ $ sudo apt install htop
 
 !!! note "Desempenho da máquina"
     O **HTOP** pode ser executado através da linha de comando com o comando `htop`.
-
     Não era necessário instalar o **HTOP** neste momento, todavia é interessante observar o desempenho da máquina antes de continuar com a instalação do restante dos softwares, e seguir observando a cada nova instalação a mudança no consumo dos recursos de memória e processamento.
 
 ### Shell
