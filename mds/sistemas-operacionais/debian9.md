@@ -214,7 +214,7 @@ $ sudo init 6
 
 As configurações de IP, Mascara de Rede e Servidores DNS foram obtidas automaticamente por DHCP.
 
-## Configuração do Ambiente
+## Configuração dos Repositórios
 
 Foram feitos ajustes no arquivo de apontamento dos espelhos de rede, `/etc/apt/sources.list`, para permitir a instalação de pacotes a partir de repositórios _Debian9_ distribuídos pela comunidade de contribuintes do projeto e também dos repositórios de software não livre. Antes de editar foi feita uma cópia do arquivo original.
 
@@ -240,6 +240,12 @@ Após a edição do arquivo de apontamento dos espelhos de rede foram executados
 ```bash
 $ sudo apt update
 $ sudo apt upgrade
+```
+
+## Drivers do processador
+
+```bash
+$ sudo apt install intel-microcode
 ```
 
 ### Editor de texto
@@ -335,42 +341,107 @@ pt_BR.iso88591
 pt_BR.utf8
 ```
 
---------------------------------
+## Interface Gráfica XFCE 4
 
-!!! warning "Não concluído"
-
-    Este tutorial foi executado até este ponto. Vou concluir em breve.
-
---------------------------------
-
-
-## Servidor X
-
-+ Instalar o servidor de interface gráfica `xorg`:
+Foi isntalado a interface gráfica _XFCE 4_. O _XFCE_ é conhecido por ser um ambiente leve, o que procpcia melhor desempenho da máquina além de permitir que os recursos de processamento e memória sejam utilizados pelos aplicativos de usuário final e não pelo sistema operacional em si.
 
 ```bash
-$ sudo pacman -S xorg xorg-xinit
+$ sudo apt install xfce4
 ```
 
-+ Driver gráfico do Virtualbox:
+## Terminal gráfico
+
+O _XFCE 4_ possui vários aplicativos que são padrão do ambiente, entre eles um terminal gráfico, o _xfce4-terminal_, contudo ele não foi isntalado no passo anterior, por isso foi instalado separadamente.
 
 ```bash
-$ sudo pacman -S virtualbox-guest-utils
+$ sudo apt install xfce4-terminal
+```
+
+Após a instalação do terminal-gráfico o sistema foi reiniciado. Ao ser reiniciado já carregou a interface gráfica _XFCE 4_.
+
+## Drivers do _Virtualbox_
+
+Foram instalados os pacotes adicionais de software do _Virtualbox_, o principal problema que estes pacotes resolvem é o fato que após instalado no _Virtualbox_ o Debian e vários outros S.O. não reconhecem as dimensões do monitor e portanto executam o vídeo em uma proporção 4:3 comum. Com a instalação dos pacotes adicionais é possível mudar a resolução de vídeo para uma que seja 19:9 _widescreen_.
+Antes de iniciar a instalação dos adicionais para convidado, foram instaladas as dependencias.
+
+```bash
+$ sudo apt install linux-headers-amd64
+$ sudo apt build-dep -y linux
+```
+
+Utilizando os controles da janela do _Virtualbox_ o disco com a instalação dos pacotes adicionais foi montado.
+
+```
+Dispositivos > Inserir imagem do CD dos adicionais para convidado
+```
+
+Agora no terminal gráfico do _XFCE_ o disco foi montado em `/media/cdrom`.
+
+```bash
+$ sudo mount -t iso 9660 /dev/sr0 /media/cdrom
+$ cd /media/cdrom
+$ sudo sh ./VBoxLinuxAdditions.run
+
 ```
 
 !!! note "Nota"
-    A instalação do pacote `virtualbox-guest-utils` deve ser feita apenas se a instalação foi realizada em Máquina Virtual com o _Virtualbox_.
+    A instalação dos pacotes adicionais deve ser feita apenas se a instalação do _Debian9_ foi realizada em máquina virtual com o _Virtualbox_.
 
-## Interface Gráfica XFCE 4
+Após a instalação dos adicionais de convidado o sistema foi reiniciado.
 
+```bash
+$ sudo init 6
+```
 
 ## Aplicativos comuns
 
 Foram instalados os seguintes Aplicativos para completar a experiêcia de uso do Sistema Operacional:
 
-+ **Unzip:** utilitário para compactação em descompactação de arquivos em formato `.zip`.
-+ **Firefox:**
++ **network-manager network-manager-gnome:** Gerenciadores de conexão de rede.
++ **xserver-xorg-input-synaptics:** Controle para aplicar funcionalidades ao _touchpad_ do mouse de notebooks.
++ **gksu synaptic apt-xapian-index policykit-1-gnome:** Aplicacativos para instalação de pacotes via interface gráfica.
++ **xfce4-clipman xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-xkb-plugin ristretto rsync:** Aplicativos da interface e ambiente do _XFCE4_.
++ **xfce4-whiskermenu-plugin:** Menu de aplicativos _user friendly_ (amigável).
++ **leafpad:** Editor de texto puro.
++ **xarchiver thunar-archive-plugin p7zip unzip p7zip-full:** utilitários para compactação em descompactação de arquivos.
++ **fonts-dejavu fonts-dejavu-extra fonts-droid-fallback fonts-freefont-ttf fonts-liberation fonts-noto-mono fonts-opensymbol ttf-bitstream-vera ttf-dejavu ttf-dejavu-core ttf-dejavu-extra ttf-freefont ttf-liberation ttf-mscorefonts-installer:** Pacotes de fontes, tipográfia, para sistema operacional.
++ **aspell aspell-pt-br hunspell hunspell-pt-br:** Correção ortográfica.
++ **firefox-esr firefox-esr-l10n-pt-br chromium chromium-l10n chromium-widevine:** Navegadores web.
 
 ```bash
-$ sudo apt install unzip
+$ sudo apt install network-manager network-manager-gnome
+$ sudo apt install xserver-xorg-input-synaptics
+$ sudo apt install gksu synaptic apt-xapian-index policykit-1-gnome
+$ sudo apt install xfce4-clipman xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-xkb-plugin ristretto rsync
+$ sudo apt install xfce4-whiskermenu-plugin
+$ sudo apt install leafpad
+$ sudo apt install xarchiver thunar-archive-plugin p7zip p7zip-full unzip
+$ sudo apt install fonts-dejavu fonts-dejavu-extra fonts-droid-fallback fonts-freefont-ttf fonts-liberation fonts-noto-mono fonts-opensymbol fots-stix ttf-bitstream-vera ttf-dejavu ttf-dejavu-core ttf-dejavu-extra ttf-freefont ttf-liberation ttf-mscorefonts-installer
+$ sudo apt install aspell aspell-pt-br hunspell hunspell-pt-br
+$ sudo apt install firefox-esr firefox-esr-l10n-pt-br chromium chromium-l10n chromium-widevine
 ```
+
+!!! note "Nota"
+	
+	Após a instalação dos aplicativos para completar a experiencia de uso, o sistema pode ser utilizado para diversas funções. Quaisquer outras personalizações ficam a critério do usuário. O básico está completo.
+
+## Firewall
+
+Foi configuarado um firewall para implementar um pouco mais de segurança ao sistema.
+
+```bash
+$ sudo apt install ufw gufw
+```
+
+Após instalado o firewall foi configurado para impedir qualquer tentativa de conexão de entrada e permitir todas as conexões de saída.
+
+```bash
+sudo ufw status
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw status verbose
+```
+
+!!! note "Nota"
+	
+	O **gufw** é uma interface gráfica para gerenciamento do Firewall.
