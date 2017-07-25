@@ -7,7 +7,7 @@ _Versão 1 - atualizada em 25/07/2017_
 
 # Objetivo
 
-Este tutorial objetiva demonstrar a instalação e configuração do sistema operacional _Debian9 - Strech_ com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser personalizada de acordo com as necessidades do usuário.
+Este tutorial objetiva demonstrar a instalação e a configuração do sistema operacional _Debian9_, codinome _Strech_, com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser incrementada posteriormente de acordo com as necessidades do usuário.
 
 # Preparação do ambiente no _VirtualBox_
 
@@ -23,7 +23,7 @@ Para este exemplo de instalação e configuração de um sistema operacional _De
 
 !!! note "Nota"
     Após instalação básica do _Debian9_ a máquina virtual foi clonada, para que permaneça como modelo para outras personalizações de ambiente.
-    O _VirtualBox_ possui a funcionalidade de criação de clones das máquinas virtuais. Essa funcionalidade é especialmente adequada para situações em que se planeja utilizar o mesmo sistema operacional para configurar ambientes com diversas finalidades, por exemplo: ambiente de programação em PHP, ambiente de programação em Java, ambiente de edição de imagens, ambiente de teste de redes ou qualquer outro ambiente. Basta clonar uma máquina virtual com uma instalação básica do sistema operacional que pretende utilizar e posteriormente configurá-lo de acordo com as necessidades do ambiente desejado.
+    O _VirtualBox_ possui a funcionalidade de criação de clones das máquinas virtuais. Essa funcionalidade é especialmente adequada para situações em que se planeja utilizar o mesmo sistema operacional para configurar ambientes com diversas finalidades, por exemplo: ambiente de programação em PHP, ambiente de programação em Java, ambiente de edição de imagens, ambiente de teste de redes ou qualquer outro ambiente. Basta clonar uma máquina virtual com uma instalação básica do sistema operacional que se pretende utilizar e posteriormente configurá-lo de acordo com as necessidades do ambiente desejado.
     Este tipo de abordagem evita o acumulo de programas instalados no sistema operacional, tornando-o mais eficiente em termos de utilização de recursos, ademais é possível manter muitas máquinas virtuais em um computador.
 
 ## Hardware
@@ -52,11 +52,11 @@ A imagem de instalação do Debian9 foi carregada.
 
 ![Imagem 9](imgs/debian9-9.png)
 
-Foi definida a utilização de uma placa de rede em modo Bridge, deste modo trafego de rede é direcionado para a placa de rede da maquina virtual normalmente pois essa pode participar da rede física normalmente.
+Foi definida a utilização de uma placa de rede em modo Bridge, deste modo trafego de rede é direcionado para a placa de rede da maquina virtual normalmente e essa pode participar da rede física normalmente.
 
 ![Imagem 10](imgs/debian9-10.png)
 
-O restante das opções do da máquina foram mantidas como padrão do _VirtualBox_.
+O restante das opções da máquina foram mantidas como padrão do _VirtualBox_.
 
 # Instalação Básica
 
@@ -96,7 +96,7 @@ A senha do super-usuário, **root**, foi deixada em branco.
 !!! note "Nota"
     A senha de super-usuário foi deixada em branco propositalmente para que o comando sudo seja configurado automaticamente durante a instalação.
 
-Foi preenchido o nome completo, para exibição em determinadas partes do sistema, uma conta de usuário comum. Este usuário pode exercer os privilégios de super-usuário com o comando `sudo`.
+Foi preenchido o nome completo, para exibição em determinadas partes do sistema, de uma conta de usuário comum. Este usuário pode exercer os privilégios de super-usuário com o comando `sudo`.
 
 ![Imagem 21](imgs/debian9-21.png)
 
@@ -104,7 +104,7 @@ Depois foi definido o nome de usuário para login no sistema.
 
 ![Imagem 22](imgs/debian9-22.png)
 
-E por fim foi definida a senha da conta do usuário.
+Por fim foi definida a senha da conta do usuário.
 
 ![Imagem 23](imgs/debian9-23.png)
 
@@ -112,7 +112,7 @@ Para configurar o relógio da máquina e o Fuzo Horário do sistema foi definido
 
 ![Imagem 24](imgs/debian9-24.png)
 
-O particionamento do disco pode ser realizado de "n" maneiras, entretanto, neste caso foi aceito que o sistema definisse automaticamente o esquema de partições. Caso existisse um motivo especial para se optar por exemplo para montar diretórios específicos de armazenamento de dados e partições separadas, a melhor opção nesta etapa seria o particionamento manual.
+O particionamento do disco pode ser realizado de "n" maneiras, entretanto, neste caso foi aceito que o sistema definisse automaticamente o esquema de partições. Caso houvesse um motivo especial para optar, por exemplo, pela montagem de diretórios específicos de armazenamento de dados em partições separadas, a melhor opção nesta etapa seria o particionamento manual.
 
 ![Imagem 25](imgs/debian9-25.png)
 
@@ -126,11 +126,11 @@ O particionamento do disco pode ser realizado de "n" maneiras, entretanto, neste
 
 ![Imagem 30](imgs/debian9-30.png)
 
-Os pacote que por ventura são selecionados mas não estão na mídia de instalação são obtidos conexão com um espelho de rede do _Debian9_, portanto, não foi necessário inserir outro CD/DVD.
+Os pacote que por ventura forem selecionados mas não estiverem na mídia de instalação são obtidos através da conexão com um espelho de rede do _Debian9_, portanto não foi necessário inserir outro CD/DVD.
 
 ![Imagem 31](imgs/debian9-31.png)
 
-Foram configurados no momento da instalação os espelhos de rede do _Debian9_ localizados no Brasil.
+No momento da instalação foram configurados os espelhos de rede do _Debian9_ localizados no Brasil.
 
 ![Imagem 32](imgs/debian9-32.png)
 
@@ -142,7 +142,7 @@ Não foi preciso configurar um _proxy_ pois havia uma conexão direta.
 
 ![Imagem 35](imgs/debian9-35.png)
 
-Para não alongar muito a instalação, foi rejeitada a participação no concurso de utilização de pacotes.
+Para não alongar muito a instalação foi rejeitada a participação no concurso de utilização de pacotes.
 
 ![Imagem 36](imgs/debian9-36.png)
 
@@ -150,7 +150,7 @@ Nenhuma interface gráfica foi instalada neste momento pois o objetivo era obter
 
 ![Imagem 37](imgs/debian9-37.png)
 
-Por fim foi instalado o gerenciador de Boot no registro mestre de inicialização do disco principal.
+A última etapa da instalação foi determinar a que o gerenciador de Boot fosse configurado no registro mestre de inicialização do disco principal.
 
 ![Imagem 38](imgs/debian9-38.png)
 
@@ -160,7 +160,8 @@ Por fim foi instalado o gerenciador de Boot no registro mestre de inicializaçã
 
 # Clone
 
-Foi feito um clone completo da máquina virtual já com o _Debian9_ instalado e o nome da máquina foi definido como `DebianVM-02`. O objetivo deste ponto em diante é personalizar o sistema operacional de acordo com a necessidade especifica. Se por ventura algo der errado com a personalização basta excluir a máquina clonada e clonar a partir do modelo novamente.
+Já com o _Debian9_ instalado foi feito um clone completo da máquina virtual e o nome da máquina foi definido como `DebianVM-02`.
+Deste ponto em diante o objetivo é personalizar o sistema operacional de acordo com a necessidades especificas de cada aplicação. Se por ventura algo der errado com a personalização basta excluir a máquina clonada e clonar a partir do modelo novamente.
 
 ![Imagem 11](imgs/debian9-11.png)
 
@@ -170,7 +171,7 @@ Foi feito um clone completo da máquina virtual já com o _Debian9_ instalado e 
 
 ## Configurações de Rede
 
-Depois que o clone foi feito a máquina virtual poderia ser configurada para atender diversos propósitos, mas antes de qualquer coisa o nome de _host_ foi alterado logo após o do primeiro login de **DebianVM-02-modelo-02** para **DebianVM-02**.
+Antes de qualquer outra configuração, o nome de _host_ foi alterado de **DebianVM-02-modelo-02** para **DebianVM-02**.
 
 ```bash
 $ sudo su
@@ -245,7 +246,7 @@ $ sudo apt upgrade
 $ sudo apt install intel-microcode
 ```
 
-### Editor de texto
+## Editor de texto
 
 Foi instalado o editor de textos **VIM** que não faz parte da instalação padrão do _Debian9_, que traz apenas o **VI** e o **Nano**, ambos com menos recursos de edição que o editor **VIM**.
 
@@ -272,9 +273,9 @@ Foram adicionadas duas linhas no final do arquivo.
 set number
 ```
 
-### HTOP
+## HTOP - Monitor do sistema
 
-Foi instalado o utilitário de monitoramento dos processos do sistema **HTOP**.
+Foi instalado o utilitário de monitoramento de processos do sistema **HTOP**.
 
 ```bash
 $ sudo apt install htop
@@ -284,9 +285,9 @@ $ sudo apt install htop
     O **HTOP** pode ser executado através da linha de comando com o comando `htop`.
     Não era necessário instalar o **HTOP** neste momento, todavia é interessante observar o desempenho da máquina antes de continuar com a instalação do restante dos softwares, e seguir observando a cada nova instalação a mudança no consumo dos recursos de memória e processamento.
 
-### Shell
+## Shell
 
-Foram feitos ajustes no arquivo `/etc/profile` para que o comando `history` exiba a data e o horário que cada comando executado, além do número de identificação e obviamente o comando.
+Foram feitos ajustes no arquivo `/etc/profile` para que a saída o comando `history` exiba a data e o horário que cada comando foi executado no sistema, além do número de identificação e obviamente o comando.
 
 ```bash
 $ sudo vim /etc/profile
@@ -301,7 +302,7 @@ export HISTFILESIZE=10000
 export HISTTIMEFORMAT="%F %T "
 ```
 
-### Opções de idioma
+## Opções de idioma
 
 Com o comando `dpkg-reconfigure` foram adicionados os idiomas Português e Inglês com as variações de caracteres UTF-8 e ISO-8859-1.
 
@@ -388,6 +389,26 @@ Após a instalação dos adicionais de convidado o sistema foi reiniciado.
 $ sudo init 6
 ```
 
+## Firewall
+
+Foi configuarado um firewall para implementar um pouco mais de segurança ao sistema.
+
+```bash
+$ sudo apt install ufw gufw
+```
+
+Após instalado o firewall foi configurado para impedir qualquer tentativa de conexão de entrada e permitir todas as conexões de saída.
+
+```bash
+sudo ufw status
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw status verbose
+```
+
+!!! note "Nota"
+	O **gufw** é uma interface gráfica para gerenciamento do Firewall.
+
 ## Aplicativos comuns
 
 Foram instalados os seguintes Aplicativos para completar a experiêcia de uso do Sistema Operacional:
@@ -418,23 +439,3 @@ $ sudo apt install firefox-esr firefox-esr-l10n-pt-br chromium chromium-l10n chr
 
 !!! note "Nota"
 	Após a instalação dos aplicativos para completar a experiencia de uso, o sistema pode ser utilizado para diversas funções. Quaisquer outras personalizações ficam a critério do usuário. O básico está completo.
-
-## Firewall
-
-Foi configuarado um firewall para implementar um pouco mais de segurança ao sistema.
-
-```bash
-$ sudo apt install ufw gufw
-```
-
-Após instalado o firewall foi configurado para impedir qualquer tentativa de conexão de entrada e permitir todas as conexões de saída.
-
-```bash
-sudo ufw status
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw status verbose
-```
-
-!!! note "Nota"
-	O **gufw** é uma interface gráfica para gerenciamento do Firewall.
