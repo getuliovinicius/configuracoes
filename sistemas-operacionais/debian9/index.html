@@ -104,13 +104,19 @@
         
             <li><a class="toctree-l4" href="#configuracoes_de_rede">Configurações de Rede</a></li>
         
-            <li><a class="toctree-l4" href="#configuracao_do_ambiente">Configuração do Ambiente</a></li>
+            <li><a class="toctree-l4" href="#configuracao_dos_repositorios">Configuração dos Repositórios</a></li>
         
-            <li><a class="toctree-l4" href="#servidor_x">Servidor X</a></li>
+            <li><a class="toctree-l4" href="#drivers_do_processador">Drivers do processador</a></li>
         
             <li><a class="toctree-l4" href="#interface_grafica_xfce_4">Interface Gráfica XFCE 4</a></li>
         
+            <li><a class="toctree-l4" href="#terminal_grafico">Terminal gráfico</a></li>
+        
+            <li><a class="toctree-l4" href="#drivers_do_virtualbox">Drivers do Virtualbox</a></li>
+        
             <li><a class="toctree-l4" href="#aplicativos_comuns">Aplicativos comuns</a></li>
+        
+            <li><a class="toctree-l4" href="#firewall">Firewall</a></li>
         
         </ul>
     
@@ -287,7 +293,7 @@
             <div class="section">
               
                 <h1 id="debian_9_-_strech">Debian 9 - Strech<a class="headerlink" href="#debian_9_-_strech" title="Permanent link">&para;</a></h1>
-<p><em>Versão 1 - atualizada em 21/07/2017</em></p>
+<p><em>Versão 1 - atualizada em 25/07/2017</em></p>
 <hr />
 <h1 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h1>
 <p>Este tutorial objetiva demonstrar a instalação e configuração do sistema operacional <em>Debian9 - Strech</em> com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser personalizada de acordo com as necessidades do usuário.</p>
@@ -412,7 +418,7 @@ $ exit</code></pre>
 
 
 <p>As configurações de IP, Mascara de Rede e Servidores DNS foram obtidas automaticamente por DHCP.</p>
-<h2 id="configuracao_do_ambiente">Configuração do Ambiente<a class="headerlink" href="#configuracao_do_ambiente" title="Permanent link">&para;</a></h2>
+<h2 id="configuracao_dos_repositorios">Configuração dos Repositórios<a class="headerlink" href="#configuracao_dos_repositorios" title="Permanent link">&para;</a></h2>
 <p>Foram feitos ajustes no arquivo de apontamento dos espelhos de rede, <code>/etc/apt/sources.list</code>, para permitir a instalação de pacotes a partir de repositórios <em>Debian9</em> distribuídos pela comunidade de contribuintes do projeto e também dos repositórios de software não livre. Antes de editar foi feita uma cópia do arquivo original.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo cp /etc/apt/sources.list /etc/apt/sources.list.original
 $ sudo vi /etc/apt/sources.list</code></pre>
@@ -429,6 +435,10 @@ $ sudo vi /etc/apt/sources.list</code></pre>
 <p>Após a edição do arquivo de apontamento dos espelhos de rede foram executados os comandos para atulização da base de dados de pacotes de software disponíveis e em seguida para atualização do Sistema Operacional.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo apt update
 $ sudo apt upgrade</code></pre>
+
+
+<h2 id="drivers_do_processador">Drivers do processador<a class="headerlink" href="#drivers_do_processador" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install intel-microcode</code></pre>
 
 
 <h3 id="editor_de_texto">Editor de texto<a class="headerlink" href="#editor_de_texto" title="Permanent link">&para;</a></h3>
@@ -498,37 +508,88 @@ pt_BR.iso88591
 pt_BR.utf8</code></pre>
 
 
-<hr />
-<div class="admonition warning">
-<p class="admonition-title">Não concluído</p>
-<p>Este tutorial foi executado até este ponto. Vou concluir em breve.</p>
-</div>
-<hr />
-<h2 id="servidor_x">Servidor X<a class="headerlink" href="#servidor_x" title="Permanent link">&para;</a></h2>
-<ul>
-<li>Instalar o servidor de interface gráfica <code>xorg</code>:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ sudo pacman -S xorg xorg-xinit</code></pre>
+<h2 id="interface_grafica_xfce_4">Interface Gráfica XFCE 4<a class="headerlink" href="#interface_grafica_xfce_4" title="Permanent link">&para;</a></h2>
+<p>Foi isntalado a interface gráfica <em>XFCE 4</em>. O <em>XFCE</em> é conhecido por ser um ambiente leve, o que procpcia melhor desempenho da máquina além de permitir que os recursos de processamento e memória sejam utilizados pelos aplicativos de usuário final e não pelo sistema operacional em si.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install xfce4</code></pre>
 
 
-<ul>
-<li>Driver gráfico do Virtualbox:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ sudo pacman -S virtualbox-guest-utils</code></pre>
+<h2 id="terminal_grafico">Terminal gráfico<a class="headerlink" href="#terminal_grafico" title="Permanent link">&para;</a></h2>
+<p>O <em>XFCE 4</em> possui vários aplicativos que são padrão do ambiente, entre eles um terminal gráfico, o <em>xfce4-terminal</em>, contudo ele não foi isntalado no passo anterior, por isso foi instalado separadamente.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install xfce4-terminal</code></pre>
+
+
+<p>Após a instalação do terminal-gráfico o sistema foi reiniciado. Ao ser reiniciado já carregou a interface gráfica <em>XFCE 4</em>.</p>
+<h2 id="drivers_do_virtualbox">Drivers do <em>Virtualbox</em><a class="headerlink" href="#drivers_do_virtualbox" title="Permanent link">&para;</a></h2>
+<p>Foram instalados os pacotes adicionais de software do <em>Virtualbox</em>, o principal problema que estes pacotes resolvem é o fato que após instalado no <em>Virtualbox</em> o Debian e vários outros S.O. não reconhecem as dimensões do monitor e portanto executam o vídeo em uma proporção 4:3 comum. Com a instalação dos pacotes adicionais é possível mudar a resolução de vídeo para uma que seja 19:9 <em>widescreen</em>.<br />
+Antes de iniciar a instalação dos adicionais para convidado, foram instaladas as dependencias.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install linux-headers-amd64
+$ sudo apt build-dep -y linux</code></pre>
+
+
+<p>Utilizando os controles da janela do <em>Virtualbox</em> o disco com a instalação dos pacotes adicionais foi montado.</p>
+<pre class="codehilite"><code>Dispositivos &gt; Inserir imagem do CD dos adicionais para convidado</code></pre>
+
+
+<p>Agora no terminal gráfico do <em>XFCE</em> o disco foi montado em <code>/media/cdrom</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo mount -t iso 9660 /dev/sr0 /media/cdrom
+$ cd /media/cdrom
+$ sudo sh ./VBoxLinuxAdditions.run</code></pre>
 
 
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>A instalação do pacote <code>virtualbox-guest-utils</code> deve ser feita apenas se a instalação foi realizada em Máquina Virtual com o <em>Virtualbox</em>.</p>
+<p>A instalação dos pacotes adicionais deve ser feita apenas se a instalação do <em>Debian9</em> foi realizada em máquina virtual com o <em>Virtualbox</em>.</p>
 </div>
-<h2 id="interface_grafica_xfce_4">Interface Gráfica XFCE 4<a class="headerlink" href="#interface_grafica_xfce_4" title="Permanent link">&para;</a></h2>
+<p>Após a instalação dos adicionais de convidado o sistema foi reiniciado.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo init 6</code></pre>
+
+
 <h2 id="aplicativos_comuns">Aplicativos comuns<a class="headerlink" href="#aplicativos_comuns" title="Permanent link">&para;</a></h2>
 <p>Foram instalados os seguintes Aplicativos para completar a experiêcia de uso do Sistema Operacional:</p>
 <ul>
-<li><strong>Unzip:</strong> utilitário para compactação em descompactação de arquivos em formato <code>.zip</code>.</li>
-<li><strong>Firefox:</strong></li>
+<li><strong>network-manager network-manager-gnome:</strong> Gerenciadores de conexão de rede.</li>
+<li><strong>xserver-xorg-input-synaptics:</strong> Controle para aplicar funcionalidades ao <em>touchpad</em> do mouse de notebooks.</li>
+<li><strong>gksu synaptic apt-xapian-index policykit-1-gnome:</strong> Aplicacativos para instalação de pacotes via interface gráfica.</li>
+<li><strong>xfce4-clipman xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-xkb-plugin ristretto rsync:</strong> Aplicativos da interface e ambiente do <em>XFCE4</em>.</li>
+<li><strong>xfce4-whiskermenu-plugin:</strong> Menu de aplicativos <em>user friendly</em> (amigável).</li>
+<li><strong>leafpad:</strong> Editor de texto puro.</li>
+<li><strong>xarchiver thunar-archive-plugin p7zip unzip p7zip-full:</strong> utilitários para compactação em descompactação de arquivos.</li>
+<li><strong>fonts-dejavu fonts-dejavu-extra fonts-droid-fallback fonts-freefont-ttf fonts-liberation fonts-noto-mono fonts-opensymbol ttf-bitstream-vera ttf-dejavu ttf-dejavu-core ttf-dejavu-extra ttf-freefont ttf-liberation ttf-mscorefonts-installer:</strong> Pacotes de fontes, tipográfia, para sistema operacional.</li>
+<li><strong>aspell aspell-pt-br hunspell hunspell-pt-br:</strong> Correção ortográfica.</li>
+<li><strong>firefox-esr firefox-esr-l10n-pt-br chromium chromium-l10n chromium-widevine:</strong> Navegadores web.</li>
 </ul>
-<pre class="codehilite"><code class="language-bash">$ sudo apt install unzip</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install network-manager network-manager-gnome
+$ sudo apt install xserver-xorg-input-synaptics
+$ sudo apt install gksu synaptic apt-xapian-index policykit-1-gnome
+$ sudo apt install xfce4-clipman xfce4-power-manager xfce4-screenshooter xfce4-taskmanager xfce4-xkb-plugin ristretto rsync
+$ sudo apt install xfce4-whiskermenu-plugin
+$ sudo apt install leafpad
+$ sudo apt install xarchiver thunar-archive-plugin p7zip p7zip-full unzip
+$ sudo apt install fonts-dejavu fonts-dejavu-extra fonts-droid-fallback fonts-freefont-ttf fonts-liberation fonts-noto-mono fonts-opensymbol fots-stix ttf-bitstream-vera ttf-dejavu ttf-dejavu-core ttf-dejavu-extra ttf-freefont ttf-liberation ttf-mscorefonts-installer
+$ sudo apt install aspell aspell-pt-br hunspell hunspell-pt-br
+$ sudo apt install firefox-esr firefox-esr-l10n-pt-br chromium chromium-l10n chromium-widevine</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>Após a instalação dos aplicativos para completar a experiencia de uso, o sistema pode ser utilizado para diversas funções. Quaisquer outras personalizações ficam a critério do usuário. O básico está completo.</p>
+</div>
+<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">&para;</a></h2>
+<p>Foi configuarado um firewall para implementar um pouco mais de segurança ao sistema.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install ufw gufw</code></pre>
+
+
+<p>Após instalado o firewall foi configurado para impedir qualquer tentativa de conexão de entrada e permitir todas as conexões de saída.</p>
+<pre class="codehilite"><code class="language-bash">sudo ufw status
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw status verbose</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>O <strong>gufw</strong> é uma interface gráfica para gerenciamento do Firewall.</p>
+</div>
               
             </div>
           </div>
