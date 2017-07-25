@@ -1,7 +1,7 @@
 Debian 9 - Strech
 =================
 
-_Versão 1 - atualizada em 21/07/2017_
+_Versão 1 - atualizada em 25/07/2017_
 
 -----
 
