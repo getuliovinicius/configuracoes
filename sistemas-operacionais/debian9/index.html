@@ -108,15 +108,23 @@
         
             <li><a class="toctree-l4" href="#drivers_do_processador">Drivers do processador</a></li>
         
+            <li><a class="toctree-l4" href="#editor_de_texto">Editor de texto</a></li>
+        
+            <li><a class="toctree-l4" href="#htop_-_monitor_do_sistema">HTOP - Monitor do sistema</a></li>
+        
+            <li><a class="toctree-l4" href="#shell">Shell</a></li>
+        
+            <li><a class="toctree-l4" href="#opcoes_de_idioma">Opções de idioma</a></li>
+        
             <li><a class="toctree-l4" href="#interface_grafica_xfce_4">Interface Gráfica XFCE 4</a></li>
         
             <li><a class="toctree-l4" href="#terminal_grafico">Terminal gráfico</a></li>
         
             <li><a class="toctree-l4" href="#drivers_do_virtualbox">Drivers do Virtualbox</a></li>
         
-            <li><a class="toctree-l4" href="#aplicativos_comuns">Aplicativos comuns</a></li>
-        
             <li><a class="toctree-l4" href="#firewall">Firewall</a></li>
+        
+            <li><a class="toctree-l4" href="#aplicativos_comuns">Aplicativos comuns</a></li>
         
         </ul>
     
@@ -296,7 +304,7 @@
 <p><em>Versão 1 - atualizada em 25/07/2017</em></p>
 <hr />
 <h1 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h1>
-<p>Este tutorial objetiva demonstrar a instalação e configuração do sistema operacional <em>Debian9 - Strech</em> com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser personalizada de acordo com as necessidades do usuário.</p>
+<p>Este tutorial objetiva demonstrar a instalação e a configuração do sistema operacional <em>Debian9</em>, codinome <em>Strech</em>, com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser incrementada posteriormente de acordo com as necessidades do usuário.</p>
 <h1 id="preparacao_do_ambiente_no_virtualbox">Preparação do ambiente no <em>VirtualBox</em><a class="headerlink" href="#preparacao_do_ambiente_no_virtualbox" title="Permanent link">&para;</a></h1>
 <p>Para este exemplo de instalação e configuração de um sistema operacional <em>Debian9</em> foi criada uma máquina virtual utilizado o software de virtualização <em>VirtualBox</em> com as seguintes especificações:  </p>
 <h2 id="descricao_e_tipo">Descrição e Tipo<a class="headerlink" href="#descricao_e_tipo" title="Permanent link">&para;</a></h2>
@@ -309,7 +317,7 @@
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Após instalação básica do <em>Debian9</em> a máquina virtual foi clonada, para que permaneça como modelo para outras personalizações de ambiente.<br />
-O <em>VirtualBox</em> possui a funcionalidade de criação de clones das máquinas virtuais. Essa funcionalidade é especialmente adequada para situações em que se planeja utilizar o mesmo sistema operacional para configurar ambientes com diversas finalidades, por exemplo: ambiente de programação em PHP, ambiente de programação em Java, ambiente de edição de imagens, ambiente de teste de redes ou qualquer outro ambiente. Basta clonar uma máquina virtual com uma instalação básica do sistema operacional que pretende utilizar e posteriormente configurá-lo de acordo com as necessidades do ambiente desejado.<br />
+O <em>VirtualBox</em> possui a funcionalidade de criação de clones das máquinas virtuais. Essa funcionalidade é especialmente adequada para situações em que se planeja utilizar o mesmo sistema operacional para configurar ambientes com diversas finalidades, por exemplo: ambiente de programação em PHP, ambiente de programação em Java, ambiente de edição de imagens, ambiente de teste de redes ou qualquer outro ambiente. Basta clonar uma máquina virtual com uma instalação básica do sistema operacional que se pretende utilizar e posteriormente configurá-lo de acordo com as necessidades do ambiente desejado.<br />
 Este tipo de abordagem evita o acumulo de programas instalados no sistema operacional, tornando-o mais eficiente em termos de utilização de recursos, ademais é possível manter muitas máquinas virtuais em um computador.</p>
 </div>
 <h2 id="hardware">Hardware<a class="headerlink" href="#hardware" title="Permanent link">&para;</a></h2>
@@ -325,9 +333,9 @@ Este tipo de abordagem evita o acumulo de programas instalados no sistema operac
 <p><img alt="Imagem 8" src="../imgs/debian9-8.png" /></p>
 <p>A imagem de instalação do Debian9 foi carregada.</p>
 <p><img alt="Imagem 9" src="../imgs/debian9-9.png" /></p>
-<p>Foi definida a utilização de uma placa de rede em modo Bridge, deste modo trafego de rede é direcionado para a placa de rede da maquina virtual normalmente pois essa pode participar da rede física normalmente.</p>
+<p>Foi definida a utilização de uma placa de rede em modo Bridge, deste modo trafego de rede é direcionado para a placa de rede da maquina virtual normalmente e essa pode participar da rede física normalmente.</p>
 <p><img alt="Imagem 10" src="../imgs/debian9-10.png" /></p>
-<p>O restante das opções do da máquina foram mantidas como padrão do <em>VirtualBox</em>.</p>
+<p>O restante das opções da máquina foram mantidas como padrão do <em>VirtualBox</em>.</p>
 <h1 id="instalacao_basica">Instalação Básica<a class="headerlink" href="#instalacao_basica" title="Permanent link">&para;</a></h1>
 <p>Foi escolhida a opção de instalação em modo texto.</p>
 <p><img alt="Imagem 13" src="../imgs/debian9-13.png" /></p>
@@ -352,44 +360,45 @@ Este tipo de abordagem evita o acumulo de programas instalados no sistema operac
 <p class="admonition-title">Nota</p>
 <p>A senha de super-usuário foi deixada em branco propositalmente para que o comando sudo seja configurado automaticamente durante a instalação.</p>
 </div>
-<p>Foi preenchido o nome completo, para exibição em determinadas partes do sistema, uma conta de usuário comum. Este usuário pode exercer os privilégios de super-usuário com o comando <code>sudo</code>.</p>
+<p>Foi preenchido o nome completo, para exibição em determinadas partes do sistema, de uma conta de usuário comum. Este usuário pode exercer os privilégios de super-usuário com o comando <code>sudo</code>.</p>
 <p><img alt="Imagem 21" src="../imgs/debian9-21.png" /></p>
 <p>Depois foi definido o nome de usuário para login no sistema.</p>
 <p><img alt="Imagem 22" src="../imgs/debian9-22.png" /></p>
-<p>E por fim foi definida a senha da conta do usuário.</p>
+<p>Por fim foi definida a senha da conta do usuário.</p>
 <p><img alt="Imagem 23" src="../imgs/debian9-23.png" /></p>
 <p>Para configurar o relógio da máquina e o Fuzo Horário do sistema foi definido o estado de São Paulo como local de moradia.</p>
 <p><img alt="Imagem 24" src="../imgs/debian9-24.png" /></p>
-<p>O particionamento do disco pode ser realizado de &ldquo;n&rdquo; maneiras, entretanto, neste caso foi aceito que o sistema definisse automaticamente o esquema de partições. Caso existisse um motivo especial para se optar por exemplo para montar diretórios específicos de armazenamento de dados e partições separadas, a melhor opção nesta etapa seria o particionamento manual.</p>
+<p>O particionamento do disco pode ser realizado de &ldquo;n&rdquo; maneiras, entretanto, neste caso foi aceito que o sistema definisse automaticamente o esquema de partições. Caso houvesse um motivo especial para optar, por exemplo, pela montagem de diretórios específicos de armazenamento de dados em partições separadas, a melhor opção nesta etapa seria o particionamento manual.</p>
 <p><img alt="Imagem 25" src="../imgs/debian9-25.png" /></p>
 <p><img alt="Imagem 26" src="../imgs/debian9-26.png" /></p>
 <p><img alt="Imagem 27" src="../imgs/debian9-27.png" /></p>
 <p><img alt="Imagem 28" src="../imgs/debian9-28.png" /></p>
 <p><img alt="Imagem 29" src="../imgs/debian9-29.png" /></p>
 <p><img alt="Imagem 30" src="../imgs/debian9-30.png" /></p>
-<p>Os pacote que por ventura são selecionados mas não estão na mídia de instalação são obtidos conexão com um espelho de rede do <em>Debian9</em>, portanto, não foi necessário inserir outro CD/DVD.</p>
+<p>Os pacote que por ventura forem selecionados mas não estiverem na mídia de instalação são obtidos através da conexão com um espelho de rede do <em>Debian9</em>, portanto não foi necessário inserir outro CD/DVD.</p>
 <p><img alt="Imagem 31" src="../imgs/debian9-31.png" /></p>
-<p>Foram configurados no momento da instalação os espelhos de rede do <em>Debian9</em> localizados no Brasil.</p>
+<p>No momento da instalação foram configurados os espelhos de rede do <em>Debian9</em> localizados no Brasil.</p>
 <p><img alt="Imagem 32" src="../imgs/debian9-32.png" /></p>
 <p><img alt="Imagem 33" src="../imgs/debian9-33.png" /></p>
 <p><img alt="Imagem 34" src="../imgs/debian9-34.png" /></p>
 <p>Não foi preciso configurar um <em>proxy</em> pois havia uma conexão direta.</p>
 <p><img alt="Imagem 35" src="../imgs/debian9-35.png" /></p>
-<p>Para não alongar muito a instalação, foi rejeitada a participação no concurso de utilização de pacotes.</p>
+<p>Para não alongar muito a instalação foi rejeitada a participação no concurso de utilização de pacotes.</p>
 <p><img alt="Imagem 36" src="../imgs/debian9-36.png" /></p>
 <p>Nenhuma interface gráfica foi instalada neste momento pois o objetivo era obter uma instalação enxuta do sistema para que posteriormente fosse personalizado.</p>
 <p><img alt="Imagem 37" src="../imgs/debian9-37.png" /></p>
-<p>Por fim foi instalado o gerenciador de Boot no registro mestre de inicialização do disco principal.</p>
+<p>A última etapa da instalação foi determinar a que o gerenciador de Boot fosse configurado no registro mestre de inicialização do disco principal.</p>
 <p><img alt="Imagem 38" src="../imgs/debian9-38.png" /></p>
 <p><img alt="Imagem 39" src="../imgs/debian9-39.png" /></p>
 <p><img alt="Imagem 40" src="../imgs/debian9-40.png" /></p>
 <h1 id="clone">Clone<a class="headerlink" href="#clone" title="Permanent link">&para;</a></h1>
-<p>Foi feito um clone completo da máquina virtual já com o <em>Debian9</em> instalado e o nome da máquina foi definido como <code>DebianVM-02</code>. O objetivo deste ponto em diante é personalizar o sistema operacional de acordo com a necessidade especifica. Se por ventura algo der errado com a personalização basta excluir a máquina clonada e clonar a partir do modelo novamente.</p>
+<p>Já com o <em>Debian9</em> instalado foi feito um clone completo da máquina virtual e o nome da máquina foi definido como <code>DebianVM-02</code>.<br />
+Deste ponto em diante o objetivo é personalizar o sistema operacional de acordo com a necessidades especificas de cada aplicação. Se por ventura algo der errado com a personalização basta excluir a máquina clonada e clonar a partir do modelo novamente.</p>
 <p><img alt="Imagem 11" src="../imgs/debian9-11.png" /></p>
 <p><img alt="Imagem 11" src="../imgs/debian9-12.png" /></p>
 <h1 id="pos_clone">Pós clone<a class="headerlink" href="#pos_clone" title="Permanent link">&para;</a></h1>
 <h2 id="configuracoes_de_rede">Configurações de Rede<a class="headerlink" href="#configuracoes_de_rede" title="Permanent link">&para;</a></h2>
-<p>Depois que o clone foi feito a máquina virtual poderia ser configurada para atender diversos propósitos, mas antes de qualquer coisa o nome de <em>host</em> foi alterado logo após o do primeiro login de <strong>DebianVM-02-modelo-02</strong> para <strong>DebianVM-02</strong>.</p>
+<p>Antes de qualquer outra configuração, o nome de <em>host</em> foi alterado de <strong>DebianVM-02-modelo-02</strong> para <strong>DebianVM-02</strong>.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo su
 $ echo DebianVM-02 &gt; /etc/hostname
 $ exit</code></pre>
@@ -441,7 +450,7 @@ $ sudo apt upgrade</code></pre>
 <pre class="codehilite"><code class="language-bash">$ sudo apt install intel-microcode</code></pre>
 
 
-<h3 id="editor_de_texto">Editor de texto<a class="headerlink" href="#editor_de_texto" title="Permanent link">&para;</a></h3>
+<h2 id="editor_de_texto">Editor de texto<a class="headerlink" href="#editor_de_texto" title="Permanent link">&para;</a></h2>
 <p>Foi instalado o editor de textos <strong>VIM</strong> que não faz parte da instalação padrão do <em>Debian9</em>, que traz apenas o <strong>VI</strong> e o <strong>Nano</strong>, ambos com menos recursos de edição que o editor <strong>VIM</strong>.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo apt install vim</code></pre>
 
@@ -459,8 +468,8 @@ $ sudo apt upgrade</code></pre>
 set number</code></pre>
 
 
-<h3 id="htop">HTOP<a class="headerlink" href="#htop" title="Permanent link">&para;</a></h3>
-<p>Foi instalado o utilitário de monitoramento dos processos do sistema <strong>HTOP</strong>.</p>
+<h2 id="htop_-_monitor_do_sistema">HTOP - Monitor do sistema<a class="headerlink" href="#htop_-_monitor_do_sistema" title="Permanent link">&para;</a></h2>
+<p>Foi instalado o utilitário de monitoramento de processos do sistema <strong>HTOP</strong>.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo apt install htop</code></pre>
 
 
@@ -469,8 +478,8 @@ set number</code></pre>
 <p>O <strong>HTOP</strong> pode ser executado através da linha de comando com o comando <code>htop</code>.<br />
 Não era necessário instalar o <strong>HTOP</strong> neste momento, todavia é interessante observar o desempenho da máquina antes de continuar com a instalação do restante dos softwares, e seguir observando a cada nova instalação a mudança no consumo dos recursos de memória e processamento.</p>
 </div>
-<h3 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h3>
-<p>Foram feitos ajustes no arquivo <code>/etc/profile</code> para que o comando <code>history</code> exiba a data e o horário que cada comando executado, além do número de identificação e obviamente o comando.</p>
+<h2 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h2>
+<p>Foram feitos ajustes no arquivo <code>/etc/profile</code> para que a saída o comando <code>history</code> exiba a data e o horário que cada comando foi executado no sistema, além do número de identificação e obviamente o comando.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo vim /etc/profile</code></pre>
 
 
@@ -481,7 +490,7 @@ export HISTFILESIZE=10000
 export HISTTIMEFORMAT=&quot;%F %T &quot;</code></pre>
 
 
-<h3 id="opcoes_de_idioma">Opções de idioma<a class="headerlink" href="#opcoes_de_idioma" title="Permanent link">&para;</a></h3>
+<h2 id="opcoes_de_idioma">Opções de idioma<a class="headerlink" href="#opcoes_de_idioma" title="Permanent link">&para;</a></h2>
 <p>Com o comando <code>dpkg-reconfigure</code> foram adicionados os idiomas Português e Inglês com as variações de caracteres UTF-8 e ISO-8859-1.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo dpkg-reconfigure locales</code></pre>
 
@@ -544,6 +553,22 @@ $ sudo sh ./VBoxLinuxAdditions.run</code></pre>
 <pre class="codehilite"><code class="language-bash">$ sudo init 6</code></pre>
 
 
+<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">&para;</a></h2>
+<p>Foi configuarado um firewall para implementar um pouco mais de segurança ao sistema.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install ufw gufw</code></pre>
+
+
+<p>Após instalado o firewall foi configurado para impedir qualquer tentativa de conexão de entrada e permitir todas as conexões de saída.</p>
+<pre class="codehilite"><code class="language-bash">sudo ufw status
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw status verbose</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>O <strong>gufw</strong> é uma interface gráfica para gerenciamento do Firewall.</p>
+</div>
 <h2 id="aplicativos_comuns">Aplicativos comuns<a class="headerlink" href="#aplicativos_comuns" title="Permanent link">&para;</a></h2>
 <p>Foram instalados os seguintes Aplicativos para completar a experiêcia de uso do Sistema Operacional:</p>
 <ul>
@@ -573,22 +598,6 @@ $ sudo apt install firefox-esr firefox-esr-l10n-pt-br chromium chromium-l10n chr
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
 <p>Após a instalação dos aplicativos para completar a experiencia de uso, o sistema pode ser utilizado para diversas funções. Quaisquer outras personalizações ficam a critério do usuário. O básico está completo.</p>
-</div>
-<h2 id="firewall">Firewall<a class="headerlink" href="#firewall" title="Permanent link">&para;</a></h2>
-<p>Foi configuarado um firewall para implementar um pouco mais de segurança ao sistema.</p>
-<pre class="codehilite"><code class="language-bash">$ sudo apt install ufw gufw</code></pre>
-
-
-<p>Após instalado o firewall foi configurado para impedir qualquer tentativa de conexão de entrada e permitir todas as conexões de saída.</p>
-<pre class="codehilite"><code class="language-bash">sudo ufw status
-sudo ufw default deny incoming
-sudo ufw default allow outgoing
-sudo ufw status verbose</code></pre>
-
-
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>O <strong>gufw</strong> é uma interface gráfica para gerenciamento do Firewall.</p>
 </div>
               
             </div>
