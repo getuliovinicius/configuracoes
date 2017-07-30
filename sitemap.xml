@@ -128,6 +128,12 @@
     </url>
         
     <url>
+     <loc>/banco-de-dados/mariadb/</loc>
+     <lastmod>2017-07-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/banco-de-dados/mongodb/</loc>
      <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
