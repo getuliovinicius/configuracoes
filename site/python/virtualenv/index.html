@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>virtualenv - Configurações</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "virtualenv";
+    var mkdocs_page_input_path = "python/virtualenv.md";
+    var mkdocs_page_url = "/python/virtualenv/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-70830801-12', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Configurações</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Configurações</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sistemas Operacionais</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../sistemas-operacionais/arch-linux/">Arch Linux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../sistemas-operacionais/debian9/">Debian9</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git/">Git</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Shell</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../shell/zsh/">zsh</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">virtualenv</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#ambiente_virtual_python">Ambiente Virtual Python</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#pip">pip</a></li>
+        
+            <li><a class="toctree-l4" href="#virtualenv">virtualenv</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../mkdocs/">Mkdocs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php-apache/">PHP - com Apache</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/phpmyadmin/">Phpmyadmin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/hesk/">Hesk</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/jre/">JRE</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Node.JS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Servidores Web</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../servidores-web/apache/">Apache2</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../servidores-web/nginx/">Nginx</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Banco de Dados</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Configurações</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Python &raquo;</li>
+        
+      
+    
+    <li>virtualenv</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/python/virtualenv.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="ambiente_virtual_python">Ambiente Virtual <em>Python</em><a class="headerlink" href="#ambiente_virtual_python" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 05/05/2017</em></p>
+<hr />
+<p>Este é um roteiro para configuração de um ambiente virtual <em>Python</em>, de modo que o trabalho e o Sistema Operacional se mantenham organizados enquanto as bibliotécas de código, os <em>frameworks</em>, etc vão sendo instalados, assim como os projetos.</p>
+<h2 id="pip">pip<a class="headerlink" href="#pip" title="Permanent link">&para;</a></h2>
+<p>O <em>pip</em> é um gerenciador de pacotes e dependências usado para instalar pacotes de software escritos em <em>Python</em> a partir de um grande repositório da comunidade: <a href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a>.</p>
+<p>Comandos para instalar o <em>pip</em> em qualquer sistema operacional <em>Linux</em>:</p>
+<pre class="codehilite"><code class="language-bash">wget https://bootstrap.pypa.io/get-pip.py
+sudo python get-pip.py</code></pre>
+
+
+<p>Fonte: <a href="https://pip.pypa.io/en/latest/installing/">https://pip.pypa.io/en/latest/installing/</a></p>
+<p>Comando para instalar o <em>pip</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo pacman -S python-pip</code></pre>
+
+
+<h2 id="virtualenv">virtualenv<a class="headerlink" href="#virtualenv" title="Permanent link">&para;</a></h2>
+<p>O <em>virtualenv</em> é uma ferramenta que permite diferentes ambientes virtuais de <em>Python</em> na mesma máquina. Isso facilita a organização do sistema operacional - SO, pois com o <em>virtualenv</em> não é preciso manter um pacote instalado globalmente no <em>SO</em> sendo que o mesmo só é útil para um dos projetos que eventualmente está se desenvolvendo, essa prática evita conflitos de dependências.</p>
+<p>Comando para instalar o <em>virtualenv</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo pip install virtualenv</code></pre>
+
+
+<h3 id="virtualenvwrapper">virtualenvwrapper<a class="headerlink" href="#virtualenvwrapper" title="Permanent link">&para;</a></h3>
+<p>0 <em>virtualenvwrapper</em> é um conjunto de extensões para a ferramenta <em>virtualenv</em>. As extensões incluem comandos para criar e excluir ambientes virtuais, tornando mais fácil gerenciar e trabalhar em mais de um projeto no computador sem introduzir conflitos em suas dependências.</p>
+<p>Comando para instalar o <em>virtualenvwrapper</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo pip install virtualenvwrapper</code></pre>
+
+
+<p>Para concluir a instalação é preciso editar o arquivo <code>~/.bashrc</code> ou <code>~/.zshrc</code>, depende do <em>shell</em> que está definido como padrão no <em>SO</em>.</p>
+<p>Pode-se usar o editor <em>vim</em> para fazer a edição:</p>
+<pre class="codehilite"><code class="language-bash">$ vim ~/.bashrc</code></pre>
+
+
+<p>ou</p>
+<pre class="codehilite"><code class="language-bash">$ vim ~/.zshrc</code></pre>
+
+
+<p>As linhas abaixo devem ser adicionadas no final do arquivo de configuração do shell para que se possa chamar os comandos do <em>virtualenvwrapper</em>:</p>
+<ul>
+<li>Para <em>Arch Linux e Manjaro Linux</em> utilize as linhas abaixo:</li>
+</ul>
+<pre class="codehilite"><code class="language-rc"># Virtualenvwrapper
+export WORKON_HOME=$HOME/Virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/bin/virtualenvwrapper.sh</code></pre>
+
+
+<ul>
+<li>Para <em>Debian, Ubuntu, Linux Mint</em> utilize as linhas abaixo:</li>
+</ul>
+<pre class="codehilite"><code class="language-rc"># Virtualenvwrapper
+export WORKON_HOME=~/.virtualenvs
+source /usr/local/bin/virtualenvwrapper.sh
+export PIP_REQUIRE_VIRTUALENV=true</code></pre>
+
+
+<p>É preciso recarregar as configurações do <em>bash</em> ou <em>zsh</em> com o comando:</p>
+<pre class="codehilite"><code class="language-bash">$ source ~/.bashrc</code></pre>
+
+
+<p>ou</p>
+<pre class="codehilite"><code class="language-bash">$ source ~/.zshrc</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mkdocs/" class="btn btn-neutral float-right" title="Mkdocs">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../shell/zsh/" class="btn btn-neutral" title="zsh"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../shell/zsh/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mkdocs/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

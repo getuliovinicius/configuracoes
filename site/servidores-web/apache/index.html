@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Apache2 - Configurações</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Apache2";
+    var mkdocs_page_input_path = "servidores-web/apache.md";
+    var mkdocs_page_url = "/servidores-web/apache/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+  <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-70830801-12', 'auto');
+      ga('send', 'pageview');
+  </script>
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Configurações</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Configurações</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Sistemas Operacionais</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../sistemas-operacionais/arch-linux/">Arch Linux</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../sistemas-operacionais/debian9/">Debian9</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Git</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../git/git/">Git</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Shell</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../shell/zsh/">zsh</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Python</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../python/virtualenv/">virtualenv</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../python/mkdocs/">Mkdocs</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">PHP</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../php/php-apache/">PHP - com Apache</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/phpmyadmin/">Phpmyadmin</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../php/hesk/">Hesk</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Java</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../java/jre/">JRE</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Node.JS</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../nodejs/nodejs/">Node.JS</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Servidores Web</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Apache2</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#servidor_web_apache2">Servidor Web Apache2</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#instalacao_do_apache">Instalação do Apache</a></li>
+        
+            <li><a class="toctree-l4" href="#modulos_do_apache">Módulos do Apache</a></li>
+        
+            <li><a class="toctree-l4" href="#demonstracao_do_apache">Demonstração do Apache</a></li>
+        
+            <li><a class="toctree-l4" href="#configuracao_do_virtualhost_padrao">Configuração do VirtualHost Padrão</a></li>
+        
+            <li><a class="toctree-l4" href="#diretorios_dos_vhost_para_projetos">Diretórios dos vHost para Projetos</a></li>
+        
+            <li><a class="toctree-l4" href="#configuracao_dos_vhost">Configuração dos vHost</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../nginx/">Nginx</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Banco de Dados</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mysql/">MySQL</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../banco-de-dados/mongodb/">MongoDB</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Editores</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Configurações</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Servidores Web &raquo;</li>
+        
+      
+    
+    <li>Apache2</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/servidores-web/apache.md"
+          class="icon icon-github"> Edit on GitHub</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="servidor_web_apache2">Servidor Web Apache2<a class="headerlink" href="#servidor_web_apache2" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 04/05/2017</em></p>
+<hr />
+<p>O Apache é o “servidor HTTP/servidor WEB” mais utilizado no mundo, atualmente está na versão 2.4.</p>
+<h2 id="instalacao_do_apache">Instalação do Apache<a class="headerlink" href="#instalacao_do_apache" title="Permanent link">&para;</a></h2>
+<p>Comando para instalar o <em>Apache</em> nos sistemas operacionais <em>Debian, Ubuntu e Linux Mint</em>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install apache2</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p><strong>Pacotes instalados:</strong> apache2 apache2-data apache2-utils</p>
+</div>
+<p>Para testar o funcionamento do Apache digite o seguinte endereço <a href="http://localhost">http://localhost</a> no navegador web. Se retornar uma página com uma mensagem “It Works!” está tudo OK.</p>
+<h2 id="modulos_do_apache">Módulos do Apache<a class="headerlink" href="#modulos_do_apache" title="Permanent link">&para;</a></h2>
+<p>Algumas aplicações poderão solicitar módulos extra do Apache, por exemplo: para propiciar o uso de urls amigáveis, o módulo <code>mod_rewrite</code> do Apache deve ser habilitado e para habilitar um módulo usamos o comando <code>a2enmod</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo a2enmod rewrite</code></pre>
+
+
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p>O comando acima habilita o módulo <em>mod_rewrite</em> no Apache.</p>
+</div>
+<p>Para ver os módulos do Apache que estão habilitados podemos usar o comando <code>apachectl</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo apachectl -M</code></pre>
+
+
+<h2 id="demonstracao_do_apache">Demonstração do Apache<a class="headerlink" href="#demonstracao_do_apache" title="Permanent link">&para;</a></h2>
+<p>O diretório de publicação padrão do Apache no Debian é o <code>/var/www/html</code>, neste diretório ficam armazenados os arquivos que compõem os sites hospedados no servidor.<br />
+O diretório <code>/var/www/html</code> é chamado de <em>DocumentRoot</em> do <em>VirtualHost</em> padrão do Apache, o <em><a href="http://localhost">localhost</a></em>, endereço citado anteriormente para testar o funcionamento do Apache. Cada <em>VirtualHost</em> possui seu próprio diretório <em>DocumentRoot</em> conforme veremos mais adiante.<br />
+Para entender a estrutura do Apache vamos entrar no diretório <em>DocumentRoot</em> do <em>VirtualHost</em> padrão e listar o conteúdo:</p>
+<pre class="codehilite"><code class="language-bash">$ cd /var/www/html
+$ ls</code></pre>
+
+
+<p>Existe um arquivo chamado <code>index.html</code> que contém a codificação da página exibida quando requisitamos o endereço <code>localhost</code>. Vamos começar a alterar a estrutura original do Apache substituindo o conteúdo do arquivo <code>index.html</code>, mas primeiro devemos fazer um backup deste arquivo renomeando de <code>index.html</code> para <code>index.html.original</code> com o comando <code>mv</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo mv index.html index.html.original</code></pre>
+
+
+<p>Em seguida criar um novo arquivo <code>index.html</code> com o editor <em>vim</em>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim index.html</code></pre>
+
+
+<p>Copiar o conteúdo abaixo para o arquivo.</p>
+<pre class="codehilite"><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;pt-br&quot;&gt;
+
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;!-- &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt; --&gt;
+        &lt;title&gt;Localhost - Página padrão&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Página padrão&lt;/h1&gt;
+        &lt;p&gt;Página padrão do servidor web. O Apache está funcionando.&lt;/p&gt;
+        &lt;p&gt;##### VIVA!!! #####&lt;/p&gt;
+        &lt;p&gt;&lt;a href='https://github.com/getuliovinicius' title='Good!!!'&gt;GitHub do Getulio Vinicius&lt;/a&gt;&lt;/p&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+
+<p>Para conferir acessamos o endereço <a href="http://localhost">http://localhost</a> novamente.<br />
+Vamos tratar o visual da página criando um arquivo <code>style.css</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim style.css</code></pre>
+
+
+<p>Copiar o conteúdo abaixo para o arquivo:</p>
+<pre class="codehilite"><code class="language-css">@charset &quot;utf-8&quot;;
+/* CSS Document */
+body {
+    background-color: #e8eae8;
+    color: #5d665b;
+    margin: 50px;
+}
+p {
+    text-align: center;
+}
+a:link {
+    color: #696;
+    text-decoration: none;
+    background-color: transparent
+}
+a:visited {
+    color: #699;
+    text-decoration: none;
+    background-color: transparent
+}
+a:hover {
+    color: #c93;
+    text-decoration: underline;
+    background-color: transparent
+}
+a:active {
+    color: #900;
+    text-decoration: underline;
+    background-color: transparent
+}</code></pre>
+
+
+<p>Agora para aplicar o estilo a página removemos o comentário da linguagem HTML na linha 6 do arquivo <code>index.html</code>, que são as tags <code>&lt;!-- --&gt;</code> no início e no final da linha.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim index.html</code></pre>
+
+
+<p>Retire os comentários e acesse novamente o endereço <a href="http://localhost">http://localhost</a> para ver o resultado.</p>
+<h2 id="configuracao_do_virtualhost_padrao">Configuração do <em>VirtualHost</em> Padrão<a class="headerlink" href="#configuracao_do_virtualhost_padrao" title="Permanent link">&para;</a></h2>
+<p>O apache utiliza a funcionalidade de <em>VirtualHosts</em>, a qual permite a manter vários sites ativos simultâneamente, ou seja, vários sites compartilham uma instalação.<br />
+O primeiro passo é a criação da estrutura de diretórios a partir do diretório <code>/srv</code>, isto porque segundo a hierarquia de arquivos FHS (que eu não vou explicar, não faz diferença agora), o diretório próprio para instalação de serviços no Linux é o <code>/srv</code>.<br />
+Enfim, sobre essa questão, de quando eu fiz o curso de <em>Sysadmin</em> até os dias atuais, as distribuições passaram a configurar o <em>DocumentRoot</em> no diretório <code>/var/www</code>. Mudar ou não essa configuração não faz muita diferença mas pode ser um bom exercício para entender o funcionamento do Linux.</p>
+<pre class="codehilite"><code class="language-bash">$ cd
+$ sudo mkdir -p /srv/www</code></pre>
+
+
+<p>Para páginas estáticas em HTML vamos deixar definido que os <em>VirtualHosts</em>, <code>vHosts</code>, ficarão no diretório <code>/srv/www/html</code>.<br />
+Mover o conteúdo do diretório <code>/var/www/</code> para <code>/srv/www/</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo mv /var/www/html /srv/www/</code></pre>
+
+
+<p>Podemos então estruturar o servidor. Dentro do diretório <code>/srv/www/html</code> vamos criar outro diretório chamado <code>localhost</code> onde iremos armazenar os arquivos que editamos até agora.</p>
+<pre class="codehilite"><code class="language-bash">$ cd /srv/www/html
+$ sudo mkdir localhost</code></pre>
+
+
+<p>Agora indo para o diretório <code>localhost</code> vamos  copiar o arquivo padrão da instalação do Apache, que renomeamos para <code>index.html.original</code>, juntamente com os arquivos <code>index.html</code> e <code>style.css</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ cd /srv/www/html/localhost
+$ sudo mv /srv/www/html/index.* .
+$ sudo mv /srv/www/html/style.css .</code></pre>
+
+
+<p>Na sequência precisamos definir o usuário <em>www-data</em>, que foi criado durante a instalação do Apache para execução do serviço, como usuário dono dos arquivos sob o diretório <code>/srv/www</code> inclusive o próprio diretório <code>/srv/www</code>. Para realizar essa tarefa usamos o comando <code>chown</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo chown www-data\: /srv/www -R</code></pre>
+
+
+<p>Neste momento o servidor Apache, que está em funcionamento, vai exibir uma mensagem de erro, iniciada com &ldquo;Not Found&rdquo;, não encontrado, devido a alteração do local onde por padrão os arquivos do <em>DocumentRoot</em> são instalados.<br />
+Tendo sido realizada a alteração do local dos arquivos referentes ao diretório <em>DocumentRoot</em> passamos para a configuração do Apache, acessando o diretório de configuração.</p>
+<pre class="codehilite"><code class="language-bash">$ cd /etc/apache2</code></pre>
+
+
+<p>Neste diretório podemos modificar a configuração padrão do servidor Apache deixando de acordo com os nossos propósitos.<br />
+A primeira configuração que iremos aplicar é a indicação da diretiva <code>ServerName</code>, o nome padrão do servidor, que vamos manter como <code>localhost</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ cd conf-available</code></pre>
+
+
+<p>Usando o <em>vim</em> podemos criar o arquivo de configuração do <code>ServerName</code> padrão que irá possuir apenas uma linha.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim servername.conf</code></pre>
+
+
+<pre class="codehilite"><code class="language-apacheconf">ServerName localhost</code></pre>
+
+
+<p>Depois de criar o arquivo é preciso adicionar a nova configuração ao Apache com o comando <code>a2enconf</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo a2enconf servername</code></pre>
+
+
+<p>Após informando o <code>ServerName</code> padrão, é preciso informar que mudamos o diretório <em>DocumentRoot</em> para que ele volte a fornecer as páginas referentes ao endereço <a href="http://localhost">http://localhost</a>.<br />
+Vamos voltar um diretório com o comando <code>cd</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ cd ..</code></pre>
+
+
+<p>O aquivo de configuração <code>apache2.conf</code>, deve ser copiado para <code>apache2.conf.original</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo cp apache2.conf apache2.conf.original</code></pre>
+
+
+<p>Na sequência o arquivo <code>apache2.conf</code> deve ser alterado removendo o comentário <code>#</code> das linhas 170, 171, 172, 173 e 174. Isso fará com que o Apache enxergue os arquivos no diretório <code>/srv/www</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim apache2.conf</code></pre>
+
+
+<p>Linhas descomentadas:</p>
+<pre class="codehilite"><code class="language-apacheconf">&lt;Directory /srv/&gt;
+    Options Indexes FollowSymLinks
+    AllowOverride None
+    Require all granted
+&lt;/Directory&gt;</code></pre>
+
+
+<p>E por fim vem a configuração do <code>vHost</code> padrão do Apache, o <code>localhost</code>.<br />
+O arquivo de configuração do <code>vHost</code> padrão é o <code>000-default.conf</code> localizado no diretório <code>/etc/apache2/sites-available/</code>. Este diretório também irá armazenar os arquivos de configuração de todos os demais <code>vHosts</code> que por ventura vierem a ser criados.</p>
+<pre class="codehilite"><code class="language-bash">$ cd /etc/apache2/sites-available</code></pre>
+
+
+<p>Fazer o backup do arquivo <code>000-default.conf</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo cp 000-default.conf 000-default.conf.original</code></pre>
+
+
+<p>Os seguinte parâmetros devem ser alterados no arquivo <code>000-default.conf</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/apache2/sites-available/000-default.conf</code></pre>
+
+
+<p>Linhas 12 e 13</p>
+<pre class="codehilite"><code class="language-apacheconf">#DocumentRoot /var/www/html
+DocumentRoot /srv/www/html/localhost</code></pre>
+
+
+<p>Reiniciar o Apache:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo systemctl restart apache2.service</code></pre>
+
+
+<p>Por fim acessamos o endereço <a href="http://localhost">http://localhost</a> para ver o resultado.</p>
+<h2 id="diretorios_dos_vhost_para_projetos">Diretórios dos <em>vHost</em> para Projetos<a class="headerlink" href="#diretorios_dos_vhost_para_projetos" title="Permanent link">&para;</a></h2>
+<p>Vamos criar dois <code>vHost</code> para exemplificar o funcionamento do Apache, ambos podem ser utilizados para estudos das linguagens HTML, Javascript e CSS, lembrando que por enquanto estamos trabalhando na estrutura de diretórios criada para páginas estáticas.<br />
+Criar o diretório chamado <code>/srv/www/html/app1.local</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo mkdir /srv/www/html/app1.local</code></pre>
+
+
+<p>Entrar no diretório <code>/srv/www/html/app1.local</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ cd /srv/www/html/app1.local/</code></pre>
+
+
+<p>Criar os arquivos <code>index.html</code> e <code>style.css</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim index.html</code></pre>
+
+
+<p>Copie o conteúdo abaixo no arquivo:</p>
+<pre class="codehilite"><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;pt-br&quot;&gt;
+
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;
+        &lt;title&gt;APP-1&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Meu aplicativo 1&lt;/h1&gt;
+        &lt;p&gt;Esse é o meu aplicativo nro 1.&lt;/p&gt;
+        &lt;p&gt;&lt;a href='https://github.com/getuliovinicius' title='Good!!!'&gt;GitHub do Getulio Vinicius&lt;/a&gt;&lt;/p&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+
+<pre class="codehilite"><code class="language-bash">$ sudo vim style.css</code></pre>
+
+
+<p>Copie o conteúdo abaixo no arquivo:</p>
+<pre class="codehilite"><code class="language-css">@charset &quot;UTF-8&quot;;
+/* CSS Document */
+body {
+    background-color: #e8eae8;
+    color: #5d665b;
+    margin: 50px;
+}
+p {
+    text-align: center;
+}
+a:link {
+    color: #696;
+    text-decoration: none;
+    background-color: transparent
+}
+a:visited {
+    color: #699;
+    text-decoration: none;
+    background-color: transparent
+}
+a:hover {
+    color: #c93;
+    text-decoration: underline;
+    background-color: transparent
+}
+a:active {
+    color: #900;
+    text-decoration: underline;
+    background-color: transparent
+}</code></pre>
+
+
+<p>Depois de criados os dois arquivos, vamos subir um nível na hierarquia de diretórios criada:</p>
+<pre class="codehilite"><code class="language-bash">$ cd ..</code></pre>
+
+
+<p>ou</p>
+<pre class="codehilite"><code class="language-bash">$ cd /srv/www/html</code></pre>
+
+
+<p>Vamos copiar o diretório <code>app1.local</code> para <code>app2.local</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo cp -R app1.local app2.local</code></pre>
+
+
+<p>O parâmetro <code>-R</code> serve para copiar de forma recursiva, todos os arquivos abaixo do diretório de origem.<br />
+Entre no diretório <code>app2.local</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ cd app2.local</code></pre>
+
+
+<p>Edite os arquivos <code>index.html</code> e <code>style.css</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim index.html</code></pre>
+
+
+<p>Copie o conteúdo abaixo no arquivo:</p>
+<pre class="codehilite"><code class="language-html">&lt;!DOCTYPE HTML&gt;
+&lt;html lang=&quot;pt-br&quot;&gt;
+
+    &lt;head&gt;
+        &lt;meta charset=&quot;UTF-8&quot;&gt;
+        &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style.css&quot;&gt;
+        &lt;title&gt;APP-2&lt;/title&gt;
+    &lt;/head&gt;
+
+    &lt;body&gt;
+        &lt;h1&gt;Meu aplicativo 2&lt;/h1&gt;
+        &lt;p&gt;Esse é o meu aplicativo nro 2.&lt;/p&gt;
+        &lt;p&gt;&lt;a href='https://github.com/getuliovinicius' title='Good!!!'&gt;GitHub do Getulio Vinicius&lt;/a&gt;&lt;/p&gt;
+    &lt;/body&gt;
+
+&lt;/html&gt;</code></pre>
+
+
+<pre class="codehilite"><code class="language-bash">$ sudo vim style.css</code></pre>
+
+
+<p>Copie o conteúdo abaixo no arquivo:</p>
+<pre class="codehilite"><code class="language-css">@charset &quot;utf-8&quot;;
+/* CSS Document */
+body {
+    background-color: #e8eae8;
+    color: #000;
+    margin: 100px;
+}
+p {
+    text-align: center;
+}
+a:link {
+    color: #696;
+    text-decoration: none;
+    background-color: transparent
+}
+a:visited {
+    color: #699;
+    text-decoration: none;
+    background-color: transparent
+}
+a:hover {
+    color: #c93;
+    text-decoration: underline;
+    background-color: transparent
+}
+a:active {
+    color: #900;
+    text-decoration: underline;
+    background-color: transparent
+}</code></pre>
+
+
+<p>Alterar o proprietário dos diretórios e arquivos em <code>/srv/www</code> para o usuário e grupo <code>www-data</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo chown www-data\: /srv/www -R</code></pre>
+
+
+<h2 id="configuracao_dos_vhost">Configuração dos <em>vHost</em><a class="headerlink" href="#configuracao_dos_vhost" title="Permanent link">&para;</a></h2>
+<pre class="codehilite"><code class="language-bash">$ cd /etc/apache2/sites-available</code></pre>
+
+
+<p>Criar um arquivo chamado <code>app1.local.conf</code> com o conteúdo:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/apache2/sites-available/app1.local.conf</code></pre>
+
+
+<p>Copiar o conteúdo abaixo para o arquivo:</p>
+<pre class="codehilite"><code class="language-apacheconf">&lt;VirtualHost *:80&gt;
+    DocumentRoot /srv/www/html/app1.local
+    &lt;Directory /srv/www/html/app1.local/&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    &lt;/Directory&gt;
+    ServerName app1.local
+    ServerAdmin root@app1.local
+    ErrorLog /var/log/apache2/app1.local_error.log
+    CustomLog /var/log/apache2/app1.local_access.log common
+&lt;/VirtualHost&gt;</code></pre>
+
+
+<p>Copiar o arquivo <code>app1.local.conf</code> para um novo arquivo <code>app2.local.conf</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo cp app1.local.conf app2.local.conf</code></pre>
+
+
+<p>Editar o arquivo <code>app2.local.conf</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/apache2/sites-available/app2.local.conf</code></pre>
+
+
+<p>Copiar o conteúdo abaixo para o arquivo:</p>
+<pre class="codehilite"><code class="language-apacheconf">&lt;VirtualHost *:80&gt;
+    DocumentRoot /srv/www/html/app2.local
+    &lt;Directory /srv/www/html/app2.local/&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    &lt;/Directory&gt;
+    ServerName app2.local
+    ServerAdmin root@app2.local
+    ErrorLog /var/log/apache2/app2.local_error.log
+    CustomLog /var/log/apache2/app2.local_access.log common
+&lt;/VirtualHost&gt;</code></pre>
+
+
+<p>Os dois novos <code>vHosts</code> devem ser habilitados usando o comando <code>a2ensite</code>, e o Apache reiniciado para persistirem as mudanças.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo a2ensite app1.local.conf
+$ sudo a2ensite app2.local.conf
+$ sudo systemctl restart apache2.service</code></pre>
+
+
+<h3 id="arquivo_etchosts">Arquivo “/etc/hosts”<a class="headerlink" href="#arquivo_etchosts" title="Permanent link">&para;</a></h3>
+<p>Para o ambiente de desenvolvimento pretendido é preciso atribuir uma entrada no arquivo <code>/etc/hosts</code>, para cada domínio local que se deseja acessar.<br />
+Essa ação fará com que os navegadores web instalados no computador possam acessar páginas locais, servidas pelo Apache, a partir de domínios locais.<br />
+No exemplo abaixo existe uma entrada para o domínio local, <em>app1.local</em>, que pode ser acessado no navegador com o endereço <a href="http://app1.local">http://app1.local</a>.<br />
+Mostar o conteúdo do arquivo <code>/etc/hosts</code>:</p>
+<pre class="codehilite"><code>$ cat /etc/hosts
+127.0.0.1   localhost
+127.0.1.1   DEBIAN-01 # este nome é definido na instalação</code></pre>
+
+
+<p>Para concluir tudo é preciso criar as entradas para os <code>vHost</code> no arquivo <code>/etc/hosts</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/hosts</code></pre>
+
+
+<pre class="codehilite"><code>127.0.0.1   localhost
+127.0.1.1   DEBIAN-01 # este nome é definido na instalação
+
+# As linhas abaixo são as entradas para as aplicações criadas.
+127.0.0.1   app1.local
+127.0.0.1   app2.local</code></pre>
+
+
+<p>Acesse os endereços <a href="http://app1.local">http://app1.local</a> e <a href="http://app2.local">http://app2.local</a>, para verificar o resultado.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../nginx/" class="btn btn-neutral float-right" title="Nginx">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../nodejs/nodejs/" class="btn btn-neutral" title="Node.JS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+        <span><a href="../../nodejs/nodejs/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../nginx/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
