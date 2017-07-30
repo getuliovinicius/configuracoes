@@ -159,25 +159,6 @@
                     
     <a class="" href="../../java/jre/">JRE</a>
                 </li>
-                <li class="">
-                    
-    <a class="" href="../../php/phpmyadmin/">Phpmyadmin</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../php/hesk/">Hesk</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Java</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../java/jre/">JRE</a>
-                </li>
     </ul>
 	    </li>
           
@@ -413,7 +394,6 @@ $ hwclock --systohc --local</code></pre>
 <li>Editar o arquivo <code>/etc/hosts</code>:</li>
 </ul>
 <pre class="codehilite"><code class="language-bash">$ vi /etc/hosts</code></pre>
-<<<<<<< HEAD:sistemas-operacionais/arch-linux/index.html
 
 
 <ul>
@@ -429,23 +409,6 @@ $ hwclock --systohc --local</code></pre>
 
 
 <ul>
-=======
-
-
-<ul>
-<li>Adicionar a linha abaixo na sessão apropriada do arquivo, antes da linha <code># End of file</code>:</li>
-</ul>
-<pre class="codehilite"><code>127.0.1.1   ArchLinuxVM-modelo.localdomain  ArchLinuxVM-modelo</code></pre>
-
-
-<ul>
-<li>Ativar a busca por IP automático, DHCP, na inicialisação do sistema:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ systemctl enable dhcpcd.service</code></pre>
-
-
-<ul>
->>>>>>> 49444260c99a3fc5e8479b65ff71d84bff95d344:sistemas-operacionais/arch-linux/index.html
 <li>Criar senha de root:</li>
 </ul>
 <pre class="codehilite"><code class="language-bash">$ passwd</code></pre>
@@ -503,7 +466,6 @@ $ grub-mkconfig -o /boot/grub/grub.cfg</code></pre>
 </ul>
 <pre class="codehilite"><code class="language-bash">$ reflector -c Brazil --save /etc/pacman.d/mirrorlist
 $ cat /etc/pacman.d/mirrorlist</code></pre>
-<<<<<<< HEAD:sistemas-operacionais/arch-linux/index.html
 
 
 <div class="admonition note">
@@ -516,20 +478,6 @@ $ cat /etc/pacman.d/mirrorlist</code></pre>
 <pre class="codehilite"><code class="language-bash">$ pacman -S openssl</code></pre>
 
 
-=======
-
-
-<div class="admonition note">
-<p class="admonition-title">Nota</p>
-<p>Se o <code>reflector</code> não funcionar, não reconhecia urls do tipo <code>https</code>, tente instalar o o <code>openssl</code>, comando abaixo, e depois tente o comando para salvar os espelhos de rede.</p>
-</div>
-<ul>
-<li>Instalar o <code>openssl</code>:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ pacman -S openssl</code></pre>
-
-
->>>>>>> 49444260c99a3fc5e8479b65ff71d84bff95d344:sistemas-operacionais/arch-linux/index.html
 <ul>
 <li>Instalar o vim <strong>(pelo amor de Deus)</strong>:</li>
 </ul>
@@ -559,7 +507,6 @@ $ passwd usuario</code></pre>
 <li>Descomentar a linha que mostra o grupo (wheel).</li>
 </ul>
 <pre class="codehilite"><code>%wheel ALL=(ALL) ALL</code></pre>
-<<<<<<< HEAD:sistemas-operacionais/arch-linux/index.html
 
 
 <ul>
@@ -583,31 +530,6 @@ $ passwd usuario</code></pre>
 
 
 <ul>
-=======
-
-
-<ul>
-<li>Fazer logout do usuário root:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ exit</code></pre>
-
-
-<ul>
-<li>Logar com o novo usuário:</li>
-<li>Instalar os drivers de audio:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ pacman -S pulseaudio pulseaudio-alsa</code></pre>
-
-
-<h1 id="servidor_x">Servidor X<a class="headerlink" href="#servidor_x" title="Permanent link">&para;</a></h1>
-<ul>
-<li>Instalar o servidor de interface gráfica <code>xorg</code>:</li>
-</ul>
-<pre class="codehilite"><code class="language-bash">$ sudo pacman -S xorg xorg-xinit</code></pre>
-
-
-<ul>
->>>>>>> 49444260c99a3fc5e8479b65ff71d84bff95d344:sistemas-operacionais/arch-linux/index.html
 <li>Driver gráfico do Virtualbox:</li>
 </ul>
 <pre class="codehilite"><code class="language-bash">$ sudo pacman -S virtualbox-guest-utils</code></pre>
