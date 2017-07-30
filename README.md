@@ -26,6 +26,7 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 	- [Nginx](mds/servidores-web/nginx.md)
 - Banco de Dados:
 	- [MySQL](mds/banco-de-dados/mysql.md)
+	- [MariaDB](mds/banco-de-dados/maariadb.md)
 	- [MongoDB](mds/banco-de-dados/mongodb.md)
 - Editores:
 	- [Atom](mds/editores-de-codigo/atom.md)
