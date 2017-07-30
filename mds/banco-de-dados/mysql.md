@@ -16,11 +16,9 @@ $ sudo apt install mysql-server
 ```
 
 !!! note "Info"
-	**Pacotes instalados:** _libaio1 libdbd-mysql-perl libdbi-perl libhtml-template-perl libmysqlclient18 libterm-readkey-perl mysql-client-5.5 mysql-common mysql-server mysql-server-5.5 mysql-server-core-5.5_
-
 	Durante a instalação do _MyQSL_ é pedida a senha para o usuário root. Defina uma senha fácil, mas, se quer administrar esses trem já vai se acostumando a criar padrões de senha os quais você seja capaz de se lembrar.
 	O exemplo abaixo é um método que remete a duas palavras: (MySQL local), portanto podemos, juntar as palavras, colocar um números antes e...
-	**Senha para o usuário root: “mysqll0c4l”**
+	**Senha para o usuário root:** mysqll0c4l
 
 Para checar a versão do MySQL execute o comando:
 

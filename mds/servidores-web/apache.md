@@ -518,7 +518,7 @@ Mostar o conteúdo do arquivo `/etc/hosts`:
 ```
 $ cat /etc/hosts
 127.0.0.1	localhost
-127.0.1.1	ARCH-LINUX-PC # este nome é definido na instalação
+127.0.1.1	DEBIAN-01 # este nome é definido na instalação
 ```
 
 Para concluir tudo é preciso criar as entradas para os `vHost` no arquivo `/etc/hosts`.

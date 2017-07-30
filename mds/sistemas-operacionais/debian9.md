@@ -1,4 +1,4 @@
-Debian 9 - Strech
+Debian 9 - Stretch
 =================
 
 _Versão 1 - atualizada em 25/07/2017_
@@ -7,7 +7,7 @@ _Versão 1 - atualizada em 25/07/2017_
 
 # Objetivo
 
-Este tutorial objetiva demonstrar a instalação e a configuração do sistema operacional _Debian9_, codinome _Strech_, com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser incrementada posteriormente de acordo com as necessidades do usuário.
+Este tutorial objetiva demonstrar a instalação e a configuração do sistema operacional _Debian9_, codinome _Stretch_, com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser incrementada posteriormente de acordo com as necessidades do usuário.
 
 # Preparação do ambiente no _VirtualBox_
 

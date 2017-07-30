@@ -16,7 +16,7 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 	- [virtualenv](python/virtualenv.md)
 	- [Mkdocs](python/mkdocs.md)
 - PHP:
-	- [PHP](php/php.md)
+	- [PHP - com Apache](php/php-apache.md)
 	- [Phpmyadmin](php/phpmyadmin.md)
 	- [Hesk](php/hesk.md)
 - Java:
@@ -25,6 +25,7 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 	- [Node.JS](nodejs/nodejs.md)
 - Servidores Web:
 	- [Apache2](servidores-web/apache.md)
+	- [Nginx](servidores-web/nginx.md)
 - Banco de Dados:
 	- [MySQL](banco-de-dados/mysql.md)
 	- [MongoDB](banco-de-dados/mongodb.md)
