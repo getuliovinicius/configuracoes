@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,8 +12,14 @@
     
         
     <url>
-     <loc>/sistema-operacional/arch-linux/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <loc>/sistemas-operacionais/arch-linux/</loc>
+     <lastmod>2017-07-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/sistemas-operacionais/debian9/</loc>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -23,7 +29,7 @@
         
     <url>
      <loc>/git/git/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -33,7 +39,7 @@
         
     <url>
      <loc>/shell/zsh/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -43,13 +49,13 @@
         
     <url>
      <loc>/python/virtualenv/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/python/mkdocs/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -58,8 +64,30 @@
     
         
     <url>
-     <loc>/php/php/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <loc>/php/php-apache/</loc>
+     <lastmod>2017-07-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/php/phpmyadmin/</loc>
+     <lastmod>2017-07-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/php/hesk/</loc>
+     <lastmod>2017-07-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/java/jre/</loc>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -69,7 +97,7 @@
         
     <url>
      <loc>/nodejs/nodejs/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -79,7 +107,13 @@
         
     <url>
      <loc>/servidores-web/apache/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/servidores-web/nginx/</loc>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -89,13 +123,13 @@
         
     <url>
      <loc>/banco-de-dados/mysql/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/banco-de-dados/mongodb/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -105,25 +139,25 @@
         
     <url>
      <loc>/editores-de-codigo/atom/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/editores-de-codigo/brackets/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/editores-de-codigo/sublime-text/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/editores-de-codigo/vs-code/</loc>
-     <lastmod>2017-05-05</lastmod>
+     <lastmod>2017-07-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

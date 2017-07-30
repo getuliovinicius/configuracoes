@@ -8,7 +8,7 @@
   
   <meta name="author" content="Getúlio Vinicius <getuliovinits@gmail.com">
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Atom - Configurações</title>
+  <title>Phpmyadmin - Configurações</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Atom";
-    var mkdocs_page_input_path = "editores-de-codigo/atom.md";
-    var mkdocs_page_url = "/editores-de-codigo/atom/";
+    var mkdocs_page_name = "Phpmyadmin";
+    var mkdocs_page_input_path = "php/phpmyadmin.md";
+    var mkdocs_page_url = "/php/phpmyadmin/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -120,15 +120,33 @@
     <ul class="subnav">
                 <li class="">
                     
-    <a class="" href="../../php/php-apache/">PHP - com Apache</a>
+    <a class="" href="../php-apache/">PHP - com Apache</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Phpmyadmin</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#phpmyadmin">Phpmyadmin</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#requisitos">Requisitos</a></li>
+        
+            <li><a class="toctree-l4" href="#instalacao_do_phpmyadmin">Instalação do Phpmyadmin</a></li>
+        
+            <li><a class="toctree-l4" href="#adicionar_o_vhost_ao_apache">Adicionar o vHost ao Apache</a></li>
+        
+            <li><a class="toctree-l4" href="#usando_o_phpmyadmin">Usando o Phpmyadmin</a></li>
+        
+        </ul>
+    
+
+    </ul>
                 </li>
                 <li class="">
                     
-    <a class="" href="../../php/phpmyadmin/">Phpmyadmin</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../php/hesk/">Hesk</a>
+    <a class="" href="../hesk/">Hesk</a>
                 </li>
     </ul>
 	    </li>
@@ -189,27 +207,21 @@
 		
     <span class="caption-text">Editores</span>
     <ul class="subnav">
-                <li class=" current">
+                <li class="">
                     
-    <a class="current" href="./">Atom</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#atom">Atom</a></li>
-    
-
-    </ul>
+    <a class="" href="../../editores-de-codigo/atom/">Atom</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../brackets/">Brackets</a>
+    <a class="" href="../../editores-de-codigo/brackets/">Brackets</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../sublime-text/">Sublime Text</a>
+    <a class="" href="../../editores-de-codigo/sublime-text/">Sublime Text</a>
                 </li>
                 <li class="">
                     
-    <a class="" href="../vs-code/">VS Code</a>
+    <a class="" href="../../editores-de-codigo/vs-code/">VS Code</a>
                 </li>
     </ul>
 	    </li>
@@ -236,14 +248,14 @@
     
       
         
-          <li>Editores &raquo;</li>
+          <li>PHP &raquo;</li>
         
       
     
-    <li>Atom</li>
+    <li>Phpmyadmin</li>
     <li class="wy-breadcrumbs-aside">
       
-        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/editores-de-codigo/atom.md"
+        <a href="https://github.com/getuliovinicius/configuracoes/blob/master/mds/php/phpmyadmin.md"
           class="icon icon-github"> Edit on GitHub</a>
       
     </li>
@@ -253,24 +265,94 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="atom">Atom<a class="headerlink" href="#atom" title="Permanent link">&para;</a></h1>
-<p><em>Versão 1 - atualizada em 05/05/2017</em></p>
+                <h1 id="phpmyadmin">Phpmyadmin<a class="headerlink" href="#phpmyadmin" title="Permanent link">&para;</a></h1>
+<p><em>Versão 1 - atualizada em 08/05/2017</em></p>
 <hr />
-<p><strong>Comando para instalar o <em>Atom</em> nos sistemas operacionais <em>Arch Linux e Manjaro Linux</em>:</strong></p>
-<pre class="codehilite"><code class="language-bash">$ sudo pacman -S atom</code></pre>
+<p>O <em>Phpmyadmin</em> é uma aplicação para gerenciar o banco de dados <em>MySQL</em>. É uma ferramenta fundamental pela facilidade que agrega as etapas de desenvolvimento.</p>
+<h2 id="requisitos">Requisitos<a class="headerlink" href="#requisitos" title="Permanent link">&para;</a></h2>
+<p>O <em>Phpmyadmin</em> é uma aplicação web escrita em PHP e portanto necessita da linguagem PHP instalada e de um servidor, neste exemplo vamos usar o <em>Apache</em>, além disso obviamente necessita do banco de dados <em>MySQL</em> instalado.</p>
+<ul>
+<li><a href="../../servidores-web/apache/">Instalação do Apache</a></li>
+<li><a href="../../banco-de-dados/mysql/">Instalação do MySQL</a></li>
+<li><a href="php.md">Instalação do PHP</a></li>
+</ul>
+<h2 id="instalacao_do_phpmyadmin">Instalação do Phpmyadmin<a class="headerlink" href="#instalacao_do_phpmyadmin" title="Permanent link">&para;</a></h2>
+<p>Primeiro é preciso baixar o pacote de instalação direto do site do desenvolvedor com o comando <code>wget</code>, vamos fazer isso direto no diretório de instalação:</p>
+<pre class="codehilite"><code class="language-bash">$ cd /srv/www/php/
+$ sudo wget https://files.phpmyadmin.net/phpMyAdmin/4.7.0/phpMyAdmin-4.7.0-all-languages.zip</code></pre>
 
 
-<p><strong>Procedimento para instalação do <em>Atom</em> nos sistemas operacionais <em>Debian, Ubuntu, Linux Mint</em>:</strong></p>
-<p>Faça o download do pacote para Debian em <a href="https://atom.io/">https://atom.io/</a><br />
-Comandos para instalação do <em>Atom</em> - presumindo que o download foi feito no diretório padrão:</p>
-<pre class="codehilite"><code class="language-bash">$ cd ~/Downloads
-$ sudo dpkg -i atom-amd64.deb</code></pre>
-
-
-<div class="admonition attention">
-<p class="admonition-title">Atenção</p>
-<p>Substitua &ldquo;atom-amd64.deb&rdquo; pelo nome do arquivo que baixou.</p>
+<div class="admonition note">
+<p class="admonition-title">Info</p>
+<p>Existe uma versão do <em>Phpmyadmin</em> nos repositórios do <em>Ubuntu, Debian e Linux Mint</em>, mas vamos instalar na unha.</p>
 </div>
+<p>Descompactar o pacote de instalação e renomear o diretório:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo unzip phpMyAdmin-4.7.0-all-languages.zip
+$ sudo mv phpMyAdmin-4.7.0-all-languages phpmyadmin.local</code></pre>
+
+
+<p>Na sequência é preciso editar o arquivo <code>config.inc.php</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ cd /srv/www/php/phpmyadmin.local
+$ sudo cp config.sample.inc.php config.inc.php
+$ sudo vim config.inc.php</code></pre>
+
+
+<p>Adicione uma senha na linha 16 do arquivo:</p>
+<pre class="codehilite"><code class="language-bash">$cfg['blowfish_secret'] = 'phpmy4dm1n10293845876857phpmy4dm1n10293845876857phpmy4dm1n10293845876857'; /* YOU MUST FILL IN THIS FOR COOKIE AUTH! */</code></pre>
+
+
+<p>No exemplo foi utilizada a senha: <code>phpmy4dm1n10293845876857phpmy4dm1n10293845876857phpmy4dm1n10293845876857</code>.<br />
+Alterar o proprietário dos diretórios e arquivos em “/srv/www” para o usuário e grupo “www-data”</p>
+<pre class="codehilite"><code class="language-bash">$ sudo chown www-data\: /srv/www -R</code></pre>
+
+
+<h2 id="adicionar_o_vhost_ao_apache">Adicionar o <em>vHost</em> ao Apache<a class="headerlink" href="#adicionar_o_vhost_ao_apache" title="Permanent link">&para;</a></h2>
+<p>Por último é preciso configurar o vhost.</p>
+<pre class="codehilite"><code class="language-bash">$ cd /etc/apache2/sites-available</code></pre>
+
+
+<p>Criar um arquivo chamado <code>phpmyadmin.local.conf</code>:</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/apache2/sites-available/phpmyadmin.local.conf</code></pre>
+
+
+<p>Copie o conteúdo abaixo para o arquivo:</p>
+<pre class="codehilite"><code class="language-apacheconf">&lt;VirtualHost *:80&gt;
+    DocumentRoot /srv/www/php/phpmyadmin.local
+    &lt;Directory /srv/www/php/phpmyadmin.local/&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Order allow,deny
+        allow from all
+    &lt;/Directory&gt;
+    ServerName phpmyadmin.local
+    ServerAdmin root@phpmyadmin.local
+    ErrorLog /var/log/apache2/phpmyadmin.local_error.log
+    CustomLog /var/log/apache2/phpmyadmin.local_access.log common
+&lt;/VirtualHost&gt;</code></pre>
+
+
+<p>O novo <em>vHost</em> deve ser habilitado usando o comando <code>a2ensite</code> e o Apache reiniciado para persistir as mudança.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo a2ensite phpmyadmin.local.conf
+$ sudo systemctl restart apache2.service</code></pre>
+
+
+<p>Finalmente adicionar a entrada para o <em>vlHost</em> no arquivo <code>/etc/hosts</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/hosts</code></pre>
+
+
+<p>Adicionar a linha abaixo ao final do arquivo:</p>
+<pre class="codehilite"><code class="language-rc">127.0.0.1   phpmyadmin.local</code></pre>
+
+
+<h2 id="usando_o_phpmyadmin">Usando o Phpmyadmin<a class="headerlink" href="#usando_o_phpmyadmin" title="Permanent link">&para;</a></h2>
+<p>Acesse o endereço <a href="http://phpmyadmin.local">http://phpmyadmin.local</a> para verificar a instalação.<br />
+Através do <em>Phpmyadmin</em> vamos criar um usuário chamado <em>gerente_app</em>, este usuário poderá ser utilizado para instalação de todas as aplicações e desenvolvimento de projetos locais que necessitem de base de dados.<br />
+Localize na interface o link <code>Contas de usuário</code> e crie a nova conta</p>
+<ul>
+<li><strong>Nome de usuário:</strong> gerente_app</li>
+<li><strong>Host name:</strong> localhost</li>
+<li><strong>Senha:</strong> G3r3nt3_4pp</li>
+</ul>
               
             </div>
           </div>
@@ -278,10 +360,10 @@ $ sudo dpkg -i atom-amd64.deb</code></pre>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../brackets/" class="btn btn-neutral float-right" title="Brackets">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../hesk/" class="btn btn-neutral float-right" title="Hesk">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../banco-de-dados/mongodb/" class="btn btn-neutral" title="MongoDB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../php-apache/" class="btn btn-neutral" title="PHP - com Apache"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -309,10 +391,10 @@ $ sudo dpkg -i atom-amd64.deb</code></pre>
           <a href="https://github.com/getuliovinicius/configuracoes/" class="fa fa-github" style="float: left; color: #fcfcfc"> GitHub</a>
       
       
-        <span><a href="../../banco-de-dados/mongodb/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../php-apache/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../brackets/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../hesk/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
