@@ -322,7 +322,7 @@ $ sudo mkdir -p /srv/www</code></pre>
 
 <p>Na sequência definimos o usuário <code>nginx</code>, que é o usuário sob o qual o serviço <em>Nginx</em> é executado, como dono dos arquivos sob o diretório <code>/srv/www</code> inclusive o próprio diretório <code>/srv/www</code>.</p>
 <p>Para realizar essa tarefa usamos o comando <code>chown</code>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo chown nginx\: /srv/www -R</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo chown www-data\: /srv/www -R</code></pre>
 
 
 <p>Após toda essa mudança, ao acessar o servidor <em>Nginx</em> em funcionamento, será exibida uma mensagem de erro, iniciada com “Not Found”, não encontrado, devido a alteração do local onde por padrão os arquivos do <em>DocumentRoot</em>, os aquivos da raiz do site padrão, são instalados.<br />
@@ -514,7 +514,7 @@ a:active {
 
 
 <p>Alterar o proprietário dos diretórios e arquivos em <code>/srv/www</code> para o usuário e grupo <code>www-data</code>:</p>
-<pre class="codehilite"><code class="language-bash">$ sudo chown nginx\: /srv/www -R</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo chown www-data\: /srv/www -R</code></pre>
 
 
 <h2 id="configuracao_dos_vhost">Configuração dos <em>vHost</em><a class="headerlink" href="#configuracao_dos_vhost" title="Permanent link">&para;</a></h2>
