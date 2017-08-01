@@ -70,7 +70,7 @@ Na sequência definimos o usuário `nginx`, que é o usuário sob o qual o servi
 Para realizar essa tarefa usamos o comando `chown`:
 
 ```bash
-$ sudo chown nginx\: /srv/www -R
+$ sudo chown www-data\: /srv/www -R
 ```
 
 Após toda essa mudança, ao acessar o servidor _Nginx_ em funcionamento, será exibida uma mensagem de erro, iniciada com “Not Found”, não encontrado, devido a alteração do local onde por padrão os arquivos do _DocumentRoot_, os aquivos da raiz do site padrão, são instalados.
@@ -304,7 +304,7 @@ a:active {
 Alterar o proprietário dos diretórios e arquivos em `/srv/www` para o usuário e grupo `www-data`:
 
 ```bash
-$ sudo chown nginx\: /srv/www -R
+$ sudo chown www-data\: /srv/www -R
 ```
 
 ## Configuração dos _vHost_

@@ -21,7 +21,7 @@ Primeiro é preciso baixar o pacote de instalação direto do site do desenvolve
 
 ```bash
 $ cd /srv/www/php/
-$ sudo wget https://files.phpmyadmin.net/phpMyAdmin/4.7.0/phpMyAdmin-4.7.0-all-languages.zip
+$ sudo wget https://files.phpmyadmin.net/phpMyAdmin/4.7.3/phpMyAdmin-4.7.3-all-languages.zip
 ```
 !!! note "Info"
     Existe uma versão do _Phpmyadmin_ nos repositórios do _Ubuntu, Debian e Linux Mint_, mas vamos instalar na unha.
