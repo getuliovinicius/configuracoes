@@ -264,7 +264,7 @@
             <div class="section">
               
                 <h1 id="servidor_de_banco_de_dados_mariadb">Servidor de Banco de Dados MariaDB<a class="headerlink" href="#servidor_de_banco_de_dados_mariadb" title="Permanent link">&para;</a></h1>
-<p><em>Versão 1 - atualizada em 30/07/2017</em></p>
+<p><em>Versão 1 - atualizada em 08/08/2017</em></p>
 <hr />
 <p>O MariaDB é um sistema gerenciador de bases de dados &ldquo;SGDB&rdquo;. É compatível com o MySQL e pode ser utilizado ao invés deste, como uma alternativa.</p>
 <h2 id="instalacao_do_mariadb">Instalação do MariaDB<a class="headerlink" href="#instalacao_do_mariadb" title="Permanent link">&para;</a></h2>
@@ -280,6 +280,11 @@ $ sudo vim /etc/apt/sources.list.d/MariaDB.list</code></pre>
 # http://downloads.mariadb.org/mariadb/repositories/
 deb [arch=i386,amd64] http://mirror.ufscar.br/mariadb/repo/10.1/debian stretch main
 deb-src http://mirror.ufscar.br/mariadb/repo/10.1/debian stretch main</code></pre>
+
+
+<p>Na sequencia a instalação do MariaDB</p>
+<pre class="codehilite"><code>$ sudo apt update
+$ sudo apt install mariadb-server</code></pre>
 
 
 <div class="admonition note">
