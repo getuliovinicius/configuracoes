@@ -28,6 +28,13 @@ deb [arch=i386,amd64] http://mirror.ufscar.br/mariadb/repo/10.1/debian stretch m
 deb-src http://mirror.ufscar.br/mariadb/repo/10.1/debian stretch main
 ```
 
+Na sequencia a instalação do MariaDB
+
+```
+$ sudo apt update
+$ sudo apt install mariadb-server
+```
+
 !!! note "Info"
 	Durante a instalação do MariaDB é pedida a senha para o usuário **root**. Defina uma senha fácil, mas, se quer administrar esses trem já vai se acostumando a criar padrões de senha os quais você seja capaz de se lembrar.
 	O exemplo abaixo é um método que remete a duas palavras: (MySQL local), portanto podemos, juntar as palavras, colocar um números antes e...
