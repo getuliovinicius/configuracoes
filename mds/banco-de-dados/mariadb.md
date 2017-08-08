@@ -1,7 +1,7 @@
 Servidor de Banco de Dados MariaDB
 ==================================
 
-_Versão 1 - atualizada em 30/07/2017_
+_Versão 1 - atualizada em 08/08/2017_
 
 -----
 
