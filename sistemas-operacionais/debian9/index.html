@@ -309,7 +309,7 @@
             <div class="section">
               
                 <h1 id="debian_9_-_stretch">Debian 9 - Stretch<a class="headerlink" href="#debian_9_-_stretch" title="Permanent link">&para;</a></h1>
-<p><em>Versão 1 - atualizada em 25/07/2017</em></p>
+<p><em>Versão 1 - atualizada em 18/08/2017</em></p>
 <hr />
 <h1 id="objetivo">Objetivo<a class="headerlink" href="#objetivo" title="Permanent link">&para;</a></h1>
 <p>Este tutorial objetiva demonstrar a instalação e a configuração do sistema operacional <em>Debian9</em>, codinome <em>Stretch</em>, com um ambiente gráfico enxuto, ou seja, apenas com programas básicos ocupando o mínimo de recursos do computador. Tal instalação pode ser incrementada posteriormente de acordo com as necessidades do usuário.</p>
@@ -420,14 +420,16 @@ $ exit</code></pre>
 
 
 <p>O arquivo <code>/etc/hosts</code> também foi editado para referenciar corretamente o nome de <em>host</em>.</p>
-<pre class="codehilite"><code class="language-bash">$ sudo vim /etc/hostname</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo vi /etc/hosts</code></pre>
 
 
 <p>Todas as ocorrências de <strong>DebianVM-02-modelo-02</strong> foram alteradas para <strong>DebianVM-02</strong>. O resultado foi verificado na saída do comando <code>cat</code>.</p>
 <pre class="codehilite"><code class="language-bash">$ cat /etc/hosts</code></pre>
 
 
-<pre class="codehilite"><code>...</code></pre>
+<pre class="codehilite"><code>127.0.0.1   localhost
+127.0.1.1   DebianVM-02.local   DebianVM-02
+127.0.0.1   DebianVM-02.local   DebianVM-02</code></pre>
 
 
 <p>Para concluir o ajuste no nome de <em>host</em> o sistema foi reiniciado.</p>
@@ -446,7 +448,21 @@ $ sudo vi /etc/apt/sources.list</code></pre>
 <pre class="codehilite"><code class="language-bash">$ cat /etc/apt/sources.list</code></pre>
 
 
-<pre class="codehilite"><code>...</code></pre>
+<pre class="codehilite"><code>#
+
+# deb cdrom:[Debian GNU/Linux 9.0.0 _Stretch_ - Official amd64 DVD Binary-1 20170617-13:08]/ stretch main contrib non-free
+
+# deb cdrom:[Debian GNU/Linux 9.0.0 _Stretch_ - Official amd64 DVD Binary-1 20170617-13:08]/ stretch main contrib non-free
+
+deb http://ftp.br.debian.org/debian/ stretch main contrib non-free
+deb-src http://ftp.br.debian.org/debian/ stretch main contrib non-free
+
+deb http://security.debian.org/debian-security stretch/updates main contrib non-free
+deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
+
+# stretch-updates, previously known as 'volatile'
+deb http://ftp.br.debian.org/debian/ stretch-updates main contrib non-free
+deb-src http://ftp.br.debian.org/debian/ stretch-updates main contrib non-free</code></pre>
 
 
 <p>Após a edição do arquivo de apontamento dos espelhos de rede foram executados os comandos para atulização da base de dados de pacotes de software disponíveis e em seguida para atualização do Sistema Operacional.</p>
