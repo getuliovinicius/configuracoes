@@ -1,7 +1,7 @@
 Debian 9 - Stretch
 =================
 
-_Versão 1 - atualizada em 25/07/2017_
+_Versão 1 - atualizada em 18/08/2017_
 
 -----
 
@@ -191,7 +191,7 @@ DebianVM-02
 O arquivo `/etc/hosts` também foi editado para referenciar corretamente o nome de _host_.
 
 ```bash
-$ sudo vim /etc/hostname
+$ sudo vi /etc/hosts
 ```
 
 Todas as ocorrências de **DebianVM-02-modelo-02** foram alteradas para **DebianVM-02**. O resultado foi verificado na saída do comando `cat`.
@@ -201,7 +201,9 @@ $ cat /etc/hosts
 ```
 
 ```
-...
+127.0.0.1	localhost
+127.0.1.1	DebianVM-02.local	DebianVM-02
+127.0.0.1	DebianVM-02.local	DebianVM-02
 ```
 
 Para concluir o ajuste no nome de _host_ o sistema foi reiniciado.
@@ -230,7 +232,21 @@ $ cat /etc/apt/sources.list
 ```
 
 ```
-...
+#
+
+# deb cdrom:[Debian GNU/Linux 9.0.0 _Stretch_ - Official amd64 DVD Binary-1 20170617-13:08]/ stretch main contrib non-free
+
+# deb cdrom:[Debian GNU/Linux 9.0.0 _Stretch_ - Official amd64 DVD Binary-1 20170617-13:08]/ stretch main contrib non-free
+
+deb http://ftp.br.debian.org/debian/ stretch main contrib non-free
+deb-src http://ftp.br.debian.org/debian/ stretch main contrib non-free
+
+deb http://security.debian.org/debian-security stretch/updates main contrib non-free
+deb-src http://security.debian.org/debian-security stretch/updates main contrib non-free
+
+# stretch-updates, previously known as 'volatile'
+deb http://ftp.br.debian.org/debian/ stretch-updates main contrib non-free
+deb-src http://ftp.br.debian.org/debian/ stretch-updates main contrib non-free
 ```
 
 Após a edição do arquivo de apontamento dos espelhos de rede foram executados os comandos para atulização da base de dados de pacotes de software disponíveis e em seguida para atualização do Sistema Operacional.
