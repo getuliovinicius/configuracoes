@@ -268,7 +268,7 @@ $ mkdir projetoX.local
 $ sudo chown -R seu_uruario:www-data projetoX.local/
 ```
 
-A configuração dos _vHosts_ e as entradas no arquivo `/etc/hosts` podem ser feitas conforme o exemplo em [VirtualHost para o ambiente PHP](php.md#virtualhost_para_o_ambiente_php).
+A configuração dos _vHosts_ e as entradas no arquivo `/etc/hosts` podem ser feitas conforme o exemplo em [VirtualHost para o ambiente PHP](php-apache.md#virtualhost_para_o_ambiente_php).
 
 !!! note "info"
 	Acostume-se a lidar com permissões de arquivos, principalmente com os comandos `chown` e `chmod`, pois isso é fundamental no desenvolvimento e quem não sabe usar corretamente esses comandos faz cagada em servidores.
