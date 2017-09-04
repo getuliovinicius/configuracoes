@@ -17,6 +17,7 @@ Repositório de tutoriais para configuração de sistemas, serviços, aplicaçõ
 	- [Mkdocs](python/mkdocs.md)
 - PHP:
 	- [PHP - com Apache](php/php-apache.md)
+	- [PHP - com Nginx](php/php-nginx.md)
 	- [Phpmyadmin](php/phpmyadmin.md)
 	- [Hesk](php/hesk.md)
 - Java:

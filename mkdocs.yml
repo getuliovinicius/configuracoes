@@ -22,6 +22,7 @@ pages:
         - Mkdocs: 'python/mkdocs.md'
     - PHP:
         - PHP - com Apache: 'php/php-apache.md'
+        - PHP - com Nginx: 'php/php-nginx.md'
         - Phpmyadmin: 'php/phpmyadmin.md'
         - Hesk: 'php/hesk.md'
     - Java:
