@@ -274,25 +274,12 @@
             <div class="section">
               
                 <h1 id="servidor_web_nginx">Servidor Web Nginx<a class="headerlink" href="#servidor_web_nginx" title="Permanent link">&para;</a></h1>
-<p><em>Versão 1 - atualizada em 30/07/2017</em></p>
+<p><em>Versão 1 - atualizada em 04/09/2017</em></p>
 <hr />
 <p>O Nginx é um “servidor HTTP/servidor WEB” moderno, que esta sendo amplamente adotado.</p>
 <h2 id="instalacao_do_nginx">Instalação do <em>Nginx</em><a class="headerlink" href="#instalacao_do_nginx" title="Permanent link">&para;</a></h2>
 <p>Comando para instalar o <em>Nginx</em> nos sistemas operacionais <em>Debian9 - Stretch</em>:</p>
-<pre class="codehilite"><code class="language-bash">$ wget http://nginx.org/keys/nginx_signing.key
-$ sudo apt-key add nginx_signing.key
-$ sudo vim /etc/apt/sources.list.d/Nginx.list</code></pre>
-
-
-<p>As linhas abaixo devem ser inseridas no arquivo.</p>
-<pre class="codehilite"><code>deb http://nginx.org/packages/debian/ stretch nginx
-deb-src http://nginx.org/packages/debian/ stretch nginx</code></pre>
-
-
-<pre class="codehilite"><code class="language-bash">$ sudo apt update
-$ sudo apt install nginx
-$ sudo /lib/systemd/systemd-sysv-install enable nginx
-$ sudo systemctl start nginx.service</code></pre>
+<pre class="codehilite"><code class="language-bash">$ sudo apt install nginx</code></pre>
 
 
 <div class="admonition note">
@@ -301,26 +288,26 @@ $ sudo systemctl start nginx.service</code></pre>
 <a href="http://nginx.org/en/linux_packages.html#distributions">http://nginx.org/en/linux_packages.html#distributions</a></p>
 </div>
 <h2 id="configuracao">Configuração<a class="headerlink" href="#configuracao" title="Permanent link">&para;</a></h2>
-<p>Para utilizar o <em>Nginx</em> em um ambiente Desktop para desenvolvimento aproveitamos a funcionalidade de “VirtualHosts”.<br />
+<p>Para utilizar o <em>Nginx</em> em um ambiente Desktop, preparado para desenvolvimento, aproveitamos a funcionalidade de &ldquo;VirtualHosts&rdquo;.<br />
 O primeiro passo foi a criação da estrutura de diretórios a partir do diretório <code>/srv</code>, isto porque segundo a hierarquia de arquivos FHS o diretório próprio para instalação de serviços no Linux é o <code>/srv</code>.</p>
 <pre class="codehilite"><code class="language-bash">$ cd
 $ sudo mkdir -p /srv/www</code></pre>
 
 
-<p>Para páginas estáticas em HTML vamos deixar definido que os “vhosts” ficarão no diretório “/srv/www/html”.</p>
-<p>O conteúdo do diretório <code>/usr/share/nginx/html</code> foi copiado para <code>/srv/www/</code>.</p>
-<pre class="codehilite"><code class="language-bash">$ sudo mv /usr/share/nginx/html /srv/www/</code></pre>
+<p>Para páginas estáticas em HTML vamos deixar definido que os &ldquo;vhosts&rdquo; ficarão no diretório &lsquo;/srv/www/html&rsquo;.</p>
+<p>O conteúdo do diretório <code>/var/www/html</code> foi copiado para <code>/srv/www/</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ sudo mv /var/www/html /srv/www/</code></pre>
 
 
 <p>Dentro do diretório <code>html</code> foi criado outro diretório chamado <code>localhost</code> onde armazenamos os arquivos do <em>vhost</em> padrão.</p>
 <pre class="codehilite"><code class="language-bash">$ sudo mkdir /srv/www/html/localhost</code></pre>
 
 
-<p>Indo para o diretório <code>localhost</code> copiamos os arquivos <code>.html</code> padrão da instalação do <em>Nginx</em>, <code>index.html</code> e <code>50x.html</code>:</p>
+<p>Indo para o diretório <code>localhost</code> copiamos os arquivos <code>.html</code> padrão da instalação do <em>Nginx</em>:</p>
 <pre class="codehilite"><code class="language-bash">$ sudo mv /srv/www/html/*.html /srv/www/html/localhost</code></pre>
 
 
-<p>Na sequência definimos o usuário <code>nginx</code>, que é o usuário sob o qual o serviço <em>Nginx</em> é executado, como dono dos arquivos sob o diretório <code>/srv/www</code> inclusive o próprio diretório <code>/srv/www</code>.</p>
+<p>Na sequência definimos o usuário <code>www-data</code>, que é o usuário sob o qual o serviço <em>Nginx</em> é executado, como dono dos arquivos sob o diretório <code>/srv/www</code> inclusive o próprio diretório <code>/srv/www</code>.</p>
 <p>Para realizar essa tarefa usamos o comando <code>chown</code>:</p>
 <pre class="codehilite"><code class="language-bash">$ sudo chown www-data\: /srv/www -R</code></pre>
 
@@ -340,34 +327,18 @@ $ sudo vim nginx.conf</code></pre>
 <pre class="codehilite"><code>include /etc/nginx/sites-enabled/*.conf;</code></pre>
 
 
-<p>Por fim vem a configuração do <em>VirtualHost</em> padrão do <em>Nginx</em>, o <code>localhost</code>. O arquivo de configuração do <em>VirtualHost</em> padrão é o <code>default.conf</code> localizado no diretório <code>/etc/nginx/conf.d</code>.</p>
-<pre class="codehilite"><code class="language-bash">$ cd /etc/nginx/conf.d
-$ sudo vim /etc/nginx/conf.d/default.conf</code></pre>
+<p>Por fim vem a configuração do <em>VirtualHost</em> padrão do <em>Nginx</em>, o <code>localhost</code>. O arquivo de configuração do <em>VirtualHost</em> padrão é o <code>default</code> localizado no diretório <code>/etc/nginx/sites-available</code>.</p>
+<pre class="codehilite"><code class="language-bash">$ cd /etc/nginx/sites
+$ sudo vim /etc/nginx/conf.d/default</code></pre>
 
 
-<p>O parâmetro <code>root</code> do arquivo <code>default.conf</code> foi alterado tanto na sessão do diretório raiz do site, <code>location /</code>, quanto na sessão dos erros 50X.</p>
+<p>O parâmetro <code>root</code> do arquivo <code>default</code> foi alterado tanto na sessão do diretório raiz do site, <code>location /</code>, quanto na sessão dos erros 50X.</p>
 <pre class="codehilite"><code>...
-location / {
     #root   /usr/share/nginx/html;
     root   /srv/www/html/localhost;
-    index  index.html index.htm;
-}
-...
-error_page   500 502 503 504  /50x.html;
-location = /50x.html {
-    #root   /usr/share/nginx/html;
-    root   /srv/www/html/localhost;
-}
 ...</code></pre>
 
 
-<p>Na sequência devem ser criados os diretórios <code>/etc/nginx/sites-available</code> e <code>/etc/nginx/sites-enabled</code>.</p>
-<pre class="codehilite"><code class="language-bash">$ sudo mkdir /etc/nginx/sites-available
-$ sudo mkdir /etc/nginx/sites-enabled</code></pre>
-
-
-<p>Estes diretórios são para a criação de configurações de todos os demais <em>VirtualHosts</em> que porventura vierem a ser criados.<br />
-Em <code>/etc/nginx/sites-available</code> devem ficar os links simbólicos que apontam para arquivos em <code>/etc/nginx/sites-available</code>.</p>
 <h2 id="diretorios_dos_vhost_para_projetos">Diretórios dos <em>vHost</em> para Projetos<a class="headerlink" href="#diretorios_dos_vhost_para_projetos" title="Permanent link">&para;</a></h2>
 <p>Vamos criar dois <code>vHost</code> para exemplificar o funcionamento do <em>Nginx</em>, ambos podem ser utilizados para estudos das linguagens HTML, Javascript e CSS, lembrando que por enquanto estamos trabalhando na estrutura de diretórios criada para páginas estáticas.<br />
 Criar o diretório chamado <code>/srv/www/html/app1.local</code>:</p>
@@ -527,25 +498,53 @@ a:active {
 
 <p>As configuraçõe abaixo foram copiadas para o arquivo:</p>
 <pre class="codehilite"><code>server {
-    listen       80;
-    server_name  app1.local;
 
-    access_log  /var/log/nginx/app1.local.access.log  main;
+    # Port that the web server will listen on.
+    listen 80;
+    listen [::]:80;
 
+    # Host that will serve this project.
+    server_name app1.local;
+
+    # Useful logs for debug.
+    access_log /var/log/nginx/app1.local.access.log;
+    error_log /var/log/nginx/app1.local.error.log;
+    rewrite_log on;
+
+    # The location of our projects public directory.
+    root /srv/www/html/app1.local;
+
+    # Point index to the app front controller.
+    index index.html;
+
+    # URLs to attempt, including pretty ones.
     location / {
-        root   /srv/www/html/app1.local;
-        index  index.html;
+        try_files $uri $uri/ /index.php?$query_string;
     }
+
+    # Remove trailing slash to please routing system.
+    if (!-d $request_filename) {
+        rewrite ^/(.+)/$ /$1 permanent;
+    }
+
+    #
+    #error_page 404 /404.html;
 
     # redirect server error pages to the static page /50x.html
-    error_page   500 502 503 504  /50x.html;
+    error_page 500 502 503 504 /50x.html;
     location = /50x.html {
-        root   /srv/www/html/app1.local;
+        root /srv/www/html/app1.local;
     }
 
-    # deny access to .htaccess files, if Apache's document root concurs with nginx's one
+    #
+    # We don't need .ht files with nginx.
     location ~ /\.ht {
-        deny  all;
+        deny all;
+    }
+
+    # Set header expirations on per-project basis
+    location ~* \.(?:ico|css|js|jpe?g|JPG|png|svg|woff)$ {
+        expires 365d;
     }
 }</code></pre>
 
@@ -556,25 +555,53 @@ a:active {
 
 <p>As configuraçõe abaixo foram copiadas para o arquivo:</p>
 <pre class="codehilite"><code>server {
-    listen       80;
-    server_name  app2.local;
 
-    access_log  /var/log/nginx/app2.local.access.log  main;
+    # Port that the web server will listen on.
+    listen 80;
+    listen [::]:80;
 
+    # Host that will serve this project.
+    server_name app2.local;
+
+    # Useful logs for debug.
+    access_log /var/log/nginx/app2.local.access.log;
+    error_log /var/log/nginx/app2.local.error.log;
+    rewrite_log on;
+
+    # The location of our projects public directory.
+    root /srv/www/html/app2.local;
+
+    # Point index to the app front controller.
+    index index.html;
+
+    # URLs to attempt, including pretty ones.
     location / {
-        root   /srv/www/html/app2.local;
-        index  index.html;
+        try_files $uri $uri/ /index.php?$query_string;
     }
+
+    # Remove trailing slash to please routing system.
+    if (!-d $request_filename) {
+        rewrite ^/(.+)/$ /$1 permanent;
+    }
+
+    #
+    #error_page 404 /404.html;
 
     # redirect server error pages to the static page /50x.html
-    error_page   500 502 503 504  /50x.html;
+    error_page 500 502 503 504 /50x.html;
     location = /50x.html {
-        root   /srv/www/html/app2.local;
+        root /srv/www/html/app2.local;
     }
 
-    # deny access to .htaccess files, if Apache's document root concurs with nginx's one
+    #
+    # We don't need .ht files with nginx.
     location ~ /\.ht {
-        deny  all;
+        deny all;
+    }
+
+    # Set header expirations on per-project basis
+    location ~* \.(?:ico|css|js|jpe?g|JPG|png|svg|woff)$ {
+        expires 365d;
     }
 }</code></pre>
 
