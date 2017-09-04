@@ -13,7 +13,7 @@ O _Hesk_ é uma aplicação web escrita em PHP e portanto necessita da linguagem
 
 + [Instalação do Apache](../servidores-web/apache.md)
 + [Instalação do MySQL](../banco-de-dados/mysql.md)
-+ [Instalação do PHP](php.md)
++ [Instalação do PHP](php-apache.md)
 
 ## Instalação do Hesk
 
