@@ -91,12 +91,10 @@ server {
 
     # Port that the web server will listen on.
     listen 80;
+    listen [::]:80;
 
     # Host that will serve this project.
     server_name ambiente-php.local;
-
-	#
-	#charset koi8-r;
 
     # Useful logs for debug.
     access_log /var/log/nginx/ambiente-php.local.access.log;
@@ -110,7 +108,7 @@ server {
     index index.php index.html;
 
     # URLs to attempt, including pretty ones.
-	location / {
+    location / {
         try_files $uri $uri/ /index.php?$query_string;
     }
 
@@ -129,36 +127,15 @@ server {
     }
 
     # PHP FPM configuration.
-    location ~* \.php$ {
-        fastcgi_pass unix:/run/php/php7.0-fpm.sock;
-        fastcgi_index index.php;
-        fastcgi_split_path_info ^(.+\.php)(.*)$;
-        include /etc/nginx/fastcgi_params;
-        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    # pass PHP scripts to FastCGI server
+    location ~ \.php$ {
+        include snippets/fastcgi-php.conf;
+
+        # With php-fpm (or other unix sockets):
+        fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+    #	# With php-cgi (or other tcp sockets):
+    #	fastcgi_pass 127.0.0.1:9000;
     }
-
-    #
-    # proxy the PHP scripts to Apache listening on 127.0.0.1:80
-    #location ~ \.php$ {
-    #    proxy_pass http://127.0.0.1;
-    #}
-
-    #
-    # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
-    #location ~* \.php$ {
-    #    fastcgi_index index.php;
-    #    fastcgi_pass 127.0.0.1:9000;
-    #    include fastcgi_params;
-    #    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    #    fastcgi_param SCRIPT_NAME $fastcgi_script_name;
-    #}
-    #location ~ \.php$ {
-    #    root html;
-    #    fastcgi_pass 127.0.0.1:9000;
-    #    fastcgi_index index.php;
-    #    fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name;
-    #    include fastcgi_params;
-    #}
 
     #
     # We don't need .ht files with nginx.
