@@ -37,7 +37,7 @@ cgi.fix_pathinfo=0
 ```
 
 ```bash
-$ sudo vim /etc/php/7.0/fpm/php.ini
+$ sudo systemctl restart php7.0-fpm.service
 ```
 
 ## VirtualHost para o ambiente PHP
