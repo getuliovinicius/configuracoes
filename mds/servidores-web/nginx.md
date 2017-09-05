@@ -1,15 +1,15 @@
 Servidor Web Nginx
 ==================
 
-_Versão 1 - atualizada em 04/09/2017_
+_Versão 1 - atualizada em 05/09/2017_
 
 -----
 
-O Nginx é um “servidor HTTP/servidor WEB” moderno, que esta sendo amplamente adotado.
+O Nginx é um "servidor HTTP/servidor WEB" moderno, que esta sendo amplamente adotado.
 
-## Instalação do _Nginx_
+## Instalação do Nginx
 
-Comando para instalar o _Nginx_ nos sistemas operacionais _Debian9 - Stretch_:
+Comando para instalar o _Nginx_ no sistema operacional _Debian9 - Stretch_:
 
 ```bash
 $ sudo apt install nginx
@@ -81,11 +81,11 @@ include /etc/nginx/sites-enabled/*.conf;
 Por fim vem a configuração do _VirtualHost_ padrão do _Nginx_, o `localhost`. O arquivo de configuração do _VirtualHost_ padrão é o `default` localizado no diretório `/etc/nginx/sites-available`.
 
 ```bash
-$ cd /etc/nginx/sites
-$ sudo vim /etc/nginx/conf.d/default
+$ cd /etc/nginx/sites-available
+$ sudo vim default
 ```
 
-O parâmetro `root` do arquivo `default` foi alterado tanto na sessão do diretório raiz do site, `location /`, quanto na sessão dos erros 50X.
+O parâmetro `root` do arquivo `default` foi alterado para apontar o novo local dos arquivos do 'vhost' padrão do Nginx.
 
 ```
 ...
