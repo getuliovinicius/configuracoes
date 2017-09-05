@@ -278,11 +278,11 @@
             <div class="section">
               
                 <h1 id="servidor_web_nginx">Servidor Web Nginx<a class="headerlink" href="#servidor_web_nginx" title="Permanent link">&para;</a></h1>
-<p><em>Versão 1 - atualizada em 04/09/2017</em></p>
+<p><em>Versão 1 - atualizada em 05/09/2017</em></p>
 <hr />
-<p>O Nginx é um “servidor HTTP/servidor WEB” moderno, que esta sendo amplamente adotado.</p>
-<h2 id="instalacao_do_nginx">Instalação do <em>Nginx</em><a class="headerlink" href="#instalacao_do_nginx" title="Permanent link">&para;</a></h2>
-<p>Comando para instalar o <em>Nginx</em> nos sistemas operacionais <em>Debian9 - Stretch</em>:</p>
+<p>O Nginx é um &ldquo;servidor HTTP/servidor WEB&rdquo; moderno, que esta sendo amplamente adotado.</p>
+<h2 id="instalacao_do_nginx">Instalação do Nginx<a class="headerlink" href="#instalacao_do_nginx" title="Permanent link">&para;</a></h2>
+<p>Comando para instalar o <em>Nginx</em> no sistema operacional <em>Debian9 - Stretch</em>:</p>
 <pre class="codehilite"><code class="language-bash">$ sudo apt install nginx</code></pre>
 
 
@@ -332,11 +332,11 @@ $ sudo vim nginx.conf</code></pre>
 
 
 <p>Por fim vem a configuração do <em>VirtualHost</em> padrão do <em>Nginx</em>, o <code>localhost</code>. O arquivo de configuração do <em>VirtualHost</em> padrão é o <code>default</code> localizado no diretório <code>/etc/nginx/sites-available</code>.</p>
-<pre class="codehilite"><code class="language-bash">$ cd /etc/nginx/sites
-$ sudo vim /etc/nginx/conf.d/default</code></pre>
+<pre class="codehilite"><code class="language-bash">$ cd /etc/nginx/sites-available
+$ sudo vim default</code></pre>
 
 
-<p>O parâmetro <code>root</code> do arquivo <code>default</code> foi alterado tanto na sessão do diretório raiz do site, <code>location /</code>, quanto na sessão dos erros 50X.</p>
+<p>O parâmetro <code>root</code> do arquivo <code>default</code> foi alterado para apontar o novo local dos arquivos do &lsquo;vhost&rsquo; padrão do Nginx.</p>
 <pre class="codehilite"><code>...
     #root   /usr/share/nginx/html;
     root   /srv/www/html/localhost;
